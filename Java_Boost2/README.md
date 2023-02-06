@@ -26,25 +26,25 @@ This repository is created to be open for any change proposed by anyone in open 
 
 ## Courses
 
-- [Java Boost #2](./courses/jat/README.md)
+- [Java Boost #2](courses/Java_Advanced_Training/README.md)
 
 ## Modules
 
-- [Java core](./courses/jat/core/README.md)
-- [Java features](./courses/jat/features/README.md)
-- [XML](./courses/jat/xml/README.md)
-- [SQL](./courses/jat/sql/README.md)
-- [WEB](./courses/jat/web/README.md)
-- [WEB-services](./courses/jat/web_service/README.md)
-- [Design patterns](./courses/jat/design_pattern/README.md)
-- [Spring](./courses/jat/spring/README.md)
-- [Hibernate](./courses/jat/hibernate/README.md)
-- [JMS](./courses/jat/jms/README.md)
-- [Testing](./courses/jat/testing/README.md)
-- [Microservices](./courses/jat/ms/README.md)
-- [Cloud](./courses/jat/cloud/README.md)
-- [Software development methodologies](./courses/jat/methodology/README.md)
-- [Advanced modules](./courses/jat/advanced/README.md)
+- [Java core](courses/Java_Advanced_Training/core/README.md)
+- [Java features](courses/Java_Advanced_Training/features/README.md)
+- [XML](courses/Java_Advanced_Training/xml/README.md)
+- [SQL](courses/Java_Advanced_Training/sql/README.md)
+- [WEB](courses/Java_Advanced_Training/web/README.md)
+- [WEB-services](courses/Java_Advanced_Training/web_service/README.md)
+- [Design patterns](courses/Java_Advanced_Training/design_pattern/README.md)
+- [Spring](courses/Java_Advanced_Training/spring/README.md)
+- [Hibernate](courses/Java_Advanced_Training/hibernate/README.md)
+- [JMS](courses/Java_Advanced_Training/jms/README.md)
+- [Testing](courses/Java_Advanced_Training/testing/README.md)
+- [Microservices](courses/Java_Advanced_Training/ms/README.md)
+- [Cloud](courses/Java_Advanced_Training/cloud/README.md)
+- [Software development methodologies](courses/Java_Advanced_Training/methodology/README.md)
+- [Advanced modules](courses/Java_Advanced_Training/advanced/README.md)
 
 ## Tasks
 There are some optional tasks for modules. 
