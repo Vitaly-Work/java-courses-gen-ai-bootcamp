@@ -2,7 +2,7 @@
 
 ## Freeze dates
 
-September 26 2022 - December 14 2022
+January 23 2023 - April 14 2023
 
 ## Rules
 
