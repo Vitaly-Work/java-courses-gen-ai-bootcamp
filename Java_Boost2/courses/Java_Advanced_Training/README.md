@@ -2,6 +2,37 @@
 - [Learn](../../materials/linkLearn.md)
 - [KB page](../../materials/linkKB.md)
 
+## Audience
+* Java software engineers with 1+ year of production experience
+
+## Necessary knowledge
+* Basic Java Core Knowledge
+* Basic SQL
+* Basic HTTP
+* Working on real project more than 1 year
+
+## Description
+Java Boost is designed with the main purpose to prepare candidates for the Technical Interview.
+The program consists of basic and advanced topics which should be studied by mentees in self-study mode. 
+Mentees work in groups involving mentors in brainstorms around technical topics, and each mentee takes part in interview simulations with mentors or external experts. 
+Program closes important gaps in the system knowledge of Java programmers, and additionally helps to prepare to interview.
+
+## Course Goal
+By the end of this course, you will:
+* be ready for the Technical Interview 
+* be able to talk in a short and informative manner about the required topics in interview-like environments
+* have your knowledge of the stack well organized and improved
+* be able to apply the gained experience
+
+## Rules of Conduct
+The Candidate should :
+* have a High motivation for self-development (to aim for maximum progress)
+* have enough time for daily self-education (spend all available time for education & interviews)
+* Follow expert's requests and recommendations (if experts asks for something - mentee should follow)
+* Participate in daily session at least as listener
+* At least 1 time a week participate in interview session as interviewee
+* Follow all the processes steps (such as filling in the required blocks at Learn educational plan for verification by the experts)
+
 ## Modules
 ### Module 1: Java Core
 #### OOP principles
