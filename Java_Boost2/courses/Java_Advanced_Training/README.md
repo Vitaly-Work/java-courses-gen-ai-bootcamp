@@ -3,7 +3,7 @@
 - [KB page](../../materials/linkKB.md)
 
 ## Audience
-* Java software engineers with 1+ year of production experience
+* Java software engineers (at least with more than 1 year of experience in production)
 
 ## Necessary knowledge
 * Basic Java Core Knowledge
