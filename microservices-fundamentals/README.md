@@ -25,3 +25,7 @@
 - [Theory](materials/service_discovery/README.md)
 - [Practice](tasks/service_discovery/README.md)
 - [Quiz](quizes/service_discovery/README.md)
+
+### Final Quiz
+
+- [Final Quiz](quizes/final_quiz/README.md)
