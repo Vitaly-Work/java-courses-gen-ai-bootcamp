@@ -271,10 +271,6 @@ Make sure the service is still available over HTTP.
     </tr>
 </table>
 
-Implement initial version of each service:
-
-- Basic structure (Spring Boot)
-
 **Note**
 
 As a database, it is best to use Docker database/storage containers (e.g. [postgres image](https://hub.docker.com/_/postgres)) in the implementation.
