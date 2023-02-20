@@ -1,8 +1,12 @@
-# Microservices and docker overview
+# Microservices Fundamentals Mentoring Program
 
 ## Freeze dates
 
 ## Rules
+
+Only **MAINTAINER** members can merge to master.
+During freeze dates merge to master is allowed only for hot-fixes (P0). Cherry-pick these commits to **production** branch as well.
+Merge to **production** branch during freeze dates. Create this branch if not created yet.
 
 ## Links
 
