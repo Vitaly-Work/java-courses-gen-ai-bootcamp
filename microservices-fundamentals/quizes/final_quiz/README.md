@@ -20,4 +20,25 @@
 3) Use self-registration
 4) Use third-party registration
 
+## 4. What are the two categories that microservices decomposition is based on?
+
+1) Technology capability & Subdomain
+2) Business capability & Subdomain
+3) Business opportunity & Technology
+4) Marketing & Domain
+
+## 5. What are some technologies commonly used to implement microservices?
+
+1) Docker
+2) Kubernetes
+3) All the above
+4) None of the above
+
+## 6. What are some common patterns for communication between microservices?
+
+1) RESTful API
+2) Messaging
+3) All the above
+4) None of the above
+
 [KEYS](https://epam.sharepoint.com/:x:/r/sites/MicroservicesProgram/Shared%20Documents/Microservices_fundamentals_keys.xlsx?d=w7abdb02612f34c98a0449a6d96f41867&csf=1&web=1&e=LPNB1W)
