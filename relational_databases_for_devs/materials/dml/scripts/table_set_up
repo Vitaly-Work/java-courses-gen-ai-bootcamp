@@ -1,0 +1,26 @@
+-- To create the employee table:
+CREATE TABLE IF NOT EXISTS employee(
+	employee_id	INT,
+	employee_name VARCHAR(10),
+	department_name VARCHAR(16));
+
+-- To create department table:
+CREATE TABLE IF NOT EXISTS department(
+id INTEGER,
+department_name VARCHAR(50),
+emp_id INTEGER);
+
+-- To create top_employee table
+CREATE TABLE IF NOT EXISTS top_employee(
+	employee_id INTEGER,
+	top_employee_name VARCHAR(10),
+	top_employee_department VARCHAR(16)
+);
+
+-- To insert values in top_employee table
+INSERT INTO
+  top_employee(employee_id, top_employee_name, top_employee_department)
+	VALUES(1, 'Paul', 'IT Billing'),
+		  (2, 'James', 'Security'),
+		  (3, 'Teddy', 'Sales'),
+		  (4, 'Mark', 'Accounting')
