@@ -41,4 +41,33 @@
 3) All the above
 4) None of the above
 
+## 7. Which of the following best describes a container?
+
+1) An OS used on software to imitate hardware
+2) The center of a computer's OS
+3) A software package that contains applications for deployment across environments
+4) A system software that controls system communication
+
+## 8. Where are container images stored?
+
+1) A node
+2) A repository
+3) A unit
+4) A data center
+
+## 9. What are the primary components of an operational container ecosystem?
+
+1) Files
+2) Environment variables
+3) Dependencies
+4) Libraries
+5) All of the above
+
+## 10. Which of the following is a disadvantage of using containers?
+
+1) Immutability
+2) Speed
+3) Storage
+4) Size
+
 [KEYS](https://epam.sharepoint.com/:x:/r/sites/MicroservicesProgram/Shared%20Documents/Microservices_fundamentals_keys.xlsx?d=w7abdb02612f34c98a0449a6d96f41867&csf=1&web=1&e=LPNB1W)
