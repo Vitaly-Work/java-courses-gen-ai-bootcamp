@@ -26,15 +26,15 @@ This repository is created to be open for any change proposed by anyone in open 
 
 ## Courses
 
-- [Relational database training for developers](courses/rdb_for_developer/README.md)
+- [Relational database training for developers](materials/README.md)
 
 ## Modules
-- [General Questions on SQL](courses/rdb_for_developer/topic1/README.md)
-- [Data Definition Statements](courses/rdb_for_developer/topic2/README.md)
-- [Data Manipulation Statements](courses/rdb_for_developer/topic3/README.md)
-- [Transactional and Locking Statements](courses/rdb_for_developer/topic4/README.md)
-- [Functions and Operator References](courses/rdb_for_developer/topic5/README.md)
-- [Performance tuning](courses/rdb_for_developer/topic6/README.md)
+- [General Questions on SQL](materials/general_overview/general_overview_content.md)
+- [Data Definition Statements](materials/ddl/ddl_content.md)
+- [Data Manipulation Statements](materials/dml/dml_content.md)
+- [Transactional and Locking Statements](materials/tcl/tcl_content.md)
+- [Functions and Operator References](materials/functions/functions_content.md)
+- [Performance tuning](materials/performance_tuning/performance_content.md)
 
 
 ## Quizes

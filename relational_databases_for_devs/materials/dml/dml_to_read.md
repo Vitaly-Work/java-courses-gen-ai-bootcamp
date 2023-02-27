@@ -149,7 +149,7 @@ As expected, we get total of nine records, for each employee, there is
 each department present, and vice versa.
 
 We can imagine cross join visually as it is on the picture below:
-![](../../../../materials/images/cross_join.png)
+![](../images/cross_join.png)
 
 <br/>
 This is how the syntax looks like:
@@ -209,7 +209,7 @@ no employee had department_id of either 2 or 3.
 <br/>
 Here you can see what left join looks like:
 <br/>
-![](../../../../materials/images/left_join.png)
+![](../images/left_join.png)
 
 ### Right Join
 Right Join returns all records from the right table and the matching records
@@ -230,7 +230,7 @@ ON department.id=employee.department_id;
 Now all the records from the right table - employee, are present, but only one department
 was matched.  The rest of the employees were not associated with any of the departments.
 Here is an illustration for right join:
-![](../../../../materials/images/right_join.png)
+![](../images/right_join.png)
 
 
 ### Full Join
@@ -256,7 +256,7 @@ Note that we got two unmatched departments: Sales and Accounting without corresp
 employee records, also we got two employees: Teddy and Paul with unmatched departments,
 and third employee: Mark, that was matched with IT Billing department.
 We can see the illustration of this example on the picture below:
-![](../../../../materials/images/full_join.png)
+![](../images/full_join.png)
 
 
 ## Vertical Combinations of Tables
@@ -322,7 +322,7 @@ with UNION ALL instead of UNION, then you will get the following result:
 | 3           | Mark              | Accounting              |
 
 We can imagine UNION ALL by looking at the picture below:
-![](../../../../materials/images/union_all.png)
+![](../images/union_all.png)
 In this picture, right and left circles represent top_employee
 and employee tables with all employee records. Intersection part
 is also marked pink, because UNION ALL includes duplicate records, which are
@@ -335,7 +335,7 @@ the same.
 * The data types must be compatible.
 
 ### Intersect
-![](../../../../materials/images/intersect.png)
+![](../images/intersect.png)
 
 
 ### Except
@@ -360,7 +360,7 @@ All the remaining records got excluded, because they belong to the right table, 
 The SQL EXCEPT clause/operator is used to combine two SELECT statements and returns rows from the first SELECT
 statement that are not returned by the second SELECT statement.
 This can be visualized with the following illustration below:
-![](../../../../materials/images/except.png)
+![](../images/except.png)
 
 ## Nested Selects and Subqueries
 Subquery is an SQL query nested inside another query. Subqueries can be 

@@ -1,16 +1,16 @@
 # Relational database training for developers
-<img src="../../materials/images/Sql_data_base_with_logo.png" alt="sql logo" width="256">
+<img src="images/Sql_data_base_with_logo.png" alt="sql logo" width="256">
 <br>
 
 ## Training Description: 
 This training provides a comprehensive introduction to the language of relational databases: Structured Query Language (SQL). 
 Topics covered include: 
-- [General Questions on SQL](topic1/README.md)
-- [Data Definition Statements](topic2/README.md)
-- [Data Manipulation Statements](topic3/README.md)
-- [Transactional and Locking Statements](topic4/README.md)
-- [Functions and Operator References](topic5/README.md)
-- [Performance tuning](topic6/README.md)
+- [General Questions on SQL](general_overview/general_overview_content.md)
+- [Data Definition Statements](ddl/ddl_content.md)
+- [Data Manipulation Statements](dml/dml_content.md)
+- [Transactional and Locking Statements](tcl/tcl_content.md)
+- [Functions and Operator References](functions/functions_content.md)
+- [Performance tuning](performance_tuning/performance_content.md)
 
 Tasks will be done using databases running in PostgreSQL which trainees install on their machines. 
 
@@ -30,9 +30,9 @@ In general knowledge of this material is an important skill for anyone planning 
 * Understand how performance of queries can be improved in database.
 
 ## Modules
-- [General Questions on SQL](topic1/README.md)
-- [Data Definition Statements](topic2/README.md)
-- [Data Manipulation Statements](topic3/README.md)
-- [Transactional and Locking Statements](topic4/README.md)
-- [Functions and Operator References](topic5/README.md)
-- [Performance tuning](topic6/README.md)
+- [General Questions on SQL](general_overview/general_overview_content.md)
+- [Data Definition Statements](ddl/ddl_content.md)
+- [Data Manipulation Statements](dml/dml_content.md)
+- [Transactional and Locking Statements](tcl/tcl_content.md)
+- [Functions and Operator References](functions/functions_content.md)
+- [Performance tuning](performance_tuning/performance_content.md)
