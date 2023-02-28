@@ -1,4 +1,4 @@
-# Relational database training for developers
+# Relational database for developers
 <img src="images/Sql_data_base_with_logo.png" alt="sql logo" width="256">
 <br>
 
