@@ -1,4 +1,4 @@
-# Relational database training for developers
+# Relational database for developers
 <img src="materials/images/Sql_data_base_with_logo.png" alt="sql logo" width="256">
 
 <br>
@@ -26,7 +26,7 @@ This repository is created to be open for any change proposed by anyone in open 
 
 ## Courses
 
-- [Relational database training for developers](materials/README.md)
+- [Relational database for developers](materials/README.md)
 
 ## Modules
 - [General Questions on SQL](materials/general_overview/general_overview_content.md)
@@ -42,5 +42,5 @@ There are quizes for the following modules on examinator.epam.com:
 
 - Database Services - xx questions
 
-Quizes are optional. You can integrate them to a learning path with help of L&D specialists.
-Please contact @Denis Azarov in case if you would like to request Quiz assignement for your mentees or you would like to contribute to Quizes development.
+You can integrate them to a learning path with help of L&D specialists.
+Please contact @Kseniya Yudzichava in case if you would like to request Quiz assignement for your mentees or you would like to contribute to Quizes development.
