@@ -2,7 +2,7 @@
 
 ## Freeze dates
 
-January 23 2023 - April 14 2023
+January 23 2023 - May 15 2023
 
 ## Rules
 
