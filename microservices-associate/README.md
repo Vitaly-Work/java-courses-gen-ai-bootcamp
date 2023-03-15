@@ -1,4 +1,4 @@
-# Microservices Advanced Mentoring Program
+# Microservices Associate Mentoring Program
 
 ## Freeze dates
 

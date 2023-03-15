@@ -1,4 +1,4 @@
-# Microservices Fundamentals Mentoring Program
+# Microservices Fundamentals Program
 
 ## Freeze dates
 
