@@ -220,6 +220,9 @@ The Candidate should :
 #### Cloud (advanced)
 - [Questions](./advanced/cloud/README.md)
 - [Practice](./advanced/cloud/tasks/README.md)
+#### CI/CD (advanced)
+- [Questions](./advanced/cicd/README.md)
+- [Practice](./advanced/cicd/tasks/README.md)
 #### AWS
 - [Questions](./advanced/aws/README.md)
 - [Practice](./advanced/aws/tasks/README.md)

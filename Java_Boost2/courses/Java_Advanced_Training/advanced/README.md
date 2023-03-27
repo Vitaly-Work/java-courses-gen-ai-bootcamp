@@ -19,6 +19,9 @@
 #### Cloud (advanced)
 - [Questions](./cloud/README.md)
 - [Practice](./cloud/tasks/README.md)
+#### CI/CD (advanced)
+- [Questions](./cicd/README.md)
+- [Practice](./cicd/tasks/README.md)
 #### AWS
 - [Questions](./aws/README.md)
 - [Practice](./aws/tasks/README.md)
