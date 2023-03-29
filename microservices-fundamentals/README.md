@@ -1,6 +1,8 @@
-# Microservices Fundamentals Program
+# Microservices Fundamentals Mentoring Program
 
 ## Freeze dates
+
+January 23 2023 - May 15 2023
 
 ## Rules
 
@@ -10,6 +12,9 @@ Merge to **production** branch during freeze dates. Create this branch if not cr
 
 ## Links
 
+ - [Learn](https://learn.epam.com/detailsPage?id=77fa4ed0-9de2-4371-bc1e-f55bf06ac061)
+ - [Sharepoint (available for coordinators)](https://epam.sharepoint.com/sites/MicroservicesProgram?e=1%3A926dfb8197a845f89864d020ea1c4b53)
+
 ## Modules
 
 ### Module 1: Microservice architecture overview
@@ -18,11 +23,11 @@ Merge to **production** branch during freeze dates. Create this branch if not cr
 - [Practice](tasks/microservice_architecture_overview/README.md)
 - [Quiz](quizes/microservice_architecture_overview/README.md)
 
-### Module 2: Containerization overview
+### Module 2: Microservices communication
 
-- [Theory](materials/containerization_overview/README.md)
-- [Practice](tasks/containerization_overview/README.md)
-- [Quiz](quizes/containerization_overview/README.md)
+- [Theory](materials/microservices_communication/README.md)
+- [Practice](tasks/microservices_communication/README.md)
+- [Quiz](quizes/microservices_communication/README.md)
 
 ### Module 3: Service discovery
 
@@ -30,6 +35,32 @@ Merge to **production** branch during freeze dates. Create this branch if not cr
 - [Practice](tasks/service_discovery/README.md)
 - [Quiz](quizes/service_discovery/README.md)
 
-### Final Quiz
+### Module 4: Testing
 
-- [Final Quiz](quizes/final_quiz/README.md)
+- [Theory](materials/microservice_testing/README.md)
+- [Practice](tasks/microservice_testing/README.md)
+- [Quiz](quizes/microservice_testing/README.md)
+
+### Module 5: Containerization
+
+- [Theory](materials/containerization/README.md)
+- [Practice](tasks/containerization/README.md)
+- [Quiz](quizes/containerization/README.md)
+
+### Module 6: Fault-tolerance in microservices environment
+
+- [Theory](materials/fault_tolerance/README.md)
+- [Practice](tasks/fault_tolerance/README.md)
+- [Quiz](quizes/fault_tolerance/README.md)
+
+### Module 7: Monitoring
+
+- [Theory](materials/monitoring/README.md)
+- [Practice](tasks/monitoring/README.md)
+- [Quiz](quizes/monitoring/README.md)
+
+### Module 8: Security
+
+- [Theory](materials/security/README.md)
+- [Practice](tasks/security/README.md)
+- [Quiz](quizes/security/README.md)

@@ -1,20 +1,26 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Resource Service](#sub-task-1-resource-service)
+- [Sub-task 1: Resource service](#sub-task-1-resource-service)
 - [Sub-task 2: Song Service](#sub-task-2-song-service)
+- [Sub-task 3: Resource processor](#sub-task-3-resource-processor)
 
 ## What to do
 
 In this module you will need to create base structure of microservices system.
-During this task you need to implement the next two services:
+During this task you need to implement the next three services:
 
-- **Resource Service**
-- **Song Service**
+- Resource service
+- Song service
+- Resource processor
 
-## Sub-task 1: Resource Service
+## Sub-task 1: Resource service
 
-For a **Resource Service**, it is recommended to implement a service with CRUD operations for processing mp3 files.
+For a Resource service, it is recommended to implement a service with CRUD operations for processing mp3 files.
+This service will be used to store data. You should also use cloud storage or its emulation (
+e.g. [S3 emulator](https://github.com/localstack/localstack)) to store the source file.
+Resource tracking (with resource location in the cloud storage) should be carried out in the underlying database of the
+service.
 
 **Service definition could be next:**
 
@@ -59,7 +65,7 @@ For a **Resource Service**, it is recommended to implement a service with CRUD o
     </tr>
     <tr>
         <td><b>GET /resources/{id}</b></td>
-        <td colspan="6"><b>Get the binary audio data of a resource</b></td>
+        <td colspan="6"><b>Get the binary audio data of a resource(s)</b></td>
     </tr>
     <tr>
         <td rowspan="3"><b>Request</b></td>
@@ -79,6 +85,12 @@ For a **Resource Service**, it is recommended to implement a service with CRUD o
         <td></td>
     </tr>
     <tr>
+        <td>HTTP Header Range</td>
+        <td>Range of resources to get</td>
+        <td>Optional, all if empty</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td rowspan="2"><b>Response</b></td>
@@ -90,6 +102,7 @@ For a **Resource Service**, it is recommended to implement a service with CRUD o
         <td>Audio bytes</td>
         <td></td>
         <td colspan="4"><p>200 – OK</p>
+                        <p>206 – Partial content (if a range is requested)</p>
                         <p>404 – The resource with the specified id does not exist</p>
                         <p>500 – An internal server error has occurred</p>
         </td>
@@ -133,14 +146,9 @@ For a **Resource Service**, it is recommended to implement a service with CRUD o
     </tr>
 </table>
 
-When downloading a mp3 file, the **Resource Service** should process the file in this way:
-- Extract file metadata. An external library can be used for this purpose.(e.g. [Apache Tika](https://www.tutorialspoint.com/tika/tika_extracting_mp3_files.htm)). 
-- Store mp3 file to the underlying database of the service as Blob.
-- Invoke **Song Service** to save mp3 file metadata.
+## Sub-task 2: Song service
 
-## Sub-task 2: Song Service
-
-For the **Song Service**, it is recommended to implement a simple CRUD service to manage the song record (metadata).
+For the Song service, it is recommended to implement a simple CRUD service to manage the song record (metadata).
 The service should provide the ability to manage some metadata about the songs (artist, album, etc.).
 Make sure the service is still available over HTTP.
 
@@ -271,8 +279,18 @@ Make sure the service is still available over HTTP.
     </tr>
 </table>
 
+## Sub-task 3: Resource processor
+
+This service will be used to process the source MP3 data in the future and will not have a web interface. At this point,
+this should be a basic Spring Boot application capable of extracting MP3 metadata for further storage using the Song
+service API.
+
+Implement initial version of each service:
+
+- Basic structure (Spring Boot)
+
 **Note**
 
-As a database, it is best to use Docker database/storage containers (e.g. [postgres image](https://hub.docker.com/_/postgres)) in the implementation.
+As a database, it is best to use Docker database/storage containers (e.g. [postgres image](hhttps://hub.docker.com/_/postgres)) in the implementation.
 
 ![](images/microservice_architecture_overview.png)
