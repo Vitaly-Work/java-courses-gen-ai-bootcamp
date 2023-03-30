@@ -1,24 +1,23 @@
 # Table of Content
 
  - [What to do](#what-to-do)
- - [Sub-task 1: Service registry](#sub-task-1-service-registry)
+ - [Sub-task 1: Service Registry](#sub-task-1-service-registry)
  - [Sub-task 2: API Gateway](#sub-task-2-api-gateway)
  - [Sub-task 3: Service Configuration (Optional)](#sub-task-3-service-configuration-optional)
 
 ## What to do
 
-In this task it is needed to choose one of Service registry tool and inject it into your infrastructure.
+In this task, it is needed to change the configuration to use the existing **Service Registry** tool.
 Sample implementation: [Eureka Example](https://www.javainuse.com/spring/cloud-gateway-eureka)
 
 ![](images/task.png)
 
 
-## Sub-task 1: Service registry
+## Sub-task 1: Service Registry
 
-1) Use Eureka Service Registry ([Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/)).
-2) Update infrastructure of configuration to make sure that Service Registry is launched along with existing services (create your Eureka Server application)
-3) Update clients using Eureka so that they will be called by service name instead of ip:port.
-4) Implement Client-Side Balancing.
+1) Update infrastructure of configuration to make sure that **Service Registry** is launched along with existing services.
+2) Update clients using Eureka so that they will be called by service name instead of ip:port.
+3) Implement Client-Side Balancing.
 
 ## Sub-task 2: API Gateway
 
