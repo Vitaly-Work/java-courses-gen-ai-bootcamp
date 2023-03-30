@@ -6,7 +6,7 @@
 
 ## What to do
 
-To execute this module, you should use a ready-made artifact obtained after executing the [introduction-to-microservices](https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/tree/main/introduction-to-microservices) program and make some changes to the base structure of microservices system.
+To execute this module, should be used a ready-made artifact obtained after executing the [introduction-to-microservices](https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/tree/main/introduction-to-microservices) program and make some changes to the base structure of microservices system.
 During this task you need to:
 
 + Make structural changes to existing microservices:
