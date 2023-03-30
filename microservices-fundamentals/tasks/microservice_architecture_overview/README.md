@@ -18,7 +18,6 @@ During this task you need to:
 ## Sub-task 1: Resource Service
 
 For a **Resource Service**, it is recommended to make structural changes as described bellow.
-
 - **Resource Service** should use cloud storage or its emulation (e.g. [S3 emulator](https://github.com/localstack/localstack)) to store the source file. Previously, the resource file was stored in the service database.
 - Resource tracking (with resource location in the cloud storage) should be carried out in the underlying database of the service.
 
