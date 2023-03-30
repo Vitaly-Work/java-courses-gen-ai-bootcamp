@@ -12,13 +12,13 @@ In this module you will need to adjust your services with containerization appro
 
 1) Package your applications as Docker images.
 2) For each of your services:
- - Create a _Docker_ file that would contain instruction on how to package your project.
- - To reduce the size of the resulting image, base image on the [alpine docker image](https://hub.docker.com/_/alpine).
+ - Create a new or modify an existing _Docker_ file that will contain instructions for packaging your project.
  - Build a docker image and run it, mapping an external port to verify that application can be started and respond to requests.
 
 ## Sub-task 2: Docker Compose file
 
-1) When all applications are successfully packaged, create a _docker-compose.yml_ file that would list all applications and 3rd party dependencies to successfully start the project.
+1) When all applications are successfully packaged, create a new or modify an existing _docker-compose.yml_ file that would list all applications and 3rd party dependencies to successfully start the project.
+Add init scripts for the database to run when container starts up. Once you have a compose file, you can create and start your application containers with a single command: `docker-compose up`.
 
 Please note the following:
  - Use an _.env_ file to replace all environment variables depending on the set-up.
