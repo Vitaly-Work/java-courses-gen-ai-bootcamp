@@ -27,10 +27,10 @@ When uploading a mp3 file, the **Resource Service** should process the file in t
 - Save resource location (location in the cloud storage) in the underlying database of the service.
 - The **Resource Service** should not invoke any other services this time.
 
-## Sub-task 2: Resource processor
+## Sub-task 2: Resource Processor
 
 This service will be used to process the source MP3 data in the future and will not have a web interface. At this point,
-this should be a basic Spring Boot application capable of extracting MP3 metadata for further storage using the Song service API.
+this should be a basic Spring Boot application capable of extracting MP3 metadata for further storage using the **Song Service** API.
 An external library can be used for this purpose.(e.g. [Apache Tika](https://www.tutorialspoint.com/tika/tika_extracting_mp3_files.htm)).
 
 Implement initial version of each service:
