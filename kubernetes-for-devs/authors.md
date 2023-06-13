@@ -1,0 +1,4 @@
+- [Siarhei Svila](https://telescope.epam.com/who/Siarhei_Svila?tab=wall)
+- [Viktor Shevliagin](https://telescope.epam.com/who/Viktor_Shevliagin?tab=wall)
+- [Viktor Chebotar](https://telescope.epam.com/who/Viktor_Chebotar?tab=wall)
+- [Aliaksei Sabetski](https://telescope.epam.com/who/Aliaksei_Sabetski?tab=wall)
