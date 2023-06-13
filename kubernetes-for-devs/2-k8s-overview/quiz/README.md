@@ -113,4 +113,4 @@
 3) Kubernetes provides a highly available platform for running containers
 4) Kubernetes provides a highly efficient platform for running containers
 
-[KEYS](https://epam-my.sharepoint.com/:x:/r/personal/siarhei_svila_epam_com/_layouts/15/Doc.aspx?sourcedoc=%7B1AC18D44-6FEF-446D-85A8-F1251340425B%7D&file=Book.xlsx&action=default&mobileredirect=true)
+[KEYS](https://epam.sharepoint.com/:x:/r/sites/EPAMJavaEducation-Coordinators/Shared%20Documents/Coordinators/Kubernetes%20quiz.xlsx?d=wf6d5c4cdf8f04b4ca6db5b4fb4353fcc&csf=1&web=1&e=FawKQd)
