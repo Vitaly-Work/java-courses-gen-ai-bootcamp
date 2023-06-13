@@ -1,36 +1,34 @@
 # Table of Content
 
-- [Kubernetes Persistent Storage](#kubernetes-persistent-storage)
+- [Secrets and config-maps](#secrets-and-config-maps)
 - [Health checks for microservices application](#health-checks-for-microservices-application)
 - [Liveness & Readiness probes in Kubernetes](#liveness--readiness-probes-in-kubernetes)
 - [Deployment strategies](#deployment-strategies)
 - [Related reading](#related-reading)
 - [Questions](#questions)
 
-# Kubernetes Persistent Storage
-Kubernetes Persistent Storage offers Kubernetes applications a convenient way to request, and consume, storage resources. A Volume is a basic building block of the Kubernetes storage architecture. Kubernetes Persistent Volumes are a type of Volume that lives within the Kubernetes cluster, and can outlive other Kubernetes pods to retain data for long periods of time.
+# Secrets and Config-maps
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
 
-Other central Kubernetes storage concepts include Persistent Volume Claims, which are requests by Kubernetes nodes for storage resources, and Storage Classes, which define types of storage, allowing Kubernetes resources to access Kubernetes storage solutions without knowing their underlying implementation.
+A ConfigMap allows you to decouple environment-specific configuration from your container images, so that your applications are easily portable.
 
-Containers are immutable, meaning that when a container shuts down, all data created during its lifetime is lost. This is suitable for some applications, but in many cases, applications need to preserve state or share information with other applications, a common example is applications that rely on databases.
+Use a ConfigMap for setting configuration data separately from application code.
 
-Kubernetes provides a convenient persistent storage mechanism for containers. It is based on the concept of a Persistent Volume (PV). Kubernetes Volumes are constructs that allow you to mount a storage unit, such as a file system folder or a cloud storage bucket, to a Kubernetes node and also share information between nodes. Regular Volumes are deleted when the Pod hosting them shuts down. But a Persistent Volume is hosted in its own Pod and can remain alive for as long as necessary for ongoing operations.
+For example, imagine that you are developing an application that you can run on your own computer (for development) and in the cloud (to handle real traffic). You write the code to look in an environment variable named DATABASE_HOST. Locally, you set that variable to localhost. In the cloud, you set it to refer to a Kubernetes Service that exposes the database component to your cluster. This lets you fetch a container image running in the cloud and debug the exact same code locally if needed.
 
-## Persistent Volumes
-Kubernetes persistent volumes (PVs) are a unit of storage provided by an administrator as part of a Kubernetes cluster. Just asa  node is a computing resource used by the cluster, a PV is a storage resource. Persistent volumes are independent of the lifecycle of the pod that uses it, meaning that even if the pod shuts down, the data in the volume is not erased. They are defined by an API object, which captures the implementation details of storage such as NFS file shares, or specific cloud storage systems.
+A ConfigMap is not designed to hold large chunks of data. The data stored in a ConfigMap cannot exceed 1 MiB. If you need to store settings that are larger than this limit, you may want to consider mounting a volume or use a separate database or file service.
 
-Kubernetes persistent volumes are administrator-provided volumes. They have predefined properties including file system, size, and identifiers like volume ID and name. In order for a Pod to start using these volumes, it must request a volume by issuing a persistent volume claim (PVC). PVCs describe the storage capacity and characteristics a pod requires, and the cluster attempts to match the request and provision the desired persistent volume. There are two related concepts you should understand as you start working with Kubernetes persistent volumes:
+Here's an example ConfigMap that has some keys with single values, and other keys where the value looks like a fragment of a configuration format.
 
-### Storage classes
-The StorageClass object allows cluster administrators to define PVs with different properties, like performance, size or access parameters. It lets you expose persistent storage to users while abstracting the details of storage implementation. There are many predefined StorageClasses in Kubernetes (see the following section), or you can create your own.Administrators can define several StorageClasses that give users multiple options for performance. For example, one can be on a fast SSD drive but with limited capacity, and one on a slower storage service which provides high capacity.
-### Persistent Volume Claims
-This is a request sent by a Kubernetes node for storage. The claim can include specific storage parameters required by the application—for example an amount of storage, or a specific type of access (read/write, read-only, etc.). Kubernetes looks for a PV that meets the criteria defined in the user’s PVC, and if there is one, it matches claim to PV. This is called binding. You can also configure the cluster to dynamically provision a PV for a claim.
+![](images/config-map-example.png)
 
-To bind a pod to a PV, the pod must contain a volume mount and a PVC. These declarations allow users to mount PVs in pods without knowing the details of the underlying storage equipment.
+![](images/pod-using-config-map-example.png)
 
-There are two options for mounting PVs to a pod:
-- __Static configuration__ involves administrators manually creating PVs and defining a StorageClass that matches the criteria of these PVs. When a pod uses a PVC that specifies the StorageClass, it gains access to one of these static PVs.
-- __Dynamic configuration__ occurs when there is no static PV that matches the PVC. In this case, the Kubernetes cluster provisions a new PV based on the StorageClass definitions.
+A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in a container image. Using a Secret means that you don't need to include confidential data in your application code.
+
+Because Secrets can be created independently of the Pods that use them, there is less risk of the Secret (and its data) being exposed during the workflow of creating, viewing, and editing Pods. Kubernetes, and applications that run in your cluster, can also take additional precautions with Secrets, such as avoiding writing secret data to nonvolatile storage.
+
+Secrets are similar to ConfigMaps but are specifically intended to hold confidential data.
 
 # Health checks for microservices application
 
@@ -75,6 +73,9 @@ Any code greater than or equal to 200 and less than 400 indicates success. Any o
 ## Readiness probe
 Sometimes, applications are temporarily unable to serve traffic. For example, an application might need to load large data or configuration files during startup, or depend on external services after startup. In such cases, you don't want to kill the application, but you don't want to send it requests either. Kubernetes provides readiness probes to detect and mitigate these situations. A pod with containers reporting that they are not ready does not receive traffic through Kubernetes Services.
 
+## Startup probe
+Sometimes, applications need additional startup time on their first initialization. Liveness and readiness probes start working after startup probe has succeeded.
+
 ## Configure probes
 Probes have a number of fields that you can use to more precisely control the behavior of startup, liveness and readiness checks:
 - initialDelaySeconds: Number of seconds after the container has started before startup, liveness or readiness probes are initiated. Defaults to 0 seconds. Minimum value is 0.
@@ -92,14 +93,13 @@ The amount deployment strategies is various. Here are most popular of them:
 - Blue/Green: Version B is released alongside version A, then the traffic is switched to version B.
 - Canary: Version B is released to a subset of users, then proceed to a full rollout.
 - A/B testing: Version B is released to a subset of users under specific condition.
-- Shadow: Version B receives real-world traffic alongside version A and doesn’t impact the response.
+- Shadow: Version B receives real-world traffic alongside version A doesn’t impact the response.
 
 Here is the description for each one of them: [deployment strategies](https://thenewstack.io/deployment-strategies/).
 
 # Related reading
 
-- [Kubernetes Persistent Volume Claims explained](https://cloud.netapp.com/blog/cvo-blg-kubernetes-persistent-volume-claims-explained)
-- [Local Persistent Volumes](https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes)
+- [Kubernetes config maps and secrets](https://www.cloudtruth.com/blog/whats-the-difference-between-configmaps-and-secrets)
 - [Health check pattern](https://microservices.io/patterns/observability/health-check-api.html)
 - [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes)
 - [Deployment strategies](https://thenewstack.io/deployment-strategies)

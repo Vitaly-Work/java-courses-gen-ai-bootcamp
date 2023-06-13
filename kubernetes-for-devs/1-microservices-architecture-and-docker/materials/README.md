@@ -1,7 +1,7 @@
 # Table of Content
 
 - [Introduction to microservices](#introduction-to-microservices)
-- [Pattern: Microservice Architecture](#pattern-microservice-architecture)
+- [Pattern: Microservice Architecture](#pattern--microservice-architecture)
 - [Related reading](#related-reading)
 - [Questions](#questions)
 

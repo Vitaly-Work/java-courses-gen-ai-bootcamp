@@ -1,9 +1,9 @@
-# Table of Content
+## Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Create services](#sub-task-1-create-services)
-- [Sub-task 2: Service interaction](#sub-task-2-service-interaction)
-- [Sub-task 3: Containerization](#sub-task-3-containerization)
+- [Sub-task 1: Create services](#sub-task-1--create-services)
+- [Sub-task 2: Service interaction](#sub-task-2--service-interaction)
+- [Sub-task 3: Containerization](#sub-task-3--containerization)
 
 ## What to do
 In this module you will create posting microservice system and deploy it using Docker.<br />
@@ -19,6 +19,23 @@ And add interaction between them.
 
 **Service definition should be next:**
 <table>
+    <tr>
+        <td><b>GET /greeting</b></td>
+        <td colspan="5"><b>Simple API for testing purpose</b></td>
+    </tr>
+    <tr>
+        <td rowspan="2"><b>Response</b></td>
+        <td><i>Body</i></td>
+        <td><i>Description</i></td>
+        <td colspan="3"><i>Code</i></td>
+    </tr>
+    <tr>
+        <td>"Hello, k8s!"</td>
+        <td></td>
+        <td colspan="3">200 – OK<br />
+                        500 – Internal server error occurred.<br />
+        </td>
+    </tr>
     <tr>
         <td><b>POST /users</b></td>
         <td colspan="5"><b>Uploads a new user</b></td>
@@ -181,6 +198,23 @@ And add interaction between them.
 
 **Service definition should be next:**
 <table>
+    <tr>
+        <td><b>GET /greeting</b></td>
+        <td colspan="5"><b>Simple API for testing purpose</b></td>
+    </tr>
+    <tr>
+        <td rowspan="2"><b>Response</b></td>
+        <td><i>Body</i></td>
+        <td><i>Description</i></td>
+        <td colspan="3"><i>Code</i></td>
+    </tr>
+    <tr>
+        <td>"Hello, k8s!"</td>
+        <td></td>
+        <td colspan="3">200 – OK<br />
+                        500 – Internal server error occurred.<br />
+        </td>
+    </tr>
     <tr>
         <td><b>POST /posts</b></td>
         <td colspan="5"><b>Uploads a new post</b></td>
@@ -348,10 +382,8 @@ And add interaction between them.
     </tr>
 </table>
 
-
 ## Sub-task 2: Service interaction
 When a new post is created or deleted, `numberOfPosts` for user should be changed. You should implement a call from post service to user service.
-
 
 ## Sub-task 3: Containerization
 1) Install Docker Desktop. If not installed, follow [the instructions](https://kb.epam.com/display/EPMSAM/Docker+Business+License+in+EPAM) and <span style="color:#ff3300;">skip 'Requesting Docker Business License' paragraph.</span>
