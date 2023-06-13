@@ -3,6 +3,7 @@
 - [Virtualization vs Containerization: 5 Main Differences](#virtualization-vs-containerization-5-main-differences)
 - [Containerized Microservices](#containerized-microservices)
 - [3 reasons why you should always run microservices apps in containers](#3-reasons-why-you-should-always-run-microservices-apps-in-containers)
+- [12 Factor Application](#12-factor-application)
 - [Docker overview](#docker-overview)
 - [Container Networking](#container-networking)
 - [Docker network containers](#docker-network-containers)
@@ -256,6 +257,45 @@ A microservices architecture does not dictate the use of containers. Netflix, fo
 Containers' finer-grained execution environments and ability to accommodate colocated application components in the same operating system instance will help you achieve better server utilization rates. And if your organization is running microservices applications in cloud environments, these characteristics will reduce your bill.
 
 Finally, container-based microservices applications in production environments can better respond to erratic workloads. As companies begin to move more of the way they do business to digital offerings, shorter container initiation times can help increase user satisfaction and improve the financial performance of revenue-generating applications.
+
+# 12 Factor Application
+In the modern era, software is commonly delivered as a service: called web apps, or software-as-a-service. The twelve-factor app is a methodology for building software-as-a-service apps that:
+- Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
+- Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
+- Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration;
+- Minimize divergence between development and production, enabling continuous deployment for maximum agility;
+- And can scale up without significant changes to tooling, architecture, or development practices. 
+
+The twelve-factor methodology can be applied to apps written in any programming language, and which use any combination of backing services (database, queue, memory cache, etc).
+
+## 12 Factors
+
+1. __Codebase__:
+One codebase tracked in revision control, many deploys
+2. __Dependencies__:
+Explicitly declare and isolate dependencies
+3. __Config__:
+Store config in the environment
+4. __Backing services__:
+Treat backing services as attached resources
+5. __Build, release, run__:
+Strictly separate build and run stages
+6. __Processes__:
+Execute the app as one or more stateless processes
+7. __Port binding__:
+Export services via port binding
+8. __Concurrency__:
+Scale out via the process model
+9. __Disposability__:
+Maximize robustness with fast startup and graceful shutdown
+10. __Dev/prod parity__:
+Keep development, staging, and production as similar as possible
+11. __Logs__:
+Treat logs as event streams
+12. __Admin processes__:
+Run admin/management tasks as one-off processes
+
+_More info see at the [Documentation](https://12factor.net/) or [Tutorial](https://www.youtube.com/watch?v=REbM4BDeua0)_.
 
 # Docker overview
 
