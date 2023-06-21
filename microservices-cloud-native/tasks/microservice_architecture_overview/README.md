@@ -6,7 +6,13 @@
 
 ## What to do
 
-In this module you will need to create base structure of microservices system.
+In this module you will need to create base structure of microservices system. 
+One microservice should be implemented and configured according to provided architecture:
+
+
+<div align="center">
+    <img src="images/microservice_architecture_overview.png" width="900">
+</div>
 
 ## Sub-task 1: Song Service
 
@@ -45,10 +51,10 @@ volumes:
 
 - Replace the following placeholders to appropriate values:\
     **SONG_MS_PORT** - local machine port on which **Song Service** will be run.\
-    **DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.\
+    **DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.
 - Open command line in folder where **docker-compose.yml** file was created. 
 - Execute **docker-compose up** command.
-- Verify that **Song service** is available over HTTP: Method: GET, Url: http://localhost:{SONG_MS_PORT}/songs/{SONG_ID}\
+- Verify that **Song service** is available over HTTP: Method: GET, Url: http://localhost:{SONG_MS_PORT}/songs/{SONG_ID} \
   **SONG_ID** - could be 1
 
 **Song Service API definition**
@@ -330,8 +336,3 @@ After uploading file to **Resource Service** check that **Song Service** has sav
 **Note**
 
 As a database, it is best to use Docker database/storage containers (e.g. [postgres image](https://hub.docker.com/_/postgres)) in the implementation.
-
-<div align="center">
-    <img src="images/microservice_architecture_overview.png" width="900">
-</div>
-
