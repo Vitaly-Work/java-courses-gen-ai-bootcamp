@@ -23,7 +23,7 @@ Implemented **Resource Service** should be run in docker container.
 ## Sub-task 2: Docker Compose file
 
 1) When **Resource Service** is successfully packaged, update an existing _docker-compose.yml_ file that it would also contain
-**Resource Service** docker container, **Resource Service Database** docker container and 3rd party dependencies to successfully start all system.
+**Resource Service** docker container, **Resource Service Database** docker container and 3rd party dependencies to successfully start whole system.
 Once you have a compose file, you can create and start your application containers with a single command: `docker-compose up`.
 
 Optional:
