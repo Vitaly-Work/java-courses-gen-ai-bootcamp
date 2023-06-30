@@ -17,7 +17,7 @@ One microservice should be implemented and configured according to provided arch
 ## Sub-task 1: Song Service
 
 The **Song Service** provide the ability to manage some metadata about the songs (artist, album, etc.). 
-The service should be run from existing docker [image](https://hub.docker.com/r/stky20/song-image/tags).
+The service should be run from existing docker [image](https://hub.docker.com/r/stky20/song-ms-image/tags).
 To run **Song Service** as a docker container follow next steps:
 - Install [docker engine](https://www.docker.com/products/docker-desktop/) on local machine (Will be used all along a course).
 - Create docker-compose.yml file with the following content:
@@ -25,33 +25,33 @@ To run **Song Service** as a docker container follow next steps:
 ```
 services:
   song-ms:
-    image: stky20/song-image
+    image: stky20/song-ms-image
     ports:
       - {SONG_MS_PORT}:8081
     environment:
-      - db_url=db
+      - db_url=song-ms-db
     restart: always
     depends_on:
-      - db
+      - song-ms-db
         
-  db:
+  song-ms-db:
     image: postgres
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - song-ms-db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - {DB_PORT}:5432
+      - {SONG_MS_DB_PORT}:5432
     restart: always
 
 volumes:
-  db-data:
+  song-ms-db-data:
 ```
 
 - Replace the following placeholders to appropriate values:\
     **SONG_MS_PORT** - local machine port on which **Song Service** will be run.\
-    **DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.
+    **SONG_MS_DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.
 - Open command line in folder where **docker-compose.yml** file was created. 
 - Execute **docker-compose up** command.
 - Verify that **Song service** is available over HTTP: Method: GET, Url: http://localhost:{SONG_MS_PORT}/songs/{SONG_ID} \
