@@ -3,7 +3,7 @@
  - [What to do](#what-to-do)
  - [Sub-task 1: Storage Service](#sub-task-1-storage-service)
  - [Sub-task 2: Retry mechanism](#sub-task-2-retry-mechanism)
- - [Sub-task 2: Resilience](#sub-task-3-resilience)
+ - [Sub-task 3: Resilience](#sub-task-3-resilience)
 
 ## What to do
 
@@ -182,8 +182,8 @@ volumes:
 ```
 
 - Replace the following placeholders to appropriate values:\
-  **STORAGE_MS_PORT** - local machine port on which **Storage Service** will be run \
-  **CLOUD_STORAGE_STAGING_BUCKET_NAME** - cloud storage staging bucket name used by **Resource Service** \
+  **STORAGE_MS_PORT** - local machine port on which **Storage Service** will be run\
+  **CLOUD_STORAGE_STAGING_BUCKET_NAME** - cloud storage staging bucket name used by **Resource Service**\
   **CLOUD_STORAGE_PERMANENT_BUCKET_NAME** - cloud storage permanent bucket name used by **Resource Service**
 
 2) Update system to interact with new storage service:
