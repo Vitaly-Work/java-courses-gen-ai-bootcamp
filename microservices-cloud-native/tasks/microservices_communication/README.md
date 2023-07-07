@@ -60,7 +60,8 @@ services:
     restart: always
     environment:
       - RABBITMQ_URL=rabbitmq
-      - RABBITMQ_QUEUE={RABBITMQ_QUEUE}
+      - RABBITMQ_RECEIVE_QUEUE={RABBITMQ_RECEIVE_QUEUE}
+      - RABBITMQ_SENT_QUEUE={RABBITMQ_SENT_QUEUE}
       - RESOURCE_MS_URL={RESOURCE_MS_URL}
       - SONG_MS_URL={SONG_MS_URL}
     depends_on:
@@ -86,21 +87,23 @@ volumes:
 ```
 
 - Replace the following placeholders to appropriate values:\
-  **SONG_MS_PORT** - local machine port on which **Song Service** will be run.\
-  **SONG_MS_DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.\
-  **RESOURCE_MS_URL** - local machine url and port on which **Resource Service** will be run.\
-  **SONG_MS_URL** - local machine url and port on which **Song Service** will be run.\
-  **RESOURCE_SERVICE_MS** - the name of **Resource Service** which declared in this docker compose file.\
-  **RMQ_USER** - user name for **Rabbit MQ**.\
-  **RMQ_PASSWORD** - user password for **Rabbit MQ**.
-  **RABBITMQ_QUEUE** - queue name for communication between **Resource Service** and **Resource Processor**.
+  **SONG_MS_PORT** - local machine port on which **Song Service** will be run\
+  **SONG_MS_DB_PORT** - local machine port on which **Song Service Postgres DB** will be run\
+  **RESOURCE_MS_URL** - local machine url and port on which **Resource Service** will be run\
+  **SONG_MS_URL** - local machine url and port on which **Song Service** will be run\
+  **RESOURCE_SERVICE_MS** - the name of **Resource Service** which declared in this docker compose file\
+  **RMQ_USER** - user name for **Rabbit MQ**\
+  **RMQ_PASSWORD** - user password for **Rabbit MQ**\
+  **RABBITMQ_RECEIVE_QUEUE** - queue name to get messages from **Resource Service**\
+  **RABBITMQ_SENT_QUEUE** - queue name to send messages to **Resource Service**
 
 ## Sub-task 2: Asynchronous communication
 
 1) Remove all http calls to **Song Service** from **Resource Service** implemented in previous modules
 2) Add asynchronous communication via messaging broker between **Resource Service** and **Resource Processor**.
-3) On resource uploading, **Resource Service** should send information about uploaded resource to the **Resource
-   Processor**, which contains “resourceId”.
+   - On resource uploading, **Resource Service** should send information about uploaded resource to the **Resource
+     Processor**, which contains “resourceId”.
+   - After resource processed, **Resource Service** should receive information about resource.
 
 **Note**
 
