@@ -27,13 +27,17 @@ services:
   song-ms:
     image: stky20/song-ms-image
     ports:
-      - {SONG_MS_PORT}:8081
+      - {SONG_MS_PORT}:{INTERNAL_SONG_MS_PORT}
     environment:
-      - db_url=song-ms-db
+      - SONG_DB_URL=song-ms-db
+      - SONG_DB_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=postgres
+      - SERVER_PORT={INTERNAL_SONG_MS_PORT}
     restart: always
     depends_on:
       - song-ms-db
-        
+
   song-ms-db:
     image: postgres
     volumes:
@@ -51,6 +55,7 @@ volumes:
 
 - Replace the following placeholders to appropriate values:\
     **SONG_MS_PORT** - local machine port on which **Song Service** will be run.\
+    **INTERNAL_SONG_MS_PORT** - internal docker container port on which **Song Service** will be run.\
     **SONG_MS_DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.
 - Open command line in folder where **docker-compose.yml** file was created. 
 - Execute **docker-compose up** command.
