@@ -19,35 +19,29 @@
 
 ## Modules
 
-### Module 1: Microservices architecture and Docker
+### Module 1: Kubernetes overview
 
-- [Theory](1-microservices-architecture-and-docker/materials/README.md)
-- [Practice](1-microservices-architecture-and-docker/task/README.md)
-- [Quiz](1-microservices-architecture-and-docker/quiz/README.md)
+- [Theory](1-k8s-overview/materials/README.md)
+- [Practice](1-k8s-overview/task/README.md)
+- [Quiz](1-k8s-overview/quiz/README.md)
 
-### Module 2: Kubernetes overview
+### Module 2: Deployment and configuration
 
-- [Theory](2-k8s-overview/materials/README.md)
-- [Practice](2-k8s-overview/task/README.md)
-- [Quiz](2-k8s-overview/quiz/README.md)
+- [Theory](2-deployment-and-configuration/materials/README.md)
+- [Practice](2-deployment-and-configuration/task/README.md)
+- [Quiz](2-deployment-and-configuration/quiz/README.md)
 
-### Module 3: Deployment and configuration
+### Module 3: Helm overview
 
-- [Theory](3-deployment-and-configuration/materials/README.md)
-- [Practice](3-deployment-and-configuration/task/README.md)
-- [Quiz](3-deployment-and-configuration/quiz/README.md)
+- [Theory](3-helm-overview/materials/README.md)
+- [Practice](3-helm-overview/task/README.md)
+- [Quiz](3-helm-overview/quiz/README.md)
 
-### Module 4: Helm overview
+### Module 4: Networking
 
-- [Theory](4-helm-overview/materials/README.md)
-- [Practice](4-helm-overview/task/README.md)
-- [Quiz](4-helm-overview/quiz/README.md)
-
-### Module 5: Networking
-
-- [Theory](5-k8s-networking/materials/README.md)
-- [Practice](5-k8s-networking/task/README.md)
-- [Quiz](5-k8s-networking/quiz/README.md)
+- [Theory](4-k8s-networking/materials/README.md)
+- [Practice](4-k8s-networking/task/README.md)
+- [Quiz](4-k8s-networking/quiz/README.md)
 
 ## Books
 
