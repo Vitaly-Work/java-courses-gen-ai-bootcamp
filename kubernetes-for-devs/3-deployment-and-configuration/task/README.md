@@ -22,7 +22,7 @@ In this module you will manage secrets and properties for your k8s objects and s
 
 ## Sub-task 3: Deployment strategies
 In this module you will add a field to one of your services, and perform Rolling-update deployment.
-1. To Post service add a new field `topic (:String)`. This is the topic for the post. You can specify it when creating a new post and when updating existing post. This field also should be returned at the responses for POST, PUT and GET operations.
+1. To Song service add a new field `genre (:String)`. Add corresponding logic so this field will represent genre of a song. This field also should be returned at the responses for both POST and GET operations.
 2. Build a new docker image of application with changes and push it to the Docker Hub (specify another version of container).
 3. Add Rolling-update deployment strategy to your deployments at manifest files and apply the  manifest, so the old versions of microservices are deployed and running.
 4. Set app version of app containers to the new one and apply manifest one more time. Make sure that new changes are deployed.
