@@ -34,9 +34,11 @@ The Candidate should :
 
 ## Modules
 ### Module 1: BIG DATA AND HADOOP
-#### OOP principles
 - [Questions](./core/oop/README.md)
 - [Practice](./core/oop/tasks/README.md)
 
-### Module 2: BIG DATA AND HADOOP
-#### OOP principles
+### Module 2: SPARK BASICS
+#### Spark Introduction
+#### Spark Streaming
+
+### Module 3: SPARK SQL
