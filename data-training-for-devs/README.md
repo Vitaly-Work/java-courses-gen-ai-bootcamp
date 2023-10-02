@@ -29,21 +29,7 @@ This repository is created to be open for any change proposed by anyone in open 
 
 ## Modules
 
-- [Java core](courses/Java_Advanced_Training/core/README.md)
-- [Java features](courses/Java_Advanced_Training/features/README.md)
-- [XML](courses/Java_Advanced_Training/xml/README.md)
-- [SQL](courses/Java_Advanced_Training/sql/README.md)
-- [WEB](courses/Java_Advanced_Training/web/README.md)
-- [WEB-services](courses/Java_Advanced_Training/web_service/README.md)
-- [Design patterns](courses/Java_Advanced_Training/design_pattern/README.md)
-- [Spring](courses/Java_Advanced_Training/spring/README.md)
-- [Hibernate](courses/Java_Advanced_Training/hibernate/README.md)
-- [JMS](courses/Java_Advanced_Training/jms/README.md)
-- [Testing](courses/Java_Advanced_Training/testing/README.md)
-- [Microservices](courses/Java_Advanced_Training/ms/README.md)
-- [Cloud](courses/Java_Advanced_Training/cloud/README.md)
-- [Software development methodologies](courses/Java_Advanced_Training/methodology/README.md)
-- [Advanced modules](courses/Java_Advanced_Training/advanced/README.md)
+- [Big Data intro](courses/Data_Training_for_Java_developers/README.md)
 
 ## Tasks
 There are some optional tasks for modules. 
