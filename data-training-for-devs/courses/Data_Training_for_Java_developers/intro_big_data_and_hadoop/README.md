@@ -193,7 +193,7 @@ More info
 
 ## + File formats
 
-**??? How to correctly refer to the presentation by Oleg Klimenko**
+[Recording/slides: Big Data in Java World: Apache Spark and Scala. Architecture and live coding](https://wearecommunity.io/events/java-on-2022/talks/48154)
 
 ### Overview
 
