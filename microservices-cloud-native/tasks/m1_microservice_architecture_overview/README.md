@@ -1,44 +1,44 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Song Service](#sub-task-1-song-service)
-- [Sub-task 2: Resource Service](#sub-task-2-resource-service)
+- [Sub-task 1: Songs Service](#sub-task-1-songs-service)
+- [Sub-task 2: Resources Service](#sub-task-2-resources-service)
 
 ## What to do
 
 In this module you will need to create base structure of microservices system. 
 One microservice should be implemented and configured according to provided architecture:
 
-
 <div align="center">
     <img src="images/microservice_architecture_overview.png" width="900">
 </div>
 
-## Sub-task 1: Song Service
+## Sub-task 1: Songs Service
 
-The **Song Service** provide the ability to manage some metadata about the songs (artist, album, etc.). 
-The service should be run from existing docker [image](https://hub.docker.com/r/stky20/song-ms-image/tags).
-To run **Song Service** as a docker container follow next steps:
+The **Songs-Service** provide the ability to manage some metadata about the songs (artist, album, etc.). 
+The service should be run from existing docker [image](https://hub.docker.com/r/stky20/songs-ms-image/tags).
+
+To run **Songs-Service** as a docker container follow next steps:
 - Install [docker engine](https://www.docker.com/products/docker-desktop/) on local machine (Will be used all along a course).
 - Create docker-compose.yml file with the following content:
 
 ```
 services:
-  song-ms:
-    image: stky20/song-ms-image
+  songs-ms:
+    image: stky20/songs-ms-image
     ports:
-      - {SONG_MS_PORT}:{INTERNAL_SONG_MS_PORT}
+      - {SONGS_MS_PORT}:{INTERNAL_SONG_MS_PORT}
     environment:
-      - SONG_DB_URL=song-ms-db
-      - SONG_DB_PORT=5432
+      - SONGS_DB_URL=songs-ms-db
+      - SONGS_DB_PORT=5432
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=postgres
-      - SERVER_PORT={INTERNAL_SONG_MS_PORT}
+      - SONGS_MS_SERVER_PORT={INTERNAL_SONGS_MS_PORT}
     restart: always
     depends_on:
-      - song-ms-db
+      - songs-ms-db
 
-  song-ms-db:
+  songs-ms-db:
     image: postgres
     volumes:
       - song-ms-db-data:/var/lib/postgresql/data
@@ -54,15 +54,15 @@ volumes:
 ```
 
 - Replace the following placeholders to appropriate values:\
-    **SONG_MS_PORT** - local machine port on which **Song Service** will be run.\
-    **INTERNAL_SONG_MS_PORT** - internal docker container port on which **Song Service** will be run.\
-    **SONG_MS_DB_PORT** - local machine port on which **Song Service Postgres DB** will be run.
+    **SONGS_MS_PORT** - local machine port on which **Songs-Service** will be run.\
+    **INTERNAL_SONGS_MS_PORT** - internal docker container port on which **Songs-Service** will be run.\
+    **SONGS_MS_DB_PORT** - local machine port on which **Songs Service Postgres DB** will be run.
 - Open command line in folder where **docker-compose.yml** file was created. 
 - Execute **docker-compose up** command.
-- Verify that **Song service** is available over HTTP: Method: GET, Url: http://localhost:{SONG_MS_PORT}/songs/{SONG_ID} \
+- Verify that **Songs-Service** is available over HTTP: Method: GET, Url: http://localhost:{SONGS_MS_PORT}/songs/{SONG_ID} \
   **SONG_ID** - could be 1
 
-**Song Service API definition**
+**Songs Service API definition**
 
 <table>
     <tr>
@@ -189,11 +189,11 @@ volumes:
     </tr>
 </table>
 
-## Sub-task 2: Resource Service
+## Sub-task 2: Resources Service
 
 During this task, you need to implement the following service in a programming language that suits you.
 
-For a **Resource Service**, it is recommended to implement a service with CRUD operations for processing mp3 files.
+For a **Resources-Service**, it is recommended to implement a service with CRUD operations for processing mp3 files.
 
 **Service definition could be next:**
 
@@ -312,9 +312,9 @@ For a **Resource Service**, it is recommended to implement a service with CRUD o
     </tr>
 </table>
 
-When uploading an mp3 file, the **Resource Service** should process the file in this way:
+When uploading a mp3 file, the **Resources-Service** should process the file in this way:
 
-- **Resource Service** should use any cloud storage or its emulation (e.g. [S3 emulator](https://github.com/localstack/localstack)) to store the source file.
+- **Resources-Service** should use any cloud storage or its emulation (e.g. [S3 emulator](https://github.com/localstack/localstack)) to store the source file.
 - Resource tracking (resource location in the cloud storage) should be stored in the underlying database.
 
 Database example table.
@@ -334,9 +334,9 @@ Database example table.
     </tr>
 </table>
 
-- Invoke **Song Service** from **Resource Service** using **Song Service** API to save only resource id as metadata in this step.
+- Invoke **Songs-Service** from **Resources-Service** using **Songs-Service** API to save only resource id as metadata in this step.
 
-After uploading file to **Resource Service** check that **Song Service** has saved resource id. (Verify using **Song Service API** or **Song Service DB**)
+After uploading file to **Resources-Service** check that **Songs-Service** has saved resource id. (Verify using **Songs-Service-API** or **Songs-Service-DB**)
 
 **Note**
 
