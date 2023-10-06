@@ -1,20 +1,20 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Storage Service](#sub-task-1-storage-service)
+- [Sub-task 1: Storage Service](#sub-task-1-storages-service)
 - [Sub-task 2: Retry mechanism](#sub-task-2-retry-mechanism)
 - [Sub-task 3: Resilience](#sub-task-3-resilience)
 
 ## What to do
 
-In this module it's required to make communication between **Resource Service** and other microservices fault-tolerant.
+In this module it's required to make communication between **Resources-Service** and other microservices fault-tolerant.
 The microservice system should look like the one below:
 
 <div align="center">
     <img src="images/taskpng.png" width="700">
 </div>
 
-As you can see from the picture **Resource Service** should invoke **Storage Service**.
+As you can see from the picture **Resources-Service** should invoke **Storages-Service**.
 This is required to configure circuit breaker pattern in services communication.
 
 Previous tasks implementation did not have any near-static data, so in order to emulate a stubbed circuit breaker,
@@ -22,14 +22,14 @@ we have to add one more element that emulates this data.
 
 1. Now our files should be in different states depends on processing phase: **STAGING** - file in processing, *
    *PERMANENT** - file has been successfully processed;
-2. To store and manage this states we will create **Storage Service**. It will be asked by **Resource Service** for
+2. To store and manage this states we will create **Storages-Service**. It will be asked by **Resources-Service** for
    state details;
-3. For case when **Storage Service** is unavailable, we will extend **Resource Service** to use advantages of fault
+3. For case when **Storages-Service** is unavailable, we will extend **Resources-Service** to use advantages of fault
    tolerance pattern.
 
-## Sub-task 1: Storage Service
+## Sub-task 1: Storages Service
 
-1) The **Storage Service** will be used for management of **storage** types. Each storage type corresponds to state of
+1) The **Storages-Service** will be used for management of **storage** types. Each storage type corresponds to state of
    uploaded resource.
    The service has next API:
 
@@ -71,46 +71,47 @@ we have to add one more element that emulates this data.
     </tr>
 </table>
 
-The service could be run from existing docker [image](https://hub.docker.com/r/stky20/storage-ms-image/tags).
+The service could be run from existing docker [image](https://hub.docker.com/r/stky20/storages-ms-image/tags).
 
 - Update the docker-compose.yml file with the following content:
 
 ```
 storage-ms:
-  image: stky20/storage-ms-image
+  image: stky20/storages-ms-image
   ports:
-    - {STORAGE_MS_PORT}:{INTERNAL_STORAGE_MS_PORT}
+    - {STORAGES_MS_SERVER_PORT}:{INTERNAL_STORAGES_MS_SERVER_PORT}
   environment:
-    - CLOUD_STORAGE_STAGING_BUCKET_NAME={CLOUD_STORAGE_STAGING_BUCKET_NAME}
-    - CLOUD_STORAGE_PERMANENT_BUCKET_NAME={CLOUD_STORAGE_PERMANENT_BUCKET_NAME}
-    - CLOUD_STORAGE_STAGING_BUCKET_PATH={CLOUD_STORAGE_STAGING_BUCKET_PATH}
-    - CLOUD_STORAGE_PERMANENT_BUCKET_PATH={CLOUD_STORAGE_PERMANENT_BUCKET_PATH}
+    - STORAGES_MS_SERVER_PORT={INTERNAL_STORAGES_MS_SERVER_PORT}
+    - STAGING_STORAGE_NAME={STAGING_STORAGE_NAME}
+    - PERMANENT_STORAGE_NAME={PERMANENT_STORAGE_NAME}
+    - STAGING_STORAGE_PATH={STAGING_STORAGE_PATH}
+    - PERMANENT_STORAGE_PATH={PERMANENT_STORAGE_PATH}
 ```
 
 - Replace the following placeholders to appropriate values:\
-  **STORAGE_MS_PORT** - local machine port on which **Storage Service** will be run\
-  **INTERNAL_STORAGE_MS_PORT** - internal docker container port on which **Storage Service** will be run.\
-  **CLOUD_STORAGE_STAGING_BUCKET_NAME** - cloud storage staging bucket name used by **Resource Service**\
-  **CLOUD_STORAGE_PERMANENT_BUCKET_NAME** - cloud storage permanent bucket name used by **Resource Service**\
-  **CLOUD_STORAGE_STAGING_BUCKET_PATH** - folder in staging bucket\
-  **CLOUD_STORAGE_PERMANENT_BUCKET_PATH** - folder in permanent bucket
+  **STORAGES_MS_SERVER_PORT** - local machine port on which **Storages-Service** will be run\
+  **INTERNAL_STORAGES_MS_SERVER_PORT** - internal docker container port on which **Storages-Service** will be run.\
+  **STAGING_STORAGE_NAME** - cloud storage staging bucket name used by **Resources-Service**\
+  **PERMANENT_STORAGE_NAME** - cloud storage permanent bucket name used by **Resources-Service**\
+  **STAGING_STORAGE_PATH** - folder in staging bucket\
+  **PERMANENT_STORAGE_PATH** - folder in permanent bucket
 
 2) Update system to interact with new storage service:
-   Prior to this task, the **Resource Service** used single storage to store data.
+   Prior to this task, the **Resources-Service** used single storage to store data.
    Now the data should be kept in different storages (different s3 buckets, folders in bucket, ect.) depending on
    processing stage.
-   When **Storage Service** starts, two predefined **Storage Types** will be created in **Storage Service-DB**
+   When **Storages-Service** starts, two predefined **Storage Types** will be created in **Storages-Service-DB**
    by default (using **CLOUD_STORAGE_STAGING_BUCKET_NAME**, **CLOUD_STORAGE_PERMANENT_BUCKET_NAME** from docker-compose
    configuration).
    Default **Storage Types**: **STAGING** and **PERMANENT**.
 
-To find out details about each state and appropriate storage path **Resource Service** should call **Storage Service**.
+To find out details about each state and appropriate storage path **Resources-Service** should call **Storages-Service**.
 
-So when new file comes to **Resource Service** for processing, we save file to **STAGING** storage retrieved from *
+So when new file comes to **Resources-Service** for processing, we save file to **STAGING** storage retrieved from *
 *Storage Service**,
-update file state and path in **Resource Service-DB**, then send the file for further processing to queue.
-When **Resource Service** receives signal from **Resource Processor** that file has been successfully processed,
-we change state of file to **PERMANENT**, update link in **Resource Service-DB** and move file to **PERMANENT** storage.
+update file state and path in **Resources-Service-DB**, then send the file for further processing to queue.
+When **Resources-Service** receives signal from **Resource Processor** that file has been successfully processed,
+we change state of file to **PERMANENT**, update link in **Resources-Service-DB** and move file to **PERMANENT** storage.
 
 <div align="center">
     <img src="images/fault_tolerance.png" width="700">
@@ -135,8 +136,8 @@ from storage service.
 Emulates response should be the same as storage service would return.
 
 1) Add a [Resilience4j](https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-circuitbreaker) library
-   for **Resource Service**.
-2) Add the circuit breaker config to services (when calling **Storage API** get storages for storing processed files).
+   for **Resources-Service**.
+2) Add the circuit breaker config to services (when calling **Storages-Service-API** get storages for storing processed files).
 3) When an exception returns from the called service provide returning of the stub result.
-4) Simulate a failure of the service by shutting down a called service (**Storage Service**) and test the circuit
+4) Simulate a failure of the service by shutting down a called service (**Storages-Service**) and test the circuit
    breaker.
