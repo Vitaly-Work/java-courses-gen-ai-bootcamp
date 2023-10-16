@@ -17,7 +17,7 @@ Key elements
 ## Metrics stream
 
 The metrics events coming to the Kinesis stream may be viewed as the following JSON document:
-```json
+```json5
 {
  // the component produced the event
  "componentName": "user-service",
@@ -38,7 +38,7 @@ The same model applies to the S3 metrics Parquet bucket.
 ## Windowed metrics
 
 The windowed metrics dataset represents an aggregation of the metrics stream in windows of 5-minute length. They can be viewed as the following JSON document:
-```json
+```json5
 {
  // the component produced the event
  "componentName": "user-service",
@@ -81,7 +81,7 @@ More details on the format may be found [here](https://nginx.org/en/docs/http/ng
 ## Server traffic report
 
 The server traffic report is recommended to have the following structure if viewed as a JSON document:
-```json
+```json5
 {
  // an alphanumeric string, should be unique per service pair
  "id": "asbkhgl2598y3944t",
@@ -112,7 +112,7 @@ The _path-to-task.json_ is either an absolute or relative path to a valid JSON f
 The attachments include samples for each of these tasks, but you may write your own if needed as explained below.
 
 The CSV-formatted metrics task has the following properties:
-```json
+```json5
 {
  "@type": "windowed-metrics",
  // number of iterations per metric
@@ -174,7 +174,7 @@ The CSV-formatted metrics task has the following properties:
 
 
 The server access logs task has the following properties:
-```json
+```json5
 {
  "@type": "server-access-log",
  // list of services
@@ -319,7 +319,7 @@ The server access logs task has the following properties:
 ```
 
 The Kinesis stream of metrics task has the following properties:
-```json
+```json5
 {
  "@type": "kinesis-metrics-stream",
  // the coordinates of the Kinesis Stream
@@ -381,7 +381,7 @@ To safeguard against overuse of AWS resources used in the module, the test data 
 If needed, you may get the source code and adjust it yourself. See the details on this below.
 ## Building and customising the test generator
 
-You may find the test generator source code [here](materials/test-data-generator/). How to build
+You may find the test generator source code [here](materials/test-data-generator-sources/). How to build
 * prerequisites
   * JDK 18+ (make sure your default system environments point JAVA_HOME at it, otherwise the integration tests might fail)
   * Docker
