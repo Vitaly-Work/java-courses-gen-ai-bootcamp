@@ -3,7 +3,7 @@
 ![](../materials/diagrams/task4-focus.png)
 
 **Learning prerequisites:**
-* [AWS for Developers: Data-Driven Serverless Applications with Kinesis](https://learn.epam.com/detailsPage?id=3d2f05f1-49a6-412a-83c4-def85e9e5ce2) - **section 2** (EPAM Learn course, it will be assigned to you by the organizers)
+* [AWS for Developers: Data-Driven Serverless Applications with Kinesis](https://learn.epam.com/detailsPage?id=3d2f05f1-49a6-412a-83c4-def85e9e5ce2) (EPAM Learn course, it will be assigned to you by the organizers)
 
 **Goal:**
 * ingest data with Kinesis Data Streams

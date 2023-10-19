@@ -3,7 +3,9 @@
 ![task1](../materials/diagrams/task1-focus.png)
 
 **Learning prerequisites:**
-* [Data engineering with AWS](https://learn.epam.com/detailsPage?id=b478ad0c-a4cc-4d27-a093-1d4661bfc19e) - **sections 1-2** (EPAM Learn course, it will be assigned to you by the organizers)
+* [Data engineering with AWS](https://learn.epam.com/detailsPage?id=b478ad0c-a4cc-4d27-a093-1d4661bfc19e) (EPAM Learn course, it will be assigned to you by the organizers)
+  * **NOTE**: Although only sections 1-2 are required for this sub-task, this course gives a high-level overview of most services you will use
+    in subsequent sub-tasks. It's very convenient to see the big picture beforehand, so take your time to complete it.
 * [AWS Glue Getting Started](https://explore.skillbuilder.aws/learn/course/internal/view/elearning/8171/getting-started-with-aws-glue) (AWS Skill Builder)
 
 **Goal:**
