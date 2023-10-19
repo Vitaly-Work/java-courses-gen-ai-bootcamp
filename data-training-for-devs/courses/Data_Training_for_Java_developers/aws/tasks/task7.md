@@ -2,6 +2,10 @@
 
 ![](../materials/diagrams/task7-focus.png)
 
+**Learning prerequisites:**
+* [Data engineering with AWS](https://learn.epam.com/detailsPage?id=b478ad0c-a4cc-4d27-a093-1d4661bfc19e) - **section 3** (EPAM Learn course, it will be assigned to you by the organizers)
+* [Getting started with Amazon EMR](https://explore.skillbuilder.aws/learn/course/internal/view/elearning/8827/getting-started-with-amazon-emr) (AWS Skill Builder)
+
 **Goal:**
 * write a Spark batch job to parse server access logs and build a call graph based on them
 * visualise the reports using Grafana graphs

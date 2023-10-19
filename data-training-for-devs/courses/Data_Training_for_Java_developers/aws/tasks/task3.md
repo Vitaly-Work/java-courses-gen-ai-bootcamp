@@ -1,6 +1,11 @@
 # Sub-task 3 - visualising with Grafana
 ![](../materials/diagrams/task3-focus.png)
 
+**Learning prerequisites:**
+* [Grafana overview](https://www.youtube.com/watch?v=w-c3KYKQQfs&ab_channel=edureka%21) (video)
+* [Running Grafana in Docker](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/) (official docs)
+* [Athena Plugin for Grafana](https://grafana.com/grafana/plugins/grafana-athena-datasource/?tab=installation) (official docs)
+
 **Goal:**
 * familiarise with Grafana
 * visualise an Athena datasource

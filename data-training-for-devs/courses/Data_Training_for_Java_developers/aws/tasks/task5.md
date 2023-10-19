@@ -2,6 +2,10 @@
 
 ![](../materials/diagrams/task5-focus.png)
 
+**Learning prerequisites:**
+* [Real-time streaming with Apache Flink, part 1](https://explore.skillbuilder.aws/learn/course/internal/view/elearning/16031/aws-partnercast-session-1-real-time-streaming-with-apache-flink-advanced-technical-advanced-level-300-technical) (AWS Skill Builder)
+* [Real-time streaming with Apache Flink, part 2](https://explore.skillbuilder.aws/learn/course/internal/view/elearning/16036/aws-partnercast-session-2-real-time-streaming-with-apache-flink-technical-advanced-level-300-technical) (AWS Skill Builder)
+
 **Goal:**
 * write an Apache Flink application for computing windows on metrics events
 * deploy the Apache Flink application to Kinesis Data Analytics

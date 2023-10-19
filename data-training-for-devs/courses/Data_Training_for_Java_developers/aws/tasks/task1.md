@@ -1,6 +1,11 @@
 # Sub-task 1 - ingesting with Glue ETL
 
 ![task1](../materials/diagrams/task1-focus.png)
+
+**Learning prerequisites:**
+* [Data engineering with AWS](https://learn.epam.com/detailsPage?id=b478ad0c-a4cc-4d27-a093-1d4661bfc19e) - **sections 1-2** (EPAM Learn course, it will be assigned to you by the organizers)
+* [AWS Glue Getting Started](https://explore.skillbuilder.aws/learn/course/internal/view/elearning/8171/getting-started-with-aws-glue) (AWS Skill Builder)
+
 **Goal:**
 * write a Python script to transform windowed metric documents from CSV files to Parquet files
 * run the script using Glue ETL

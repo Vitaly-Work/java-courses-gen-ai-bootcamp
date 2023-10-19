@@ -2,6 +2,11 @@
 
 ![](../materials/diagrams/task2-focus.png)
 
+**Learning prerequisites:**
+* [Data engineering with AWS](https://learn.epam.com/detailsPage?id=b478ad0c-a4cc-4d27-a093-1d4661bfc19e) (EPAM Learn course, it will be assigned to you by the organizers)
+  * **Amazon Athena Overview**
+  * **Athena Challenge**
+
 **Goal:**
 * create a DataCatalog table for the windowed metrics dataset
 * query the table using Athena
