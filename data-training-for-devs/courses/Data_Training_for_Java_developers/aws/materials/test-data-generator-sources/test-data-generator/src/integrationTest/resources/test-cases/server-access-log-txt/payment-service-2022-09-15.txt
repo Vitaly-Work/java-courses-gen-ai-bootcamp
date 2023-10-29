@@ -1,0 +1,3 @@
+<masked>  - order-service "POST /api/v1/payments/3ds" 200 [2022-09-15T13:43:01.480Z] "Apache HTTP Client"
+<masked>  - order-service "POST /api/v1/payments/3ds" 200 [2022-09-15T17:43:01.292Z] "Apache HTTP Client"
+<masked>  - order-service "POST /api/v1/payments/3ds" 200 [2022-09-15T21:43:02.091Z] "Apache HTTP Client"

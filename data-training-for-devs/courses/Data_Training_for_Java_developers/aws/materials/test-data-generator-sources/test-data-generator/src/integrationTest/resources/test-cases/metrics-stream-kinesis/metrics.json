@@ -1,0 +1,58 @@
+[
+  {
+    "metricName": "cpu",
+    "componentName": "order-service",
+    "publicationTimestamp": "2020-01-01T11:32:54Z",
+    "value": 27.487944706384795,
+    "unit": "percent"
+  },
+  {
+    "metricName": "cpu",
+    "componentName": "order-service",
+    "publicationTimestamp": "2020-01-01T11:32:55Z",
+    "value": 25.012015579420854,
+    "unit": "percent"
+  },
+  {
+    "metricName": "ram",
+    "componentName": "order-service",
+    "publicationTimestamp": "2020-01-01T11:32:54Z",
+    "value": 69.90355765107836,
+    "unit": "percent"
+  },
+  {
+    "metricName": "ram",
+    "componentName": "order-service",
+    "publicationTimestamp": "2020-01-01T11:32:55Z",
+    "value": 50.09612463536684,
+    "unit": "percent"
+  },
+  {
+    "metricName": "cpu",
+    "componentName": "user-service",
+    "publicationTimestamp": "2020-01-01T11:32:54Z",
+    "value": 21.231917059577192,
+    "unit": "percent"
+  },
+  {
+    "metricName": "cpu",
+    "componentName": "user-service",
+    "publicationTimestamp": "2020-01-01T11:32:55Z",
+    "value": 17.518023369131285,
+    "unit": "percent"
+  },
+  {
+    "metricName": "ram",
+    "componentName": "user-service",
+    "publicationTimestamp": "2020-01-01T11:32:54Z",
+    "value": 68.71986176596198,
+    "unit": "percent"
+  },
+  {
+    "metricName": "ram",
+    "componentName": "user-service",
+    "publicationTimestamp": "2020-01-01T11:32:55Z",
+    "value": 62.53003894855214,
+    "unit": "percent"
+  }
+]
