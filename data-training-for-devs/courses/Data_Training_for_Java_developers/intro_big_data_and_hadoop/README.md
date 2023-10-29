@@ -5,7 +5,17 @@ The external links provided in this module are optional for study.
 All the necessary theory materials will be provided in subsequent modules
 focusing on specific concepts and technologies.
 
-## Big data and data intensive
+## Topics to cover:
+
+1. Introduction to BigData
+2. Data Characteristics (VVVs)
+3. Introduction to Hadoop
+4. Data Product and Data Factory
+5. File Formats
+
+## Materials:
+
+### Big data and data intensive
 
 In 2000's, **big data** was considered as data assets characterised by 3
 V's
@@ -29,7 +39,7 @@ So, the data challenges are not always related to volume/speed and today
 we say that we perform **data engineering** in order to build **data
 intensive** systems.
 
-## Hadoop - the pioneer in budget data processing
+### Hadoop - the pioneer in budget data processing
 
 Links (optional, if interested in more details)
 - [overview](https://intellipaat.com/blog/tutorial/hadoop-tutorial/introduction-hadoop/?US)
@@ -112,7 +122,7 @@ data and products on the modern scale.
 - However, **Hadoop is now considered rather a legacy tech** compared to Spark-based solutions.
 - The topic of **Spark will be expanded in a lot more detail later in this course**.
 
-## Data products and pipelines
+### Data products and pipelines
 
 **Data product** is the result of transforming the data that a company
 owns into a value-generating asset. Each data product has a structure
@@ -172,11 +182,11 @@ More info (optional, if interested in more details)
 - [data warehouse vs lake vs mart](https://medium.com/codex/data-warehouse-vs-data-mart-vs-data-lake-a335f328e6a8)
 - [ETL vs ELT](https://www.mssqltips.com/sqlservertip/5937/etl-vs-elt-features-and-use-cases/)
 
-## File formats
+### File formats
 
 [Recording/slides: Big Data in Java World: Apache Spark and Scala. Architecture and live coding](https://wearecommunity.io/events/java-on-2022/talks/48154)
 
-### Overview
+#### Overview
 
 Different file formats are used today for different tasks. Some of the
 most known include
@@ -197,7 +207,7 @@ Rows vs columns
 
 ![](materials/image8.png)
 
-### Avro
+#### Avro
 
 ![](materials/image9.png)
 
@@ -219,7 +229,7 @@ Cons
 
 -   compression ratio is so-so
 
-### Parquet
+#### Parquet
 
 ![](materials/image10.png)
 
@@ -245,7 +255,7 @@ Cons
 
 -   not good for streaming
 
-### ORC
+#### ORC
 
 ![](materials/image11.png)
 
@@ -257,13 +267,13 @@ Pros
 
 -   can have ACID transactions implemented on top
 
-### Summary
+#### Summary
 
 ![](materials/image12.png)
 
-## Optional - extra cases and architectures
+### Optional - extra cases and architectures
 
-### Case - gathering data for BI
+#### Case - gathering data for BI
 
 Case requirements
 
@@ -291,7 +301,7 @@ Solution - ETL
         (AWS Lambda, Azure Function, etc) or as powerful as a multi-node
         Spark cluster orchestrated by AWS Glue
 
-### Case - monitoring microservices
+#### Case - monitoring microservices
 
 Case requirements
 
@@ -346,7 +356,7 @@ Solution
 
     -   AWS QuickSight
 
-### Case - managing an IoT fleet
+#### Case - managing an IoT fleet
 
 Case requirements
 
@@ -393,7 +403,7 @@ Solution
 
         -   Hadoop
 
-### Data meshes and EPAM Data Factory
+#### Data meshes and EPAM Data Factory
 
 Links (optional, if interested in more details)
 - [data products](https://lakefs.io/blog/data-products/)
