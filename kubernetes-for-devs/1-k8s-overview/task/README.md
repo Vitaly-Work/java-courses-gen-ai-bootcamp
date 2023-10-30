@@ -9,10 +9,10 @@
 ## What to do
 In this module you will create infrastructure for your k8s cluster and deploy your microservices applications there.
 
-## Sub-task 1: Enable k8s
-To use Kubernetes go to Docker Desktop settings, choose Kubernetes and click checkbox 'Enable Kubernetes'. You will need to wait for the installation and restart docker.
+## Sub-task 1: Install k8s
+If you use personal account in Docker Desktop, go to Docker Desktop settings, choose Kubernetes and click checkbox 'Enable Kubernetes'. You will need to wait for the installation and restart docker.
+If you use docker engine and cli (without Docker Desktop), you need to install kubernetes cluster (docker cintainer / minikube installation) and kubectl
 To verify installation run the next command: `kubectl version`.
-It is recommended to install Kubernetes Lens to relieve resources management.
 
 ## Sub-task 2: Deploy containers in k8s
 In this subtask you need to create manifest `.yml` files with configuration for deployment. These files should contain the next objects:
