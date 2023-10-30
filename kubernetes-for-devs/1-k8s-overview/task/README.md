@@ -10,9 +10,18 @@
 In this module you will create infrastructure for your k8s cluster and deploy your microservices applications there.
 
 ## Sub-task 1: Install k8s
-If you use personal account in Docker Desktop, go to Docker Desktop settings, choose Kubernetes and click checkbox 'Enable Kubernetes'. You will need to wait for the installation and restart docker.
-If you use docker engine and cli (without Docker Desktop), you need to install kubernetes cluster (docker cintainer / minikube installation) and kubectl
-To verify installation run the next command: `kubectl version`.
+If you have personal licence in Docker Desktop, go to Docker Desktop settings, choose Kubernetes and click checkbox 'Enable Kubernetes'. You will need to wait for the installation and restart docker.
+In other cases you should go the hard way:
+1. Install docker engine (if not installed) as binaries: https://docs.docker.com/engine/install/binaries/.
+And make sure docker is running by running `docker --version`
+2. Install minikube: https://minikube.sigs.k8s.io/docs/start/.
+Verify by running `minikube start`
+3. Install kubectl: https://kubernetes.io/docs/tasks/tools/
+Verify by running `kubectl version`
+
+_Note_: When using Windows, running PowerShell as administrator may help. Here's the solution to majority of topics I faced:
+https://stackoverflow.com/questions/57431890/error-response-from-daemon-hcsshimcreatecomputesystem-the-virtual-machine-co <br />
+After docker will start running Hyper-V containers, make sure to run `minikube docker-env | Invoke-Expression`. This command will make minikube runn containers on Hyper-V too
 
 ## Sub-task 2: Deploy containers in k8s
 In this subtask you need to create manifest `.yml` files with configuration for deployment. These files should contain the next objects:
