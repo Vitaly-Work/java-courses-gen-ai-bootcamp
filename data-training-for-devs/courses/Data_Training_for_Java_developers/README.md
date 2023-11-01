@@ -33,12 +33,13 @@ The Candidate should :
 * Follow all the processes steps (such as filling in the required blocks at Learn educational plan for verification by the experts)
 
 ## Modules
-### Module 1: BIG DATA AND HADOOP
-- [Questions](./core/oop/README.md)
-- [Practice](./core/oop/tasks/README.md)
-
-### Module 2: SPARK BASICS
-#### Spark Introduction
-#### Spark Streaming
-
-### Module 3: SPARK SQL
+### Module 1: [BIG DATA AND HADOOP](./intro_big_data_and_hadoop)
+### Module 2: [SPARK BASICS](./spark_basics)
+### Module 3: [SPARK SQL](./spark_sql)
+### Module 4: [DATA FLOW & PIPELINING](./data_flow_pipelining)
+### Module 5: [DATA ENGINEERING IN AWS](./aws)
+### Module 6: [DATA ENGINEERING IN AZURE](./azure)
+### Module 7: [DATA ENGINEERING IN GCP](./gcp)
+### Module 8: [DATA ENGINEERING IN DATABRICKS](./databricks)
+### Appendix: [KAFKA FOR DATA ENGINEERING](./kafka_for_data_engineering)
+### Appendix: [ADDITIONAL TOPICS](./additional_topics)
