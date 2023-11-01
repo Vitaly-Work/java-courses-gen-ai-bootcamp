@@ -5,14 +5,14 @@
 > ***Duration \[2h\]***
 >
 > [[Product overview of Cloud
-> Storage]{.underline}](https://cloud.google.com/storage/docs/introduction)
+> Storage]](https://cloud.google.com/storage/docs/introduction)
 
 #### **Practice: Create buckets**
 
 > ***Duration \[2h\]***
 >
 > Using the [[cloud
-> shell]{.underline}](https://cloud.google.com/shell/docs/launching-cloud-shell),
+> shell]](https://cloud.google.com/shell/docs/launching-cloud-shell),
 > create the following buckets in Cloud Storage. You can name them
 > however you like, they just need to be unique, you will need to
 > provide these later in future steps (remember to replace the bucket

@@ -5,7 +5,7 @@
 > ***Duration \[2h\]***
 >
 > [[Cloud Data Fusion
-> overview]{.underline}](https://cloud.google.com/data-fusion/docs/concepts/overview)
+> overview]](https://cloud.google.com/data-fusion/docs/concepts/overview)
 
 #### **Practice: Create the Data Fusion instance**
 

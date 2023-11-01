@@ -5,7 +5,7 @@
 > ***Duration \[1h\]***
 >
 > [[Looker introduction \| Google
-> Cloud]{.underline}](https://cloud.google.com/looker/docs/intro?hl=en)
+> Cloud]](https://cloud.google.com/looker/docs/intro?hl=en)
 
 #### **Practice: Create report**
 
@@ -51,7 +51,7 @@
 >
 > We upload the file **DataFile100.csv** (which contains 100 items, or
 > DataFile1000.csv,DataFile10000.csv,DataFile100000.csv, [[here is
-> files]{.underline}](https://github.com/stroyanov/gcp-bigdata-practice/tree/main/data))
+> files]](https://github.com/stroyanov/gcp-bigdata-practice/tree/main/data))
 > to the data source bucket and wait for the data update process to be
 > completed.
 >

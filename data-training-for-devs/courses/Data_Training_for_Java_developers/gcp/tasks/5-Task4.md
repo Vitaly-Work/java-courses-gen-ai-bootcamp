@@ -5,7 +5,7 @@
 > ***Duration \[2h\]***
 
 [[Work with Data Pipelines \| Cloud
-Dataflow]{.underline}](https://cloud.google.com/dataflow/docs/guides/data-pipelines?hl=en)
+Dataflow]](https://cloud.google.com/dataflow/docs/guides/data-pipelines?hl=en)
 
 #### **Practice: Create the Data pipeline**
 
@@ -88,7 +88,7 @@ Dataflow]{.underline}](https://cloud.google.com/dataflow/docs/guides/data-pipeli
 > redirect errors during pipeline execution to a file in GCS for further
 > processing later. We could write the recipe for the transformation
 > directly with Directives using JEXL syntax
-> ([[https://commons.apache.org/proper/commons-jexl/reference/syntax.html]{.underline}](https://commons.apache.org/proper/commons-jexl/reference/syntax.html)),
+> ([[https://commons.apache.org/proper/commons-jexl/reference/syntax.html]](https://commons.apache.org/proper/commons-jexl/reference/syntax.html)),
 > but for simplicity, and to take advantage of the Data Fusion UI, we'll
 > do it using the wrangler tool, whatever we do in the wrangler will
 > later be translated into JEXL directives and displayed under the

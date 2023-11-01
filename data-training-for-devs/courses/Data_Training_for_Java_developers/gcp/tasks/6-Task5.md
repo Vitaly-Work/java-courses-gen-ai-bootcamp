@@ -5,7 +5,7 @@
 > ***Duration \[2h\]***
 >
 > [[Cloud
-> Functions]{.underline}](https://cloud.google.com/functions?hl=en)
+> Functions]](https://cloud.google.com/functions?hl=en)
 
 #### **Practice: Create the Cloud Function**
 
@@ -80,7 +80,7 @@
 > earlier:
 >
 > You can find main.py
-> [[here]{.underline}](https://github.com/stroyanov/gcp-bigdata-practice/blob/main/cloud_function/main.py)
+> [[here]](https://github.com/stroyanov/gcp-bigdata-practice/blob/main/cloud_function/main.py)
 >
 > ![](./media/image56.png)
 

@@ -83,16 +83,16 @@ simply uploading a new data file to a Google Cloud Storage bucket.
 > ***Duration \[2h\]***
 
 [[Products and Services \| Google
-Cloud]{.underline}](https://cloud.google.com/products)
+Cloud]](https://cloud.google.com/products)
 
 #### **Practice: Prepare environment**
 
 > ***Duration \[1h\]***
 
 -   Install gsutil [[Install gsutil \| Cloud
-    Storage]{.underline}](https://cloud.google.com/storage/docs/gsutil_install)
+    Storage]](https://cloud.google.com/storage/docs/gsutil_install)
 
 -   How to use gsutil and useful commands is described here [[gsutil
     tool \| Cloud
-    Storage]{.underline}](https://cloud.google.com/storage/docs/gsutil)
+    Storage]](https://cloud.google.com/storage/docs/gsutil)
 

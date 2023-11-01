@@ -30,7 +30,7 @@ Overall costs approximately expected around \$10-15
 ### **Costs**
 
 Look into Cloud Billing Account: [[View your billing reports and cost
-trends]{.underline}](https://cloud.google.com/billing/docs/how-to/reports)
+trends]](https://cloud.google.com/billing/docs/how-to/reports)
 
 ![](./media/image3.png)
 
@@ -45,7 +45,7 @@ trends]{.underline}](https://cloud.google.com/billing/docs/how-to/reports)
 -   **Remove Data Fusion instances**
 
 > [[Enable or disable Cloud Data
-> Fusion]{.underline}](https://cloud.google.com/data-fusion/docs/how-to/enable-service#disable)
+> Fusion]](https://cloud.google.com/data-fusion/docs/how-to/enable-service#disable)
 >
 > ![](./media/image6.png)
 
@@ -62,11 +62,11 @@ trends]{.underline}](https://cloud.google.com/billing/docs/how-to/reports)
 ## **Reference**
 
 Google console [[Google Cloud
-Console]{.underline}](https://console.cloud.google.com/)
+Console]](https://console.cloud.google.com/)
 
 Article with solution [[From Zero to Hero: End-to-end automated
 Analytics workload using Cloud Functions --- Data Fusion --- BigQuery
 and Data Studio \| by Daniel Villegas \| Google Cloud - Community \|
-Medium]{.underline}](https://medium.com/google-cloud/from-zero-to-hero-end-to-end-automated-analytics-workload-using-cloud-functions-data-fusion-28670e5e7c74)
+Medium]](https://medium.com/google-cloud/from-zero-to-hero-end-to-end-automated-analytics-workload-using-cloud-functions-data-fusion-28670e5e7c74)
 
 ### 

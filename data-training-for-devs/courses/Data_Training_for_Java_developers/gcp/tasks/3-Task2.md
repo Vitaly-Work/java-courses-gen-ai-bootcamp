@@ -5,7 +5,7 @@
 > ***Duration \[2h\]***
 
 [[Overview of BigQuery storage \| Google
-Cloud]{.underline}](https://cloud.google.com/bigquery/docs/storage_overview)
+Cloud]](https://cloud.google.com/bigquery/docs/storage_overview)
 
 #### **Practice: Create the Dataset and table in BigQuery**
 
