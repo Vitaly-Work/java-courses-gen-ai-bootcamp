@@ -1,0 +1,39 @@
+{
+  "@type": "kinesis-metrics-stream",
+  "stream": {
+    "region": "${aws_region}",
+    "streamName": "${aws_kinesis_stream}"
+  },
+  "iterationsNumber": 25,
+  "timer": {
+    "@type": "realtime",
+    "startTime": "2020-01-01T11:32:54.000Z",
+    "rateMillis": 2000
+  },
+  "metrics": {
+    "user-service": {
+      "cpu": {
+        "unit": "percent",
+        "minValue": 10.0,
+        "maxValue": 25.0
+      },
+      "ram": {
+        "unit": "percent",
+        "minValue": 50.0,
+        "maxValue": 75.0
+      }
+    },
+    "order-service": {
+      "cpu": {
+        "unit": "percent",
+        "minValue": 20.0,
+        "maxValue": 30.0
+      },
+      "ram": {
+        "unit": "percent",
+        "minValue": 10.0,
+        "maxValue": 90.0
+      }
+    }
+  }
+}
