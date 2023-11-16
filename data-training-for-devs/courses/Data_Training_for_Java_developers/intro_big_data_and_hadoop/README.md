@@ -1,3 +1,14 @@
+# Topics to cover
+- Big data vs Data intensive
+- The V's of data engineering
+- Hadoop - the pioneer that made data affordable
+- Spark - Hadoop successor
+- Data formats and efficiency
+- ETL vs ELT
+- Data warehouse, data lake, and data marts
+- Data products and factories
+- Typical data architecture patterns
+
 # Intro
 
 ## Before you read further
@@ -60,14 +71,10 @@ storage, **Hadoop Distributed File System (HDFS)**, looks like this:
 ![](materials/image2.png)
 
 Here
-
 -   data is organised into files
-
 -   each file is split into **blocks**
-
 -   each **DataNode** daemon is responsible for managing a subset of
     blocks
-
 -   the **NameNode** daemon running on the leader node is responsible
     for the mapping between the blocks and data nodes
 
@@ -82,12 +89,9 @@ running parallel load (per block) across a cluster
 ![](materials/image4.png)
 
 Here
-
 -   one or more **map** tasks load, parse, transform, and filter data
-
 -   one or more **reduce** tasks aggregates intermediate or final
     results on a subset of the outputs from the map step
-
 -   because the map tasks are executed on the follower nodes that hold
     the input blocks, optimal performance and intra-cluster traffic is
     achieved - **data locality**
@@ -102,10 +106,8 @@ are supervised by a global resource manager.
 ![](materials/image5.png)
 
 All that is good, but Hadoop has its downsides
-
 -   while Hadoop scales well and may be deployed anywhere, managing it
     is not trivial (e.g. dealing with ZooKeeper is a specific endeavour)
-
 -   also, it doesn't solve all the challenges that modern data
     engineering is facing - e.g. it's not sufficient in terms of
     performance for realtime streaming
@@ -146,12 +148,9 @@ partner APIs, public datasets, etc) or internal (application logs,
 network logs, user profiles, etc.).
 
 Data ends up in one of the following places
-
 -   **data lake** - a potentially huge storage of raw data
-
 -   **data warehouse** - a scalable storage of structured data ready to
     serve analytics
-
 -   **data mart** - a set of dashboards created based on a subset of
     data from a warehouse/lake and serving specific business use cases
 
@@ -190,17 +189,11 @@ More info (optional, if interested in more details)
 
 Different file formats are used today for different tasks. Some of the
 most known include
-
 -   plain text
-
 -   CSV
-
 -   JSON
-
 -   Parquet
-
 -   Avro
-
 -   ORC
 
 Rows vs columns
@@ -212,21 +205,14 @@ Rows vs columns
 ![](materials/image9.png)
 
 Pros
-
 -   high write speed
-
 -   JSON-like schema
-
 -   good for data streaming like Kafka
-
 -   good for ETL pipelines and data marts
-
 -   supports schema evolution to some extent
 
 Cons
-
 -   inefficient where only a subset of columns is required
-
 -   compression ratio is so-so
 
 #### Parquet
@@ -234,25 +220,16 @@ Cons
 ![](materials/image10.png)
 
 Pros
-
 -   efficient compression
-
 -   efficient for querying by specific columns
-
 -   good for backup/restore and replication
-
 -   strongly typed
-
 -   good for file-based storages like Hive
 
 Cons
-
 -   restricted schema evolution
-
 -   hard to have transactions on top
-
 -   not human friendly
-
 -   not good for streaming
 
 #### ORC
@@ -260,11 +237,8 @@ Cons
 ![](materials/image11.png)
 
 Pros
-
 -   allows skipping columns when reading
-
 -   good for file-based storages like Hive
-
 -   can have ACID transactions implemented on top
 
 #### Summary
@@ -276,27 +250,21 @@ Pros
 #### Case - gathering data for BI
 
 Case requirements
-
 -   some business has one or more DBs that serve OLTP load (e.g. web
     shop or bank)
-
 -   the business intelligence department wants to build daily reports
     based on the user activity
-
 -   the aggregations in the BI reports are heavy and it's necessary to
     prevent impact on the customer experience
 
 ![](materials/image13.png)
 
 Solution - ETL
-
 -   deploy an ETL pipeline which captures updates from the OLTP DBs,
     makes the necessary computations, and store the results in a
     dedicated data warehouse DB
-
 -   depending on the volume of the data, complexity of the aggregations,
     and freshness requirements
-
     -   the ETL pipeline may run as lightweight as a serverless function
         (AWS Lambda, Azure Function, etc) or as powerful as a multi-node
         Spark cluster orchestrated by AWS Glue
@@ -304,70 +272,49 @@ Solution - ETL
 #### Case - monitoring microservices
 
 Case requirements
-
 -   a business has an ecosystem of multiple microservices
-
 -   it's necessary to monitor the status of the microservices in
     realtime
-
     -   application logs - for business intelligence and anomaly
         detection
-
     -   server/network logs - for operations troubleshooting and
         security breach detection
-
     -   the hardware usage stats from the DB and application nodes - for
         operations troubleshooting and capacity planning
-
 -   next, it's necessary to set up alerts based on the above rules and
     make the alerts trigger such channels as emails and DevOps chats
-
 -   finally, it's necessary to enable realtime visualisation and
     querying of all the time series data collected from the logs
 
 ![](materials/image14.png)
 
 Solution
-
 -   log collection is typically done by some sort of an agent running
     nearby the application/DB nodes
-
     -   AWS CloudWatch agent
-
     -   Beats from the ELK stack (e.g. FileBeat or MetricBeat)
-
 -   logs then should be indexed/stored
-
     -   LogStash from the ELK stack is able to index the data collected
         from the log collectors to ElasticSearch
-
     -   if the log collectors deliver data to some distributed store
         like AWS S3 or Azure DataFactory, it's possible to use
         serverless functions to apply necessary transformations and push
         the data to ElasticSearch again or time series database or
         elsewhere
-
 -   there are various platforms that combine powerful querying,
     visualisation, and alerting capabilities in one box
-
     -   Kibana from the ELK stack
-
     -   Grafana
-
     -   AWS QuickSight
 
 #### Case - managing an IoT fleet
 
 Case requirements
-
 -   a business manages a fleet of IoT devices that produce a continuous
     stream of signals that must be collected and analysed
-
 -   all the data must be stored in a durable manner
-
 -   some critical anomalies must be detected in realtime and immediately
     trigger alerts
-
 -   the rest of analytical tasks may be quite heavy but, being not
     critical, may be run on schedule
 
@@ -377,30 +324,19 @@ Solution
 
 -   a distributed log is typically used for ingestion - its main goal is
     to persist and replicate incoming data as-is as fast as possible
-
     -   Kafka
-
     -   Kinesis Streams
-
 -   then, a [Lambda or Kappa architecture](https://nexocode.com/blog/posts/lambda-vs-kappa-architecture/)
     may be deployed - it leverages a lightweight streaming technology
     for realtime processing and a deployment of a heavier weight for the
     on-schedule part of the job (batching)
-
     -   streaming
-
         -   Kafka Streams
-
         -   Apache Flink
-
         -   Kinesis Data Analytics
-
         -   Spark
-
     -   batching
-
         -   Spark
-
         -   Hadoop
 
 #### Data meshes and EPAM Data Factory
@@ -426,11 +362,8 @@ factory**:
 ![](materials/image17.png)
 
 This brings a lot more challenges including
-
 -   access control and audit
-
 -   highly variable integration points - handled by fine-tuned data
     flows (e.g. Apache NiFi)
-
 -   the need to orchestrate multi-step processes inside and outside each
     product - handled by such tools as Apache Airflow
