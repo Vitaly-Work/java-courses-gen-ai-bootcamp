@@ -1,3 +1,21 @@
+# Topics to cover
+- AWS Glue
+  - AWS Glue ETL jobs for lightweight data transformations
+  - AWS Glue Data Catalog for describing data schema
+  - Data partitioning
+- AWS Athena
+  - integration with AWS Glue
+  - SQL queries
+- Grafana
+  - data visualisation basics
+  - connecting to AWS Athena
+- AWS Kinesis
+  - streaming data with AWS Kinesis DataStreams
+  - aggregating data with AWS Kinesis DataAnalytics and Apache Flink
+  - converting data with AWS Kinesis Firehose
+- AWS EMR
+  - writing serverless Spark analytical jobs
+
 # Solution overview
 
 ![](materials/diagrams/practice.jpg)
