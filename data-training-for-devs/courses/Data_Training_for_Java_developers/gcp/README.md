@@ -1,5 +1,23 @@
 # GCP Big Data Practice Project
 
+## Topics to cover
+- Google Cloud Storage
+  - Cloud Storage overview.
+  - How to use to store data.
+- Google BigQuery
+  - BigQuesry storage overview. 
+  - How to use to store data.
+- Google Cloud Data Fusion
+  - Cloud Data Fusion overview.
+  - How to work with Data pipelines.
+  - How to create and use Cloud Dataflow, error handling.
+- Google Cloud Functions
+  - Cloud functions overview.
+  - How to use for data procesing.
+- Google Looker Studio (Data Studio)
+  - Google Looker Studio overview.
+  - How to create report to visualize data.
+
 ## Summary
 Architecture description for bigdata project with GCP services.
 
