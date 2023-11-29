@@ -2,10 +2,12 @@
 * Java Senior Software Engineers or higher.
 
 ## Necessary knowledge
-* Basic Java Core Knowledge
-* Basic SQL
-* Cloud basics
-* Messaging basics 
+* [EngX Bootcamp](https://learn.epam.com/detailsPage?id=731297e7-eadb-4fe9-b9cb-4f1dffe73c05)
+* Basic Java Core Knowledge ([Java Global Mentoring Program](https://learn.epam.com/detailsPage?id=8103343b-0dfe-4989-a725-43247453e089) and/or [Java Boost](https://learn.epam.com/detailsPage?id=2433fdf6-df2a-4cd4-94bb-3c101e91a546) refresher and/or 2+ years of relevant production experience)
+* Containerization basics ([Introduction to Microservices](https://learn.epam.com/detailsPage?id=d079e963-970d-4420-9fcf-952ecdd37bca) / [Kubernetes for Java Engineers](https://learn.epam.com/detailsPage?id=550944b4-72c9-4c2d-93ef-545b6e569f61&source=PROGRAM) / [Microservices Fundamentals](https://learn.epam.com/detailsPage?id=77fa4ed0-9de2-4371-bc1e-f55bf06ac061))
+* Basic SQL ([Relational Database for Developers](https://learn.epam.com/detailsPage?id=e5050928-f84b-4d88-a2eb-199440c76d73&source=PROGRAM) and/or [Java Global Mentoring Program](https://learn.epam.com/detailsPage?id=8103343b-0dfe-4989-a725-43247453e089) and/or [Java Boost](https://learn.epam.com/detailsPage?id=2433fdf6-df2a-4cd4-94bb-3c101e91a546) refresher and/or 2+ years of relevant production experience)
+* Cloud basics ([Java Global Mentoring Program](https://learn.epam.com/detailsPage?id=8103343b-0dfe-4989-a725-43247453e089) and/or [Java Boost](https://learn.epam.com/detailsPage?id=2433fdf6-df2a-4cd4-94bb-3c101e91a546) refresher and/or any CloudX Associate course and/or any relevant cloud certification and/or 2+ years of relevant production experience)
+* Messaging basics ([Java Global Mentoring Program](https://learn.epam.com/detailsPage?id=8103343b-0dfe-4989-a725-43247453e089) and/or [Message-oriented Middleware: JMS, ActiveMQ, RabbitMQ, Kafka](https://learn.epam.com/detailsPage?id=471d4c37-8e92-4d6c-af78-f53cce54d825) and/or 2+ years of relevant production experience) 
 
 ## Description
 Data Training for Java developers is aimed to give the engineers strong basics enough for staffing to position implying ETL and other Data skills, especially in Cloud infrastructure.
