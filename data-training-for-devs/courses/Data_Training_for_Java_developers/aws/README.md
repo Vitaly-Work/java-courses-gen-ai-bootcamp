@@ -49,6 +49,14 @@ According to the [AWS certification guidelines](https://d1.awsstatic.com/trainin
   - cost optimization
   - IaC and CI/CD
 
+In this training though, we will focus only on
+- data ingestion
+  - with the CSV, JSON, and Parquet formats
+  - from streaming sources
+  - from batched sources
+- data processing using ETL and realtime streaming
+- basic analytics and visualization
+
 # Solution overview
 
 ![](materials/diagrams/practice.jpg)
