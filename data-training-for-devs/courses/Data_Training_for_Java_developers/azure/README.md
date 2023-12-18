@@ -57,7 +57,7 @@ As for architecture foundation we rely on  [Lakehouse architecture](https://dbri
 
 Oveall costs are expected to be around **$15**. They can be cut applying Free Trail subscription. 
 
-##Next Steps
+## Next Steps
 
 If you are willing to aquire more knowledge in Azure Data Engineering you might consider passing [Azure Data Engineer Associate Program] (https://learn.microsoft.com/en-us/credentials/certifications/azure-data-engineer/) along with taking corresponding [certification](https://learn.microsoft.com/en-us/credentials/certifications/exams/dp-203/).
 
