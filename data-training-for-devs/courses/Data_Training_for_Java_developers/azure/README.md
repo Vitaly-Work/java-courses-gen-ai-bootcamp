@@ -56,6 +56,11 @@ As for architecture foundation we rely on  [Lakehouse architecture](https://dbri
 |Databricks|15 day of trial period| All-Purpose Compute Cluster, F4_Standard  Instance (4 vCPU, 8 GiB)| ~$9
 
 Oveall costs are expected to be around **$15**. They can be cut applying Free Trail subscription. 
+
+##Next Steps
+
+If you are willing to aquire more knowledge in Azure Data Engineering you might consider passing [Azure Data Engineer Associate Program] (https://learn.microsoft.com/en-us/credentials/certifications/azure-data-engineer/) along with taking corresponding [certification](https://learn.microsoft.com/en-us/credentials/certifications/exams/dp-203/).
+
 ## Materials
 ### Reference Architecture
  - [Azure Synapse Analitics. End-to-And](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end?tabs=portal)
