@@ -16,6 +16,47 @@
 - AWS EMR
   - writing serverless Spark analytical jobs
 
+# Who is Data Engineer in AWS
+According to the [AWS certification guidelines](https://d1.awsstatic.com/training-and-certification/docs-data-engineer-associate/AWS-Certified-Data-Engineer-Associate_Exam-Guide.pdf), a data engineer should be able handle
+- serverless and container resource in the cloud
+  - data ingestion and transformation
+  - choices of appropriate ingestion services
+  - streaming
+  - batching
+  - stateful and stateless data transactions
+  - ETL pipelines
+  - pipeline orchestration
+  - event-driven architectures
+- data store management
+  - storage choice based on load and usage patterns
+  - storage formats (Parquet, TXT, etc.)
+  - data migration
+  - data cataloging and classification
+  - data lifecycle management including tiering, retention, and availability
+  - data schema design and evolution
+- data operations and support
+  - automate data processing
+  - data analysis and visualization
+  - audit and lineage
+  - data quality
+- data security and governance
+  - VPC security
+  - authentication and authorization
+  - data encryption and masking
+- for all the above
+  - monitoring and alerting
+  - performance optimization
+  - cost optimization
+  - IaC and CI/CD
+
+In this training though, we will focus only on
+- data ingestion
+  - with the CSV, JSON, and Parquet formats
+  - from streaming sources
+  - from batched sources
+- data processing using ETL and realtime streaming
+- basic analytics and visualization
+
 # Solution overview
 
 ![](materials/diagrams/practice.jpg)
