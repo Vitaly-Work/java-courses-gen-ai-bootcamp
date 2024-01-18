@@ -28,5 +28,4 @@ In this module it is needed to adjust services with adding tests.
 
 **Note**
 
- - At least one test should be executed for each test type. 
- - All tests should be integrated into the build process for later inclusion into the CI process.
+ - At least one test should be executed for each test type.
