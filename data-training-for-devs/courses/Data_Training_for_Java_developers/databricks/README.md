@@ -11,7 +11,7 @@
 
 ## Materials:
 
-The module includes access to the **Databricks Partner training**: [Data Engineering with Databricks](https://partner-academy.databricks.com/learn/course/1266/data-engineering-with-databricks).
+The module includes access to the **Databricks Partner training**: [Data Engineering with Databricks](https://partner-academy.databricks.com/learn/course/internal/view/elearning/1266/data-engineering-with-databricks).
 
 **Note** that this course provides context for how to perform the actions within it **using both Spark SQL and PySpark**. If you are interested **in one over the other**, feel free to focus on that content (and skip the videos that are not relevant to you).
 
