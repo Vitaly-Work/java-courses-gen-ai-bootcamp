@@ -57,6 +57,9 @@ In this training though, we will focus only on
 - data processing using ETL and realtime streaming
 - basic analytics and visualization
 
+# Prerequisites
+- Some learning self-study materials are hosted on the **AWS Skills Builder** platform. To access it, please, create an **AWS Partner Network** account as described in [this guide](https://kb.epam.com/pages/viewpage.action?pageId=918404939).
+
 # Solution overview
 
 ![](materials/diagrams/practice.jpg)
