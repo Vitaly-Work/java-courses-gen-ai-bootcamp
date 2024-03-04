@@ -449,3 +449,9 @@ You may find the test generator source code [here](materials/test-data-generator
   * execute `./gradlew deploy -DdeploymentPath=<path>` - this will copy the all-in-one JAR and sample task JSONs to the _path_ specified
 	* the `-DdeploymentPath` is optional - by default the deployment will happen in _test-data-generator/build/deployment_
 	* when running on Windows, make sure to prepend your deployment path with “\” if using an absolute path
+
+# Testing code locally
+Please, follow the `README` in `materials/aws-local-sandbox`. That module allows
+- running an S3-like storage
+- running AWS Glue ETL jobs and Jupyter Lab
+- running a 1-node Spark cluster which may serve as a substitute for AWS EMR

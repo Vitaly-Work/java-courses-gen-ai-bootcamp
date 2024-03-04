@@ -1,0 +1,12 @@
+.idea/
+*.iml
+
+dt/
+
+*/build/
+*/out/
+/**/logs/
+local-infra/env/dt4j-spark/apps/
+
+/local-infra/.env
+/local-infra/dt4j-glue-etl/workspace
