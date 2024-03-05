@@ -14,5 +14,6 @@ public class AwsApiAuthDefinition {
     private final String accessKeyId;
     @NonNull
     private final String secretKey;
+    private final String sessionToken;
 
 }

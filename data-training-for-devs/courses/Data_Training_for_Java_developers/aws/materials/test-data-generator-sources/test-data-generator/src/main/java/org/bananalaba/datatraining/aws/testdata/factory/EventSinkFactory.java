@@ -5,6 +5,7 @@ import static org.apache.commons.lang3.Validate.notNull;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -104,7 +105,9 @@ public class EventSinkFactory {
 
         var kinesisBuilder = AmazonKinesisClientBuilder.standard();
         if (auth != null) {
-            var credentials = new BasicAWSCredentials(auth.getAccessKeyId(), auth.getSecretKey());
+            var credentials = (auth.getSessionToken() == null)
+                              ? new BasicAWSCredentials(auth.getAccessKeyId(), auth.getSecretKey())
+                              : new BasicSessionCredentials(auth.getAccessKeyId(), auth.getSecretKey(), auth.getSessionToken());
             kinesisBuilder.setCredentials(new AWSStaticCredentialsProvider(credentials));
         }
 
