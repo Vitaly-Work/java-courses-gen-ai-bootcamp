@@ -21,6 +21,12 @@
     * use the CSV bucket as the _input_loc_ parameter
     * use the Parquet bucket as the _output_loc_ parameter
     * make sure to choose the **Python shell** job type and **0.0625 DPU** of compute
+    * the instruction contains the code including the `setuptools.easy_install` Python library which is deprecated, so instead:
+        * download the following package of the `pyarrow` library: [link](https://files.pythonhosted.org/packages/9f/c2/ae15d52e13a8274aaf113b28a401121d519267b590351b815346f3af4ca2/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl);
+        * don't rename it and just upload it as-is into any S3 folder your Glue job role has access to;
+        * go to Job Details -> Advanced Properties -> Libraries -> Python Library path and put the `pyarrow` S3 path to there, like `s3://bucket/prefix/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl`
+        * remove the lines 7-12 selected on the screen from your script code: ![image.png](./image.png)
+        * run the job
 
 **Cost management recommendations:**
 * make sure the ETL job is shut down
