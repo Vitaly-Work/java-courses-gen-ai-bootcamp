@@ -12,6 +12,29 @@
 * create a CloudFormation template with a [Kinesis Data Streams resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html)
     * specify the _provisioned_ mode
     * specify 1 shard
+* **for personal AWS accounts**
+  * make sure to use AWS CLI to generate valid access key id and secret key in `<user_home>/.aws/credentials`
+* **for EPAM AWS Sandboxes**
+  * make sure to follow the Sandbox setup guide to configure a `sandx` profile in `<user_home>/.aws/credentials`
+  * locate `aws/materials/aws-local-sandbox`
+  * make sure to follow `One-time setup > Configure environment variables` README
+  * open your PowerShell in `aws/materials/aws-local-sandbox/local-infra`
+  * run `.\issue-aws-credentials.ps1` - this should output a JSON
+  * in the Kinesis metrics stream generator config, add an `auth` object as follows:
+```json5
+{
+  "@type": "kinesis-metrics-stream",
+  "auth": {
+    "accessKeyId": "<accessKeyId from the credentials JSON>",
+    "secretKey": "<secretAccessKey from the credentials JSON>",
+    "sessionToken": "<sessionToken from the credentials JSON>"
+  },
+  "stream": {
+    // your stream config
+  }
+  // everything else
+}
+```
 * run the template and make sure a stream is created
 * generate metrics
     * make sure to authorise to your AWS account via AWS CLI
