@@ -24,6 +24,8 @@
 ```
 S3_SECRET_KEY=<at_least_10_symbols>
 S3_ACCESS_KEY=<at_least_10_symbols>
+USER_HOME=<your user home directory, e.g. C:\Users\John_Doe - without a trailing slash>
+AWS_ROLE_NAME=<firstname_lastname as in your EPAM email but in lowercase>
 ```
 
 # Use cases
