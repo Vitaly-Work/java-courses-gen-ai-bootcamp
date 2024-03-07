@@ -38,6 +38,12 @@ if ($action -Eq "aws-sandbox-refresh")
 } elseif ($action -Eq "start")
 {
     docker compose --project-directory dt4j-grafana up -d
+}elseif ($action -Eq "stop")
+{
+    docker compose --project-directory dt4j-grafana stop
+}elseif ($action -Eq "start")
+{
+    docker compose --project-directory dt4j-grafana down
 } else
 {
     throw "unknown action: $action"
