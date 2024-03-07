@@ -12,6 +12,7 @@
 
 **Instructions:**
 * run Grafana instance locally [using Docker](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/)
+* to simplify things (especially if you use an EPAM AWS Sandbox), use the Grafana setup from `materials/aws-local-stack` (see the README there)
 * configure the [Grafana Athena plugin](https://grafana.com/grafana/plugins/grafana-athena-datasource/) with credentials to access the Athena/Glue database created in sub-task 2
 * create a Grafana dashboard which allows choosing a specific metric and component and showing a chart with average values for the metric over time
 
