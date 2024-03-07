@@ -10,7 +10,7 @@
 ## Create a Python virtual environment
 - install [Virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)
 - open your CLI (terminal/shell/or else) in the `aws-loacl-sandbox` folder
-- run `virtualenv dt`
+- run `python -m virtualenv dt`
 - run `.\dt\Scripts\activate` - **needed every time you run Python stuff for this project, or rely on session support in your CLI (e.g. in PowerShell)**
 - confirm that `(dt)` appeared in front of your CLI input
 
