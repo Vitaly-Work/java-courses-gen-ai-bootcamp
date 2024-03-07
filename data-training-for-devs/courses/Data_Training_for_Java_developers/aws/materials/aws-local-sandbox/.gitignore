@@ -10,3 +10,4 @@ local-infra/env/dt4j-spark/apps/
 
 /local-infra/.env
 /local-infra/dt4j-glue-etl/workspace
+/local-infra/dt4j-grafana/.aws
