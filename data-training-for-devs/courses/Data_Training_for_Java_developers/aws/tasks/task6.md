@@ -8,19 +8,19 @@
 
 **Instructions**:
 * update the Flink application from sub-task 5
-  * extend the windowing step to additionally group aggregate metrics by the `componentName` field
-  * direct the output to another Kinesis Stream in the following format (one JSON object per component-metric-timestampFrom/To per line without an enclosing array object):
-```json
-{"componentName": "order-service","fromTimestamp": "2020-09-01T12:35:05.001Z","maxValue": 38.61436853525056,"metricName": "cpu","minValue": 18.542453763847536,"toTimestamp": "2020-09-01T12:35:15.001Z","unit": "percent"}
-{"componentName": "order-service","fromTimestamp": "2020-09-01T12:35:05.001Z","maxValue": 71.90267207311402,"metricName": "ram","minValue": 60.24624059569559,"toTimestamp": "2020-09-01T12:35:15.001Z","unit": "percent"}
-```
+  * direct the output to another Kinesis Stream
 * update the CloudFormation template created in sub-tasks 4-5
     * create another Kinesis Stream (I) that will serve as the output for the Flink application - use 1 provisioned shard
     * create another S3 bucket (O)
     * create a Kinesis Data Firehose delivery stream
     * configure the delivery stream to
       * read from stream I
-      * write the metric JSON groups to bucket O
+      * write to bucket O
+      * enable [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html#dynamic-partitioning-s3bucketprefix)
+        * use JQ queries to extract the `componentName` field from the JSON payloads produced by the Flink application
+        * specify the `!{componentName}/` bucket prefix and any error bucket prefix
+        * **pitfall**: both normal and error bucket prefixes must end with `/`
+        * configure buffering hints - specify 60 seconds as the time hint
     * point the Flink application created in sub-task 5 to write to stream O
 * ingest some events to the Kinesis Data Stream and use Athena to make sure the data appears in the destination bucket
 * create a table in AWS Glue Catalog
@@ -30,6 +30,7 @@
   * specify JSON as the format
 * in Athena
   * partition the new table just like in task 1
+  * **pitfall**: do not forget to manually add one partition per unique `componentName` you publish to Kinesis Streams
   * try querying the new table
 
 **Cost management recommendations:**
