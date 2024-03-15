@@ -21,13 +21,35 @@
     * calculates the number of calls per service pair (see the _Server traffic report_ model)
     * writes the reports in the JSON format into the S3 traffic report bucket
 * cover the job with unit tests
-* deploy the job using EMR in Serverless mode
+* deploy the job using EMR
+  * create an IAM role which grants access to the input and output buckets
+  * create an EMR Studio (it's free to keep)
+  * create an EMR Serverless application, but **pay attention to**
+    * disable pre-initialized capacity
+    * set capacity limits to 3 vCPUs, 4096 Mb of RAM, 20 Gb of disk
+    * make sure interactive endpoint is disabled
+  * upload your Spark code archive to some S3 bucket
 * use the server access log task provided by the test data generator and copy the resulting files to the S3 server access logs bucket
-* run the job, and make sure correct reports appear in the S3 traffic report bucket
-* configure a graph dashboard in Grafana
-    * follow the conventions from the [node graph panel documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/)
-    * check how to [use SQL-like data sources for graph visualisations](https://community.grafana.com/t/nodegraph-with-mysql/66338/3)
-    * use an Athena datasource pointed at the S3 traffic report bucket as the _edges_ Grafana data frame
+* run the job
+  * in the serverless app just created above, submit a job
+  * use the following parameters
+    * choose the IAM role created above
+    * browse to your Spark code archive in S3
+    * set the following Spark properties (edit as text):
+```
+--conf spark.executor.cores=1 --conf spark.executor.memory=1g --conf spark.driver.cores=1 --conf spark.driver.memory=1g --conf spark.executor.instances=1
+```
+  * wait for the job to start (may take 2-3 minutes for the first time if there is no capacity running at the moment for your app)
+  * make sure correct reports appear in the S3 traffic report bucket
+  * in case of issues, check "View logs" in the job run
+    * stderr for Spark driver logs
+    * stdout for logs from your code
+  * configure a graph dashboard in Grafana
+      * follow the conventions from the [node graph panel documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/)
+      * check how to [use SQL-like data sources for graph visualisations](https://community.grafana.com/t/nodegraph-with-mysql/66338/3)
+      * use an Athena datasource pointed at the S3 traffic report bucket as the _edges_ Grafana data frame
 
 **Cost management recommendations:**
 * make sure the EMR job is shut down
+* delete the EMR Serverless application
+* EMR Studio may be left intact - it's free
