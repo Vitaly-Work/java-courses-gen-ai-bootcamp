@@ -14,7 +14,7 @@
     * specify 1 shard
 * **for personal AWS accounts**
   * make sure to use AWS CLI to generate valid access key id and secret key in `<user_home>/.aws/credentials`
-* **for EPAM AWS Sandboxes**
+* **for EPAM AWS Sandboxes and those who authenticate using any sort of SSO**
   * make sure to follow the Sandbox setup guide to configure a `sandx` profile in `<user_home>/.aws/credentials`
   * locate `aws/materials/aws-local-sandbox`
   * make sure to follow `One-time setup > Configure environment variables` README
