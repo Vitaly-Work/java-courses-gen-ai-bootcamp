@@ -24,7 +24,7 @@
 * set up Athena
   * create another S3 bucket 
   * open Athena query editor and configure the bucket as an output location in Settings
-  * before running any read queries, add one partition unique `componentName` in the data generated in sub-task 1, for example
+  * before running any read queries, add one partition per unique `componentName` in the data generated in sub-task 1, for example
 ```sql
 ALTER TABLE `<your table name>`
     ADD PARTITION (componentname = 'order-service') LOCATION 's3://ybaranouski-dt4j-metrics-table/order-service/'
