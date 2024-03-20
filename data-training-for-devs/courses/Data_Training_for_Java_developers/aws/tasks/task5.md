@@ -34,7 +34,7 @@
 **Implementation recommendations**
 * make sure to configure a **timestamp assigner**
 * make sure to configure a proper **watermark strategy with source idleness timeout**
-* follow the [Flink test template](flink-test-template/README.MD) to implement integration tests for your application
+* follow the [Flink test template](../materials/flink-test-template/README.MD) to implement integration tests for your application
 
 **Cost management recommendations:**
 * make sure to dispose the resources create using CloudFormation - **Kinesis Stream is the most expensive component in the overall solution**
