@@ -22,6 +22,7 @@
     * use the CSV bucket as the _input_loc_ parameter
     * use the Parquet bucket as the _output_loc_ parameter
     * make sure your _output_loc_ has the following format: `<bucket-name>/<component-name>/`, for example `ybaranouski-dt4j-metrics-table/order-service/`
+    * make sure you've chosen **Script editor** section for editing Python code (other options can bring about opening interactive session and be a cause of extra charges)
     * make sure to choose the **Python shell** job type and **0.0625 DPU** of compute
     * the instruction contains the code including the `setuptools.easy_install` Python library which is deprecated, so instead:
         * download the following package of the `pyarrow` library: [link](https://files.pythonhosted.org/packages/9f/c2/ae15d52e13a8274aaf113b28a401121d519267b590351b815346f3af4ca2/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl);
