@@ -26,7 +26,7 @@
   * create an EMR Studio (it's free to keep)
   * create an EMR Serverless application, but **pay attention to**
     * disable pre-initialized capacity
-    * set capacity limits to 3 vCPUs, 4096 Mb of RAM, 20 Gb of disk
+    * set capacity limits to 3 vCPUs, 4096 Mb of RAM, 60 Gb of disk
     * make sure interactive endpoint is disabled
   * upload your Spark code archive to some S3 bucket
 * use the server access log task provided by the test data generator and copy the resulting files to the S3 server access logs bucket
@@ -44,6 +44,7 @@
   * in case of issues, check "View logs" in the job run
     * stderr for Spark driver logs
     * stdout for logs from your code
+    * click "Clone" button to rerun the failed job
   * configure a graph dashboard in Grafana
       * follow the conventions from the [node graph panel documentation](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/)
       * check how to [use SQL-like data sources for graph visualisations](https://community.grafana.com/t/nodegraph-with-mysql/66338/3)
