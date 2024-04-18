@@ -3,8 +3,9 @@
 
 1. combine locations and countries tables, to return country_name,
 country_id, and city, based on country_id column in such
-a way to return all locations, including the ones which do not
-have corresponding city column values in country table.
+a way to return all countries whether their country_id column has
+the corresponding city values in the locations table or not.
+(Note: Same country can be returned in several records, with different city value)
 2. Select two columns from employees table. One column must be
 called employee_name and another manager_name, so that this result
 will show which employee reports to which manager. 
