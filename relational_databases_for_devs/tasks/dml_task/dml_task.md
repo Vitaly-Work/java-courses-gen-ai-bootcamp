@@ -18,7 +18,7 @@ region id of 2, and country id of GE.
 of 'GE' to set the region_id value to 3.
 6. Perform CROSS JOIN for countries and locations tables. How many records 
 does it return?
-7. View the scripts for the tasks 7 to 9 on this link: [scripts](scripts/task_scripts) 
+7. View the scripts for the tasks 7 to 9 on this link: [scripts](https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/relational_databases_for_devs/tasks/dml_task/scripts/task_scripts.md) 
 Select movie title and release_year columns from two tables: 
 top_rated_movies and most_popular_films. Use UNION in such a way to
 return only distinct movie names (without duplicates).
