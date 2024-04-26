@@ -10,8 +10,7 @@ the corresponding city values in the locations table or not.
 called employee_name and another manager_name, so that this result
 will show which employee reports to which manager. 
 HINT: Use self join for employees table.
-3. Perform query for countries table to remove the country with region_id of
-with country_id of AU.
+3. Perform query for countries table to remove the country with country_id of AU.
 4. Perform INSERT query for countries to insert new country named Georgia with
 region id of 2, and country id of GE.
 5. Perform UPDATE query for countries to update the record with country_id
