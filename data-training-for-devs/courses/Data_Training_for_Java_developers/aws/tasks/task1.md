@@ -59,3 +59,6 @@ organised and easy to track.
 
 # Cost management recommendations
 * make sure the ETL job is shut down
+
+# Checklist for the final exam
+The checklist for this task is part of the demo expected for **task 2**.
