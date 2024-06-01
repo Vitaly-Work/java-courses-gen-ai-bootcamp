@@ -3,7 +3,7 @@
   "stream": {
     "region": "${aws_region}",
     "streamName": "${aws_kinesis_stream}",
-    "timeoutMillis": 1000
+    "timeoutMillis": 3000
   },
   "iterationsNumber": 25,
   "timer": {
