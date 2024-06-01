@@ -8,4 +8,6 @@ public interface EventSink<T extends Event> {
 
     void close();
 
+    long estimateSubmissionLatencyMillis();
+
 }

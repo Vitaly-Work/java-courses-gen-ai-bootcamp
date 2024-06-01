@@ -25,4 +25,9 @@ public class SyntheticEventTimer implements EventTimer {
         return result;
     }
 
+    @Override
+    public long estimateRealTimeDelayMillis() {
+        return 0;
+    }
+
 }

@@ -25,4 +25,8 @@ public class EventGenerator {
         }
     }
 
+    public long estimateIterationLatencyMillis() {
+        return sink.estimateSubmissionLatencyMillis();
+    }
+
 }

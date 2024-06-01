@@ -63,4 +63,13 @@ public class RealtimeTimerTest {
         verify(systemTime, times(2)).sleep(200L);
     }
 
+    @Test
+    public void shouldEstimateDelayAsItsRate() {
+        var timer = new RealtimeTimer(systemTime, Instant.ofEpochMilli(100), 200L);
+
+        var actual = timer.estimateRealTimeDelayMillis();
+
+        assertThat(actual).isEqualTo(200L);
+    }
+
 }
