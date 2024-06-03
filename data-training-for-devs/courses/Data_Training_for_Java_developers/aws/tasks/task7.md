@@ -146,4 +146,6 @@ user-service-2022-09-17.txt
 7. show an Athena data source pointing to the DataCatalog Table
 8. show a dashboard
    1. prove that it points to the Athena data source
-   2. make a query
+   2. prove that the dashboard has a graph nodes panel like this
+
+![](../materials/diagrams/network_graph_example.png)
