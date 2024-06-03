@@ -29,7 +29,10 @@
 * **implementation recommendations**
   * make sure to configure a **timestamp assigner**
   * make sure to configure a proper **watermark strategy with source idleness timeout**
-  * follow the [Flink test template](../materials/flink-test-template/README.MD) to implement integration tests for your application
+  * follow the [Flink test template](../materials/flink-test-template/README.MD)
+    * this template project will help you to set up a baseline for the dependencies required to package a Flink application for AWS deployment using an Uber (shaded) JAR
+    * also, it contains a convenient template for running Flink integration tests locally against LocalStack's Kinesis implementation
+    * in case you're more inclined towards Maven, you may still reuse the integration test template and look up a POM example [here](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/blob/main/java/KinesisConnectors/pom.xml)
 
 ## Step 3 - test the streaming application
 * write some [unit tests](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/dev/datastream/testing/) for the application
