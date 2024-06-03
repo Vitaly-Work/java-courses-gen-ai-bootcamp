@@ -31,6 +31,7 @@
   * make sure to configure a proper **watermark strategy with source idleness timeout**
   * follow the [Flink test template](../materials/flink-test-template/README.MD)
     * this template project will help you to set up a baseline for the dependencies required to package a Flink application for AWS deployment using an Uber (shaded) JAR
+    * also it contains an example of how to handle serialisation and JSON mapping with Flink - **this is one of the main specifics of Flink API**
     * also, it contains a convenient template for running Flink integration tests locally against LocalStack's Kinesis implementation
     * in case you're more inclined towards Maven, you may still reuse the integration test template and look up a POM example [here](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/blob/main/java/KinesisConnectors/pom.xml)
 
