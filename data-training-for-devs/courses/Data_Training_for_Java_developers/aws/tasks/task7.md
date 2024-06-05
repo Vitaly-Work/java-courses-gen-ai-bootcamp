@@ -37,7 +37,7 @@
   * upload your Spark code archive to the **Source Code bucket**
 
 ## Step 4 - run a job
-* use the server access log task provided by the test data generator and copy the resulting files to the S3 server access logs bucket
+* use the server access log task provided by the [test data generator](../materials/test-data-generator-prebuilt) and copy the resulting files to the S3 server access logs bucket
 * run the job
   * in the serverless app just created above, submit a job
   * use the following parameters

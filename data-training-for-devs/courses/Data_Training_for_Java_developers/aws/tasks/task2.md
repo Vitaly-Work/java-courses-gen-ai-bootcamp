@@ -24,7 +24,7 @@
       * minValue - double
       * toTimestamp - string
       * unit - string
-* **schema pitfalls**
+* **PAY ATTENTION TO THE FOLLOWING PITFALLS**
   * make sure to add the columns in the order exactly as in the header of the CSVs generated in sub-task 1
   * before confirming the table creation, make sure the `componentName` column is at position 1 - manually adjust, if Glue Catalog tries pushing it at the end
 

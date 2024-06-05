@@ -36,11 +36,11 @@ organised and easy to track.
   * **make sure the bucket names include your name** (e.g. `ybaranouski` or `Yauhen_B` or else)
   * create a bucket for storing the windowed metrics in the CSV format
   * create a bucket for storing the windowed metrics in the Parquet format
-  * use the CSV metrics task provided by the test data generator and copy the resulting files to the CSV bucket
+  * use the CSV metrics task provided by the [test data generator and copy](../materials/test-data-generator-prebuilt) the resulting files to the CSV bucket
 
 ## Step 2 - create an ETL job
 * follow [this guide](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/three-aws-glue-etl-job-types-for-converting-data-to-apache-parquet.html) to create a Glue ETL job
-* **pay attention to the following pitfalls**:
+* **PAY ATTENTION TO THE FOLLOWING PITFALLS**:
   * do not use nor Visual Editor, nor Notebooks - these will cost you money 
   * the instruction contains the code including the `setuptools.easy_install` Python library which is deprecated, so instead:
       * download the following package of the `pyarrow` library: [link](https://files.pythonhosted.org/packages/9f/c2/ae15d52e13a8274aaf113b28a401121d519267b590351b815346f3af4ca2/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl);
