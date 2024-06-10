@@ -62,3 +62,9 @@ organised and easy to track.
 
 # Checklist for the final exam
 The checklist for this task is part of the demo expected for **task 2**.
+
+# Final exam theory questions
+1. What services are included into AWS Glue?
+2. What backs AWS Glue ETL jobs?
+3. Is it possible to run Glue ETL jobs incrementally (e.g. when new input files are added daily and we don’t want to process what has already been processed)?
+4. What’s the difference between Glue PyShell vs Glue notebook?

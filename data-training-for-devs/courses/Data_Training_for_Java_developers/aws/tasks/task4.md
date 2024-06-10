@@ -51,3 +51,13 @@
 
 # Checklist for the final exam
 The checklist for this task is part of the demo expected for **task 6**.
+
+# Final exam theory questions
+
+1. What are shards in Kinesis Data Streams? How do they implement scalability?
+2. What is a partition key and sequence number in Kinesis Data Streams?
+3. What is the difference between provisioned and on-demand capacity mode in Kinesis Data Streams?
+4. What are the size and retention limitations in Kinesis Data Streams?
+5. What AWS services can directly write to Kinesis Data Streams?
+6. How can we monitor a Kinesis Data Stream? What metrics are available?
+

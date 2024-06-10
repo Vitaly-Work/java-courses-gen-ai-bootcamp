@@ -91,3 +91,14 @@ In the scope of this task, the final exam minimal demonstration includes a **scr
    5. maxValue - e.g., 55.333
    6. fromTimestamp - e.g. "2021-09-09T12:15:02.001Z"
    7. toTimestamp - e.g., "2021-09-09T12:15:07.001Z"
+
+# Final exam theory questions
+
+1. What are the typical use cases for Data Firehose?
+2. What is a delivery stream?
+3. What are the available sinks and sources for Data Firehose?
+4. What is data transformation in Data Firehose?
+5. What fields are available in data transformations?
+6. What are the pros/cons of Lambda transformations in Data Firehose?
+7. How can we deal with errors in Data Firehose transformations?
+8. What is dynamic partitioning in Data Firehose?

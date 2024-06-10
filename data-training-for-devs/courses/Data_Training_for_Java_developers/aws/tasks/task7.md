@@ -149,3 +149,12 @@ user-service-2022-09-17.txt
    2. prove that the dashboard has a graph nodes panel like this
 
 ![](../materials/diagrams/network_graph_example.png)
+
+# Final exam theory questions
+
+1. What logical components are involved in creating and running EMR Serverless jobs?
+2. How does capacity provisioning work for EMR Serverless?
+3. What parameters may be configured for EMR Serverless jobs?
+4. How can we supply custom libraries for EMR Serverless jobs?
+5. How can we monitor the execution of an EMR Serverless job?
+6. What are the use cases for EMR Serverless vs regular EMR clusters?

@@ -53,3 +53,15 @@
 # Checklist for the final exam
 
 The checklist for this task is part of the demo expected for **task 6**.
+
+# Final exam theory questions
+
+1. What are the key components in a Flink cluster?
+2. What is the difference between batch jobs and streaming jobs in Flink?
+3. How does serialisation work in Flink?
+4. What are checkpoints in Flink?
+5. What are the key API abstractions in Flink?
+6. What is the difference between Flink data streams vs data tables?
+7. How can we test Flink code?
+8. What are windowing operations in Flink? What aggregations functions are available for them?
+9. What window types does Flink provide? How can we implement a custom windowing strategy?

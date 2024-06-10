@@ -80,3 +80,8 @@ order-service,2020-09-01T12:35:25.001Z,46.50702379693269,ram,36.03431439176199,2
    7. unit - string
 7. The table name must include the student name in its name (e.g. `ybaranouski` or `Yauhen_B` or else)
 8. make an Athena query to find the **chosen row** selected above.
+
+# Final exam theory questions
+
+1. What are the key API abstractions in Glue DataCatalog?
+2. How does Glue table schema influence the file layout in S3?

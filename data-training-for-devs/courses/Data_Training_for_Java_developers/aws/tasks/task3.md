@@ -28,3 +28,10 @@ In the scope of this task, the final exam minimal demonstration includes a **scr
    1. show the dashboard config to prove that it points to the data source above
    2. fetch N first rows in Athena UI
    3. fetch the same N first rows in Grafana
+
+# Final exam theory questions
+
+1. What data sources does Athena support?
+2. On the high level, how does Athena query S3?
+3. What are the available options for speeding up Athena queries on ever-growing S3 datasets?
+4. What technology backs Athena?
