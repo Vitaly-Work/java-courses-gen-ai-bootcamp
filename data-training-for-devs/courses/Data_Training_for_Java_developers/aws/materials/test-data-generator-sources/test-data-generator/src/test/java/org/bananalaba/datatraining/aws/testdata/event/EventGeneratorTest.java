@@ -1,5 +1,6 @@
 package org.bananalaba.datatraining.aws.testdata.event;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -70,6 +71,14 @@ public class EventGeneratorTest {
         flow.verify(sink).submit(event1);
         flow.verify(sink).submit(event2);
         flow.verify(sink).submit(event3);
+    }
+
+    @Test
+    public void shouldEstimateIterationDelay() {
+        when(sink.estimateSubmissionLatencyMillis()).thenReturn(100L);
+
+        var actual = generator.estimateIterationLatencyMillis();
+        assertThat(actual).isEqualTo(100L);
     }
 
     static class TestEvent implements Event {

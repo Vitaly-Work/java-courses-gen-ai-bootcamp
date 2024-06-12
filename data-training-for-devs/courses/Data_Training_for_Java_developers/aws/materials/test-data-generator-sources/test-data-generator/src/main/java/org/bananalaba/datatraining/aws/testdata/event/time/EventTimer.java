@@ -6,4 +6,6 @@ public interface EventTimer {
 
     Instant nextTime();
 
+    long estimateRealTimeDelayMillis();
+
 }

@@ -64,4 +64,9 @@ public class PlainTextStreamEventSink<T extends Event> implements EventSink<T> {
         }
     }
 
+    @Override
+    public long estimateSubmissionLatencyMillis() {
+        return 0;
+    }
+
 }

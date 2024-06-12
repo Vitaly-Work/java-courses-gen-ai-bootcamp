@@ -99,6 +99,15 @@ public class PlainTextStreamEventSinkTest {
         verify(output).close();
     }
 
+    @Test
+    public void shouldEstimateSubmissionLatency() {
+        var output = mock(OutputStream.class);
+        var sink = new PlainTextStreamEventSink<>(schema, output, ",", true);
+
+        var actual = sink.estimateSubmissionLatencyMillis();
+        assertThat(actual).isEqualTo(0);
+    }
+
     @Getter
     @RequiredArgsConstructor
     static class TestEvent implements Event {

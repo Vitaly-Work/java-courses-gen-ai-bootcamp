@@ -40,7 +40,13 @@ public class AwsKinesisStreamsSinkTest {
 
     @BeforeEach
     public void setUp() {
-        sink = new AwsKinesisStreamsSink<>(kinesis, payloadMapper, "some-stream", streamPartitioner);
+        sink = AwsKinesisStreamsSink.<TestEvent>builder()
+            .kinesis(kinesis)
+            .payloadMapper(payloadMapper)
+            .streamName("some-stream")
+            .streamPartitioner(streamPartitioner)
+            .timeoutMillis(100)
+            .build();
     }
 
     @Test
@@ -59,6 +65,7 @@ public class AwsKinesisStreamsSinkTest {
         expectedRequest.setData(ByteBuffer.wrap(bytes));
         expectedRequest.setPartitionKey("a");
         expectedRequest.setStreamName("some-stream");
+        expectedRequest.setSdkClientExecutionTimeout(100);
         assertThat(request.getValue()).usingRecursiveComparison().isEqualTo(expectedRequest);
     }
 
@@ -97,6 +104,12 @@ public class AwsKinesisStreamsSinkTest {
         sink.close();
 
         verifyNoInteractions(kinesis);
+    }
+
+    @Test
+    public void shouldEstimateSubmissionDelay() {
+        var actual = sink.estimateSubmissionLatencyMillis();
+        assertThat(actual).isEqualTo(100);
     }
 
     static class TestEvent implements Event {

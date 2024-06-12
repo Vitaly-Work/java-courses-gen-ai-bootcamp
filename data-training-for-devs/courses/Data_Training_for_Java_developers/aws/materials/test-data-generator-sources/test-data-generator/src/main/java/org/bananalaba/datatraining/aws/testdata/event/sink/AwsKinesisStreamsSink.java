@@ -1,5 +1,6 @@
 package org.bananalaba.datatraining.aws.testdata.event.sink;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static org.apache.commons.lang3.Validate.notNull;
 
 import com.amazonaws.services.kinesis.AmazonKinesis;
@@ -9,11 +10,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.ByteBuffer;
 import java.util.function.Function;
-import lombok.RequiredArgsConstructor;
+import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.bananalaba.datatraining.aws.testdata.event.Event;
 
-@RequiredArgsConstructor
+@Builder
 @Slf4j
 public class AwsKinesisStreamsSink<T extends Event> implements EventSink<T> {
 
@@ -23,6 +24,8 @@ public class AwsKinesisStreamsSink<T extends Event> implements EventSink<T> {
     private final String streamName;
     private final Function<T, String> streamPartitioner;
 
+    private final int timeoutMillis;
+
     @Override
     public void submit(T event) {
         notNull(event, "event required");
@@ -31,6 +34,7 @@ public class AwsKinesisStreamsSink<T extends Event> implements EventSink<T> {
         request.setStreamName(streamName);
         request.setPartitionKey(streamPartitioner.apply(event));
         request.setData(serialise(event));
+        request.setSdkClientExecutionTimeout(timeoutMillis);
 
         try {
             log.info("sending {} to Kinesis Streams: streamName = {}, partitionKey = {}",
@@ -53,6 +57,25 @@ public class AwsKinesisStreamsSink<T extends Event> implements EventSink<T> {
 
     @Override
     public void close() {
+    }
+
+    @Override
+    public long estimateSubmissionLatencyMillis() {
+        return timeoutMillis;
+    }
+
+    public static class AwsKinesisStreamsSinkBuilder<T extends Event> {
+
+        private Function<T, String> streamPartitioner;
+        private int timeoutMillis = 500;
+
+        public AwsKinesisStreamsSinkBuilder<T> timeoutMillis(final int timeoutMillis) {
+            checkArgument(timeoutMillis > 0, "timeout must be > 0");
+            this.timeoutMillis = timeoutMillis;
+
+            return this;
+        }
+
     }
 
 }

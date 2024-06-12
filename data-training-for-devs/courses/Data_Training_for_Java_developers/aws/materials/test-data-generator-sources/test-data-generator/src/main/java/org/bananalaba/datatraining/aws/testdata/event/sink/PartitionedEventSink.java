@@ -36,4 +36,10 @@ public class PartitionedEventSink<T extends Event> implements EventSink<T> {
 
         partitions.clear();
     }
+
+    @Override
+    public long estimateSubmissionLatencyMillis() {
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+
 }

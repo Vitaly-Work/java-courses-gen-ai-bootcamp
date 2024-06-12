@@ -44,4 +44,12 @@ public class SyntheticEventTimerTest {
         assertThat(actual).isEqualTo(expected);
     }
 
+    @Test
+    public void shouldEstimateRealtimeDelayAsZero() {
+        var timer = new SyntheticEventTimer(Instant.ofEpochMilli(165984560), 300);
+
+        var actual = timer.estimateRealTimeDelayMillis();
+        assertThat(actual).isEqualTo(0);
+    }
+
 }

@@ -46,6 +46,11 @@ public class RealtimeTimer implements EventTimer {
         return Instant.ofEpochMilli(currentTime);
     }
 
+    @Override
+    public long estimateRealTimeDelayMillis() {
+        return rateMillis;
+    }
+
     interface SystemTime {
 
         void sleep(long millis) throws InterruptedException;
