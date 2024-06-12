@@ -119,12 +119,13 @@ public class EventSinkFactory {
             kinesisBuilder.setRegion(stream.getRegion());
         }
 
-        return new AwsKinesisStreamsSink<>(
-            kinesisBuilder.build(),
-            metricPayloadMapper,
-            stream.getStreamName(),
-            metric -> metric.getComponentName() + "_" + metric.getMetricName()
-        );
+        return AwsKinesisStreamsSink.<Metric>builder()
+            .kinesis(kinesisBuilder.build())
+            .payloadMapper(metricPayloadMapper)
+            .streamName(stream.getStreamName())
+            .streamPartitioner(metric -> metric.getComponentName() + "_" + metric.getMetricName())
+            .timeoutMillis(stream.getTimeoutMillis())
+            .build();
     }
 
 }

@@ -8,7 +8,8 @@
   "stream": {
     "region": "${aws_region}",
     "endpoint": "${aws_kinesis_endpoint}",
-    "streamName": "${aws_kinesis_stream}"
+    "streamName": "${aws_kinesis_stream}",
+    "timeoutMillis": 1000
   },
   "iterationsNumber": 2,
   "timer": {
