@@ -40,8 +40,8 @@ Along with services and deployments, this command outputs pods and replica-sets.
 
 ## Sub-task 3: Persistent volumes
 In this subtask you will make your app pods use local storage. This will ensure that no data is lost during pod deploy/redeploy.
-1. Add PersistentVolume object with "manual" storage class for the User service (create separate manifest file). Configure hostPath field so PersistentVolume create directory on the node.
-2. Add PersistenceVolumeClaim objects to your manifest and reference them from User deployment object.
+1. Add PersistentVolume object with "manual" storage class for the Songs service (create separate manifest file). Configure hostPath field so PersistentVolume create directory on the node.
+2. Add PersistenceVolumeClaim objects to your manifest and reference them from Songs deployment object.
 3. Test PersistentVolume: create any file inside the container in the volume directory, scale down deployment or delete pod, let replicaset automatically create pod, ensure that file still exists.
 
 ## Sub-task 4: Stateful Sets
