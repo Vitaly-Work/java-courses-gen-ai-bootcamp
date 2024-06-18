@@ -4,21 +4,30 @@
 The goal of this task is to prepare Azure infrastrcructure to complete following lessons. You will be provided with Terraform scripts that will setup all required components. In scope of this project you will be doing coding tasks mostly on top of already created component just to avoid tedious and error-prone configuration part.
 ## Prerequisites
  1. Azure personal account or [free trial](https://azure.microsoft.com/en-us/free) if available.
- 2. [Terraform](https://www.terraform.io/) installed locally on your machine.
+ 2. [Terraform](https://www.terraform.io/) is installed locally on your machine.
+ 3. Java (at least version 17) is installed locally on your machine.
+ 4. [Maven](https://maven.apache.org/download.cgi) is installed locally on your machine.
 > It's required to be connected to VPN once you are working from Belarus.
- 3. [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed locally on your machine.
+ 1. [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed locally on your machine.
+ 2. If you are in Belarussian location, you might experience issue accessing terraform, hence VPN is required. 
 ## Steps
- 1. Navigate to */terraform/azure* and open *terraform.tvars* file.
- 2. Navigate to */terraform/azure* folder and execute following command: `terraform install`. 
- 3. In the same directory execute command: `terraform apply`. Print `yes` once requested.
- 4. Installation might take some time, upon completion you will be provided with several endpoints, these are pathes to studios you will be working from. They will look like:
+ 1. Compile and Build Azure Function to be used locally in the application.
+   - Naviage to */materials/function* folder.
+   - Execute `mvn install` command.
+   - Make sure that */materials/function/target/* folder contains compiled and built **function-1.0-SNAPSHOT.jar** file.
+ 2. Install environment.
+  - Navigate to */terraform/azure* and open *terraform.tvars* file.
+  - Navigate to */terraform/azure* folder and execute following command: `terraform init`. 
+  - Run `terraform plan` to review resources that are to be installed in your Azure subscription.
+  - In the same directory execute command: `terraform apply`. Print `yes` once requested.
+  - Installation might take some time, upon completion you will be provided with several endpoints, these are pathes to studios you will be working from. They will look like:
 > databricks_studio_url = "https://adb-123456789.19.azuredatabricks.net"
 
 > datafactory_studio_url = "https://adf.azure.com/en/home"
  
 > synapse_studio_url = "https://web.azuresynapse.net?workspace=%2fsubscriptions%2f4d45zb6a-1310-f0g1-90c2-d82d4d3cbc5f%2fresourceGroups%2fbigdataaaec111lzix_rg%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fsynapse-workspace-bigdataaaec111lzix"
 
- 5. After completion you will have core components being installed within your subscription. The picture below depicts main services. 
+ 1. After completion you will have core components being installed within your subscription. The picture below depicts main services. 
 ![enter image description here](../../materials/images/initial-infra-v1.png)
 ## Validation
  1. Go to your Azure Subscription and validate that following components were successfully deployed:

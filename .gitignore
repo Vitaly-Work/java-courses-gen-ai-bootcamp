@@ -3,3 +3,5 @@
 *.iml
 
 gen-ai-bootcamp/**/target
+data-training-for-devs/courses/Data_Training_for_Java_developers/azure/materials/function.zip
+.vscode/settings.json
