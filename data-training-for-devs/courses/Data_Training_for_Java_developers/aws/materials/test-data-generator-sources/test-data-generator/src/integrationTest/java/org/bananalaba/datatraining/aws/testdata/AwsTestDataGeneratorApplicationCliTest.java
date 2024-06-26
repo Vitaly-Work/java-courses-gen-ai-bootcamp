@@ -2,15 +2,16 @@ package org.bananalaba.datatraining.aws.testdata;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.Map;
+
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import java.io.IOException;
-import java.util.Comparator;
-import java.util.Map;
 import org.bananalaba.datatraining.aws.testdata.event.Metric;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -2,9 +2,11 @@ package org.bananalaba.datatraining.aws.testdata.application;
 
 import static org.apache.commons.lang3.Validate.notBlank;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.FileInputStream;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.bananalaba.datatraining.aws.testdata.definition.DataGenerationTask;
 import org.bananalaba.datatraining.aws.testdata.definition.KinesisMetricsGeneratorTask;
@@ -34,7 +36,8 @@ public class TestDataGeneratorApplication {
     public TestDataGeneratorApplication() {
         System.setProperty("com.amazonaws.sdk.disableCbor", "true");
 
-        jsonMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        jsonMapper = new ObjectMapper().registerModule(new JavaTimeModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         taskParser = new TestDataTaskParser(jsonMapper, System::getProperty);
 
         var timerFactory = GenericFactory.builder(TimerDefinition.class, EventTimer.class)
