@@ -51,7 +51,7 @@ to form a Parquet block - putting enough data quickly in Kinesis Streams might b
 
 # Checklist for the final exam
 
-## Part 1 - code review
+## Part 1 - code review - task 5 option A (Java API)
 In the scope of this task, the student should share a **Java project**.
 **It's highly recommended** to conduct a code review before the final exam to save more time for a live discussion). The project should have the following
 1. a dedicated module containing a data model - the input metrics model and the output aggregate model
@@ -74,7 +74,7 @@ user-service cpu: 57, timestamp: 12:30
 3. reads from the output Kinesis stream and verifies that proper aggregations for each service/component are present with correct min/max/avg values and min/max timestamps
 
 ## Part 2 - live demo
-In the scope of this task, the final exam minimal demonstration includes a **scree cast** that shows the following
+In the scope of this task, the final exam minimal demonstration includes a **screencast** that shows the following
 1. two Kinesis Data Streams (input and output) having the student name in its name (e.g. `ybaranouski` or `Yauhen_B` or else)
 2. prove that both streams are empty by monitoring via Console with the **Trim Horizon** option
 3. show an empty S3 bucket having the student name in its name (e.g. `ybaranouski` or `Yauhen_B` or else)
@@ -91,6 +91,7 @@ In the scope of this task, the final exam minimal demonstration includes a **scr
    5. maxValue - e.g., 55.333
    6. fromTimestamp - e.g. "2021-09-09T12:15:02.001Z"
    7. toTimestamp - e.g., "2021-09-09T12:15:07.001Z"
+10. **only for task 5 option B (interactive notebook)** - open the notebook created in Apache Flink Studio and walk through the SQL code there
 
 # Final exam theory questions
 
