@@ -9,9 +9,12 @@
 ## What to do
 In this module you will create infrastructure for your k8s cluster and deploy your microservices applications there.
 
+## Microservices applications can be found here:
+[microservices.zip](https://epam-my.sharepoint.com/:u:/r/personal/siarhei_svila_epam_com/Documents/Kubernetes/microservices-intro.zip?csf=1&web=1&e=8hbXwK)
+
+
 ## Sub-task 1: Install k8s
-If you have personal licence in Docker Desktop, go to Docker Desktop settings, choose Kubernetes and click checkbox 'Enable Kubernetes'. You will need to wait for the installation and restart docker.
-In other cases you should go the hard way:
+It is recommended to setup Docker and Kubernetes for WSL. Which is hard, overall instructions can be found in [instructions](https://github.com/SiarheiSvila/docker-k8s-setup/blob/master/README.md)
 1. Install docker engine (if not installed) as binaries: https://docs.docker.com/engine/install/binaries/.
 And make sure docker is running by running `docker --version`
 2. Install minikube: https://minikube.sigs.k8s.io/docs/start/.
@@ -37,8 +40,8 @@ Along with services and deployments, this command outputs pods and replica-sets.
 
 ## Sub-task 3: Persistent volumes
 In this subtask you will make your app pods use local storage. This will ensure that no data is lost during pod deploy/redeploy.
-1. Add PersistentVolume object with "manual" storage class for the User service (create separate manifest file). Configure hostPath field so PersistentVolume create directory on the node.
-2. Add PersistenceVolumeClaim objects to your manifest and reference them from User deployment object.
+1. Add PersistentVolume object with "manual" storage class for the Songs service (create separate manifest file). Configure hostPath field so PersistentVolume create directory on the node.
+2. Add PersistenceVolumeClaim objects to your manifest and reference them from Songs deployment object.
 3. Test PersistentVolume: create any file inside the container in the volume directory, scale down deployment or delete pod, let replicaset automatically create pod, ensure that file still exists.
 
 ## Sub-task 4: Stateful Sets
