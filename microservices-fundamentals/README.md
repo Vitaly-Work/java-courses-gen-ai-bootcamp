@@ -29,23 +29,23 @@ Merge to **production** branch during freeze dates. Create this branch if not cr
 - [Practice](tasks/microservices_communication/README.md)
 - [Quiz](quizes/microservices_communication/README.md)
 
-### Module 3: Service discovery
-
-- [Theory](materials/service_discovery/README.md)
-- [Practice](tasks/service_discovery/README.md)
-- [Quiz](quizes/service_discovery/README.md)
-
-### Module 4: Testing
+### Module 3: Testing
 
 - [Theory](materials/microservice_testing/README.md)
 - [Practice](tasks/microservice_testing/README.md)
 - [Quiz](quizes/microservice_testing/README.md)
 
-### Module 5: Containerization
+### Module 4: Containerization
 
 - [Theory](materials/containerization/README.md)
 - [Practice](tasks/containerization/README.md)
 - [Quiz](quizes/containerization/README.md)
+
+### Module 5: Service discovery
+
+- [Theory](materials/service_discovery/README.md)
+- [Practice](tasks/service_discovery/README.md)
+- [Quiz](quizes/service_discovery/README.md)
 
 ### Module 6: Fault-tolerance in microservices environment
 
