@@ -221,6 +221,26 @@ Create a [data test](https://docs.getdbt.com/docs/build/data-tests)
        )
 ```
 - run the DAG and make sure the DBT job is successfully triggered
+- 
 # Optional step - automatic Airflow trigger
 - explore Airflow sensors - special tasks that listen for external events - e.g. [file system](https://airflow.apache.org/docs/apache-airflow/stable/howto/operator/file.html#howto-operator-filesensor)
 - use a sensor to make your `data-quality-pipeline` DAG run every time some files change in the `dags/data` folder
+
+# Exam/review with the mentor
+
+To accept this task, it's mandatory to have a demo of the whole data pipeline running end-to-end.
+Optionally, it's possible to have a separate offline code review session, if necessary.
+
+**The demo** may be **either a video recording (recommended)** or a **live session with the mentor**. The following steps must be included:
+1. An empty *metrics* table is demonstrated in the _NeonDB database_.
+2. The _test data generator_ is run to create a CSV file with fresh metrics.
+3. Open the file and copy a random row to a text editor of choice. Also, note the number of rows generated.
+4. Copy the CSV file to the `dags/data` folder.
+5. Run the data-quality-pipeline in _Airflow UI_.
+   1. The run should be a success.
+   2. Show the status details of the run - it should be visible that there are steps for data ingestion and for data quality checks.
+6. Show the NeonDB *metrics* table and
+   1. confirm that the number of rows correspond to the CSV generated above
+   2. make a `SELECT` query to confirm that the row chosen on step 3 is ingested
+7. Open the *DBT Cloud* and navigate to the jobs. Show that the data-quality job has been run recently and is a success.
+8. Show the data-quality job logs to confirm that it ran at least one data test.
