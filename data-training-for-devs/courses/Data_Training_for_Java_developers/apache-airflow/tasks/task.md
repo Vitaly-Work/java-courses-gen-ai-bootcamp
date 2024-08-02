@@ -82,7 +82,7 @@ Create a DB connection in Airflow
 - test the connection from Airflow UI and make sure no errors pop up
 
 Prepare a test data model
-- learn about the test data model [here](../../aws/TEST_DATA.md) - CSV-formatted metrics
+- learn about the test data model [here](../../aws/DATA_MODEL.md) - the "Windowed metrics" section
 
 Create an `init-db` DAG in Airflow
 - use the following Python code or similar
@@ -142,7 +142,7 @@ task1 = PythonOperator(task_id='Create-Database-With-Tables',
 # Step 4 - data ingestion setup
 Get test data
 - generate the test data
-    - find out how to run the test data generator [here](../../aws/TEST_DATA.md)
+    - find out how to run the test data generator [here](../../aws/TEST_DATA.md) - the "Basic usage" and "CSV-formatted metrics" sections
     - run the test data generator from [here](../../aws/materials/test-data-generator-prebuilt) - use or customise the `metrics-batch.json` task config
 - copy the resulting data to the `dags/data` folder of your Airflow project
 

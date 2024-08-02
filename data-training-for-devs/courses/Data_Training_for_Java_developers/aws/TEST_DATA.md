@@ -1,6 +1,4 @@
-# Generating test data
-
-## Basic usage
+# Basic usage
 
 The suggested way of getting test data for the sub-tasks in this module is through the data generator CLI tool found in the attachments. To use the generator, copy it to some directory and execute the following command:
 ```bash
@@ -13,6 +11,8 @@ The _path-to-task.json_ is either an absolute or relative path to a valid JSON f
 * JSON-formatted Kinesis stream of metrics
 
 The attachments include samples for each of these tasks, but you may write your own if needed as explained below.
+
+# CSV-formatted metrics
 
 The CSV-formatted metrics task has the following properties:
 ```json5
@@ -75,6 +75,7 @@ The CSV-formatted metrics task has the following properties:
 
 ```
 
+# Server access logs
 
 The server access logs task has the following properties:
 ```json5
@@ -221,6 +222,8 @@ The server access logs task has the following properties:
 }
 ```
 
+# Realtime metrics stream
+
 The Kinesis stream of metrics task has the following properties:
 ```json5
 {
@@ -274,7 +277,8 @@ The Kinesis stream of metrics task has the following properties:
  }
 }
 ```
-## Limitations
+
+# Limitations
 
 To safeguard against overuse of AWS resources used in the module, the test data generator imposes some hard-coded limit:
 * Kinesis metrics stream - 100 realtime metrics per task run
@@ -282,7 +286,8 @@ To safeguard against overuse of AWS resources used in the module, the test data 
 * server access logs - 150 000 log entries (including intra-service calls) per task run
 
 If needed, you may get the source code and adjust it yourself. See the details on this below.
-## Building and customising the test generator
+
+# Building and customising the test generator
 
 You may find the test generator source code [here](materials/test-data-generator-sources/). How to build
 * prerequisites
