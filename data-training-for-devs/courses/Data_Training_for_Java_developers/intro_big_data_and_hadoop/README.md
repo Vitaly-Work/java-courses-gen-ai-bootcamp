@@ -297,12 +297,12 @@ Solution
     -   LogStash from the ELK stack is able to index the data collected
         from the log collectors to ElasticSearch
     -   if the log collectors deliver data to some distributed store
-        like AWS S3 or Azure DataFactory, it's possible to use
+        like AWS S3 or Azure Blob Storage, it's possible to use
         serverless functions to apply necessary transformations and push
         the data to ElasticSearch again or time series database or
         elsewhere
 -   there are various platforms that combine powerful querying,
-    visualisation, and alerting capabilities in one box
+    visualization, and alerting capabilities in one box
     -   Kibana from the ELK stack
     -   Grafana
     -   AWS QuickSight
@@ -311,12 +311,11 @@ Solution
 
 Case requirements
 -   a business manages a fleet of IoT devices that produce a continuous
-    stream of signals that must be collected and analysed
+    stream of signals that must be collected and analyzed
 -   all the data must be stored in a durable manner
 -   some critical anomalies must be detected in realtime and immediately
     trigger alerts
--   the rest of analytical tasks may be quite heavy but, being not
-    critical, may be run on schedule
+-   the rest of the analytical tasks may be quite heavy, but since they are not critical, they can be run on schedule.
 
 ![](materials/image15.png)
 
@@ -350,14 +349,13 @@ it's hard to fit everyone in one ETL. We need to define one or more
 **data products** per department and organise them.
 
 Data products on a large scale are typically organised using the **data mesh** architecture
-which goes away from siloed/centralised approaches and builds on top of
+which goes away from siloed/centralized approaches and builds on top of
 a self-service environment. Data meshes enable fast experimentation and
 growth while providing clear guidelines for following good practices:
 
 ![](materials/image16.png)
 
-EPAM has its own template for such platforms that is called **data
-factory**:
+EPAM has its own template for such platforms that called **Data Factory**:
 
 ![](materials/image17.png)
 
@@ -371,28 +369,28 @@ This brings a lot more challenges including
 # Final exam theory questions
 
 ## Hadoop
-1. What is map-reduce? Give an example.
-2. Why was Hadoop so popular at its time?
-3. What is the structure of HDFS?
-4. What is the structure of a Hadoop cluster?
-5. In what respects Spark is similar to Hadoop?
-6. Why did Spark overtake the role of Hadoop (mostly)?
+1. What is `map-reduce`? Give an example.
+2. Why was `Hadoop` so popular at its time?
+3. What is the structure of `HDFS`?
+4. What is the structure of a `Hadoop` cluster?
+5. In what respects `Spark` is similar to `Hadoop`?
+6. Why did `Spark` overtake the role of `Hadoop` (mostly)?
 
 ## Data products and pipelines
-1. 0What is a data product?
-2. What is the difference between data lake, data warehouse, and data mart?
-3. What is ETL?
-4. What is ELT?
-5. When should we use ETL vs ELT?
+1. What is a `Data product`?
+2. What is the difference between `data lake`, `data warehouse`, and `data mart`?
+3. What is `ETL`?
+4. What is `ELT`?
+5. When should we use `ETL` vs `ELT`?
 
 ## File formats
 1. What file formats may be found in modern data pipelines?
 2. What is the difference between row-oriented and column-oriented file formats? Can you give examples in each category?
-3. What is the Avro file layout?
-4. Where can we keep an Avro schema?
-5. What are the pros and cons of Avro?
-6. What are the use cases for Avro vs Parquet vs JSON?
-7. What is the Parquet file layout?
-8. What are the pros and cons of Parquet?
-9. What is the ORC file layout?
-10. What are the pros and cons of ORC?
+3. What is the `Avro` file layout?
+4. Where can we keep an `Avro` schema?
+5. What are the pros and cons of `Avro`?
+6. What are the use cases for `Avro` vs `Parquet` vs `JSON`?
+7. What is the `Parquet` file layout?
+8. What are the pros and cons of `Parquet`?
+9. What is the `ORC` file layout?
+10. What are the pros and cons of `ORC`?
