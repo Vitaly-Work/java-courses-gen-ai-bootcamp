@@ -171,6 +171,9 @@ Set up a DBT Cloud project
 - initialise a project
     - familiarise with the [DBT project structure](https://docs.getdbt.com/docs/build/projects)
     - open your project in the [DBT Cloud IDE](https://docs.getdbt.com/docs/cloud/dbt-cloud-ide/develop-in-the-cloud) and explore it
+    - **PITFALL**: If the cloud IDE fails to start
+      - option A - make sure your project has a [managed Git repository](https://docs.getdbt.com/docs/collaborate/git/managed-repository) attached to it
+      - option B - or connect your own [GitHub/GitLab repo](https://docs.getdbt.com/docs/cloud/git/git-configuration-in-dbt-cloud)
 
 Create environments
 - create a [production environment](https://docs.getdbt.com/docs/deploy/deploy-environments) - required for running jobs
@@ -201,6 +204,7 @@ Create a [data test](https://docs.getdbt.com/docs/build/data-tests)
 - add a connection in Airflow UI
     - choose DBT Cloud as the connection type
     - look up the domain/account values from the URL you used to work with your DBT Cloud project
+    - **PITFALL:** do not forget to specify your tenant in the Airflow connection settings (this is the host part of your DBT Cloud project HTTP URL)
 - add another step to your `data-quality-pipeline` DAG from step 4
     - add the following import
     ```python
