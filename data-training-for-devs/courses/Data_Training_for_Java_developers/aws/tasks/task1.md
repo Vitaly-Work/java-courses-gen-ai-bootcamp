@@ -42,12 +42,6 @@ organised and easy to track.
 * follow [this guide](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/three-aws-glue-etl-job-types-for-converting-data-to-apache-parquet.html) to create a Glue ETL job
 * **PAY ATTENTION TO THE FOLLOWING PITFALLS**:
   * do not use nor Visual Editor, nor Notebooks - these will cost you money 
-  * the instruction contains the code including the `setuptools.easy_install` Python library which is deprecated, so instead:
-      * download the following package of the `pyarrow` library: [link](https://files.pythonhosted.org/packages/9f/c2/ae15d52e13a8274aaf113b28a401121d519267b590351b815346f3af4ca2/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl);
-      * don't rename it and just upload it as-is into your **Source Code Bucket**
-      * make sure your job has access to your **Source Code Bucket**
-      * go to Job Details -> Advanced Properties -> Libraries -> Python Library path and put the `pyarrow` S3 path to there, like `s3://<your_source_code_bucket_folder>/pyarrow-3.0.0-cp39-cp39-manylinux2014_x86_64.whl`
-      * remove the lines 7-12 selected on the screen from your script code: ![image.png](./image.png)
 
 ## Step 3 - run the ETL job
 * run the job once for every generated CSV
