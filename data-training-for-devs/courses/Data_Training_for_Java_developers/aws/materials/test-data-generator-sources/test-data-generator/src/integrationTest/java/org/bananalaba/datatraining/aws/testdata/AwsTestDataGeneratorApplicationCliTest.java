@@ -24,7 +24,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers
 public class AwsTestDataGeneratorApplicationCliTest extends BaseTestDataGeneratorApplicationCliTest {
 
-    private static final DockerImageName LOCAL_STACK_IMAGE = DockerImageName.parse("localstack/localstack:0.11.3");
+    private static final DockerImageName LOCAL_STACK_IMAGE = DockerImageName.parse("localstack/localstack:3.8.1");
     @Container
     private static final LocalStackContainer LOCAL_STACK =
         new LocalStackContainer(LOCAL_STACK_IMAGE).withServices(Service.KINESIS);
