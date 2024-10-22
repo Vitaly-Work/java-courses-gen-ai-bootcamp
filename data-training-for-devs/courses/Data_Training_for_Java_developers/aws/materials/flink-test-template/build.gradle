@@ -32,7 +32,7 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-core:${rev_log4j}"
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:${rev_log4j}"
 
-    def flinkVersion = "1.18.1"
+    def flinkVersion = "1.20.0"
     implementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
     implementation "org.apache.flink:flink-clients:${flinkVersion}"
     implementation "org.apache.flink:flink-json:${flinkVersion}"
@@ -43,7 +43,7 @@ dependencies {
 
     testImplementation "org.apache.flink:flink-test-utils:${flinkVersion}"
 
-    implementation 'com.amazonaws:amazon-kinesis-client:1.15.1'
+    implementation 'com.amazonaws:amazon-kinesis-client:1.15.2'
 
     def jacksonVersion = "2.16.1"
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
