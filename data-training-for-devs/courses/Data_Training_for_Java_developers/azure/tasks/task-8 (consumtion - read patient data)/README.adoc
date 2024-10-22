@@ -1,0 +1,13 @@
+= Task 1 - Infrastructure Setup
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, October 22, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 1 hour
+
+== Section 1
+
+=== Section 1.1
