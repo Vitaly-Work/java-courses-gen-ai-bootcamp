@@ -30,7 +30,6 @@ variable "git_root_synapse_folder" {
   type = string
 }
 
-
 variable "function_source_local_dir" {
   type = string
   default = "../../function/target/azure-functions/observation-generator"

@@ -53,7 +53,7 @@ java --version && mvn --version && terraform --version && az --version
 > synapse_studio_url = "https://web.azuresynapse.net?workspace=%2fsubscriptions%2f4d45zb6a-1310-f0g1-90c2-d82d4d3cbc5f%2fresourceGroups%2fbigdataaaec111lzix_rg%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fsynapse-workspace-bigdataaaec111lzix"
 ----
 
-. After completion you will have core components being installed within your subscription. The picture below depicts main services.
+. After completion, you will have core components being installed within your subscription. The picture below depicts main services.
 
 image::../../materials/images/initial-infra-v1.png[Main services]
 
