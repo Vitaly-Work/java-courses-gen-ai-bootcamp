@@ -40,6 +40,8 @@ java --version && mvn --version && terraform --version && az --version
 . Install environment.
 - Navigate to `/terraform/azure` folder
 - Open `terraform.tvars` file and adjust it
+- Open `eventhub.tf` file and adjust all eventhub names to make them unique, f.e. you can add your surname as a prefix.
+
 - Set subscription: `export ARM_SUBSCRIPTION_ID="{AZURE_SUBSCRIPTION_ID}"`
 - Execute the command: `terraform init`.
 - Run `terraform plan` to review resources to be installed in your Azure subscription.
@@ -62,16 +64,16 @@ image::../../materials/images/initial-infra-v1.png[Main services]
 == Validation
 Go to your Azure Subscription and validate that the following components were successfully deployed:
 
-- Storage Account with `patient-data-source` folder inside
-- Datalake storage with `bronze`, `silver` and `gold` folders inside.
-- Azure Function that generates observation event. To check that events are being generated you might go to Event Hub and validate the *metrics/incoming messages*.
-- Data Factory workspace with all required LinkedServices (storage account, datalake, key vault, databricks).
-- Databricks workspace with default cluster being installed.  The cluster is of following shape:
-> Single Node
-> Standard_F4 shape
-> 8 GB memory, 4 vCores
-> 12.2.x-scala2.12 Runtime
-> Automatic shutdown after 15 min inactivity
-- Default notebooks with steps to complete will be uploaded to your Databricks workspace.
-- Synapse Studio with default built-in Serverless SQL Pool.
-- Stream Analytics Job.
+- [ ] Storage Account with `patient-data-source` folder inside
+- [ ] Datalake storage with `bronze`, `silver` and `gold` folders inside.
+- [ ] Azure Function that generates observation event. To check that events are being generated you might go to Event Hub and validate the *metrics/incoming messages*.
+- [ ] Data Factory workspace with all required LinkedServices (storage account, datalake, key vault, databricks).
+- [ ]  Databricks workspace with default cluster being installed.  The cluster is of following shape:
+* Single Node
+* Standard_F4 shape
+* 8 GB memory, 4 vCores
+* 12.2.x-scala2.12 Runtime
+* Automatic shutdown after 15 min inactivity
+- [ ] Default notebooks with steps to complete will be uploaded to your Databricks workspace.
+- [ ] Synapse Studio with default built-in Serverless SQL Pool.
+- [ ] Stream Analytics Job.
