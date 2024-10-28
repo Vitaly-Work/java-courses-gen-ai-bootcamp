@@ -1,4 +1,4 @@
-# Sub-task 6 - delivering with Kinesis Data Firehose
+# Sub-task 6 - delivering with AWS Data Firehose
 
 ![](../materials/diagrams/task6-focus.png)
 
@@ -78,7 +78,7 @@ In the scope of this task, the final exam minimal demonstration includes a **scr
 1. two Kinesis Data Streams (input and output) having the student name in its name (e.g. `ybaranouski` or `Yauhen_B` or else)
 2. prove that both streams are empty by monitoring via Console with the **Trim Horizon** option
 3. show an empty S3 bucket having the student name in its name (e.g. `ybaranouski` or `Yauhen_B` or else)
-4. show a Kinesis Data Analytics application and prove that its config is pointed to the input/output streams
+4. show a managed Flink application and prove that its config is pointed to the input/output streams
 5. show a Data Firehose delivery stream and prove that its config is pointed to the output stream as its input and the S3 bucket as its output
 6. publish some test metrics using the test data generator
 7. open a DataCatalog table and prove that it's pointed to the S3 bucket

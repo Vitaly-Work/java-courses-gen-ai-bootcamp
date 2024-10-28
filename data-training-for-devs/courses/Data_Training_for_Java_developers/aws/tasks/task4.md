@@ -1,4 +1,4 @@
-# Sub-task 4 - streaming with Kinesis Data Streams
+# Sub-task 4 - streaming with AWS Kinesis Data Streams
 
 ![](../materials/diagrams/task4-focus.png)
 

@@ -13,6 +13,7 @@
 * create a Data Catalog database - this one will be used not only for this sub-task, so name it properly
 * recap the _Windowed metrics_ model
 * [manually create a Data Catalog table](https://docs.aws.amazon.com/glue/latest/dg/console-tables.html)
+    * make sure to include your name into the table name (for example, `ybaranouski` or `Yauhen_B`, or else)
     * choose the _Parquet_ format
     * associate the table with the previously created database
     * point the table to the S3 windowed metrics (Parquet) bucket created in sub-task 1
