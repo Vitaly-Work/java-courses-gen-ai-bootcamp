@@ -6,34 +6,34 @@
 
 ## What to do
 
-To execute this module, should be used a ready-made artifact obtained after executing the [introduction-to-microservices](https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/tree/main/introduction-to-microservices) program and make some changes to the base structure of microservices system.
-During this task you need to:
+This task involves enhancing an existing microservices architecture by modifying the current **Resource Service** and adding a new microservice called **Resource Processor**. The starting point for this work is an artifact from the [Introduction to Microservices](https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/tree/main/introduction-to-microservices) program.
 
-+ Make structural changes to existing microservices:
-  - **Resource Service**
+The main objectives are:
 
-+ Implement a new microservice:
-  - **Resource Processor**
+1. Make structural changes to the existing **Resource Service**.
+2. Develop a new microservice called **Resource Processor**.
 
 ## Sub-task 1: Resource Service
 
-For a **Resource Service**, it is recommended to make structural changes as described bellow.
-- **Resource Service** should use cloud storage or its emulation (e.g. [S3 emulator](https://github.com/localstack/localstack)) to store the source file. Previously, the resource file was stored in the service database.
-- Resource tracking (with resource location in the cloud storage) should be carried out in the underlying database of the service.
+For the **Resource Service**, you need to implement the following modifications:
 
-When uploading a mp3 file, the **Resource Service** should process the file in this way:
-- Save the source file to a cloud storage or its emulation (e.g. [S3 emulator](https://github.com/localstack/localstack)).
-- Save resource location (location in the cloud storage) in the underlying database of the service.
-- The **Resource Service** should not invoke any other services this time.
+1. **Use Cloud Storage**: Replace the current database storage for resource files with a cloud storage solution, such as an emulator (e.g., [S3 emulator](https://github.com/localstack/localstack)). The resource files were previously saved in the service database.
+
+2. **Resource Tracking**: Update the underlying database to track the resource by storing its location in the cloud storage.
+
+3. **Upload Process**: When a user uploads an MP3 file, the **Resource Service** should:
+    - Store the original MP3 file in the cloud storage (or its emulation).
+    - Save the file's location (i.e., the link in cloud storage) in the database.
+    - Note: In the current module, the **Resource Service** should not call any other services during this process.
 
 ## Sub-task 2: Resource Processor
 
-This service will be used to process the source MP3 data in the future and will not have a web interface. At this point,
-this should be a basic Spring Boot application capable of extracting MP3 metadata for further storage using the **Song Service** API.
-An external library can be used for this purpose.(e.g. [Apache Tika](https://www.tutorialspoint.com/tika/tika_extracting_mp3_files.htm)).
+The **Resource Processor** microservice will be responsible for processing MP3 files in the upcoming modules. It will not have a web interface and, in the current module, should be implemented as a basic Spring Boot application with minimal configuration.
 
-Implement initial version of each service:
+- **Initial Functionality**: The service should be able to extract metadata from an MP3 file for future use with the **Song Service** API. You can use an external library like [Apache Tika](https://www.tutorialspoint.com/tika/tika_extracting_mp3_files.htm) to handle the metadata extraction.
 
-- Basic structure (Spring Boot)
+- **Basic Spring Boot Setup**: Implement the initial version of the service as a standard Spring Boot project.
+
+The diagram below illustrates the overall microservice architecture:
 
 ![](images/microservice_architecture_overview.png)
