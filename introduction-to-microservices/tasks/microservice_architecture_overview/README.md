@@ -317,3 +317,5 @@ gradle-project/
 ├── settings.gradle
 └── .gitignore
 ```
+
+![](images/microservice_architecture_overview.png)
