@@ -22,7 +22,7 @@ image::../../materials/images/task2-objective.png[objective]
 * Container name:  */patient-data-source/*
 * Event: *Blob created*
 
-. Go to `Author/Pipelines` and create a new pipeline in a way:
+. Go to `Author/Pipelines` and create a new pipeline:
 * Name: *PatientDataIngestion*
 * Parameters with empty default values:
 ** Name: *trigger_file_name*  Type: *String*
