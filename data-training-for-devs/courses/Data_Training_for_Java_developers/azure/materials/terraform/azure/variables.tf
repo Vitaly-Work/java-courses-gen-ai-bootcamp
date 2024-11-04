@@ -1,5 +1,5 @@
 variable "location_name" {
-  default = "West Europe"
+  default = "North Europe"
 }
 
 variable "environment" {
