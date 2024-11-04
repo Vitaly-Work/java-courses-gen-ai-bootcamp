@@ -15,7 +15,7 @@ resource "azurerm_synapse_workspace" "synapse_workspace" {
   tags = local.tags
 }
 
-resource "azurerm_role_assignment" "synapse_workspace_owner_role_assignement" {
+resource "azurerm_role_assignment" "synapse_workspace_owner_role_assignment" {
   scope                = azurerm_synapse_workspace.synapse_workspace.id
   role_definition_name = "Owner"
   principal_id         = data.azuread_client_config.current.object_id

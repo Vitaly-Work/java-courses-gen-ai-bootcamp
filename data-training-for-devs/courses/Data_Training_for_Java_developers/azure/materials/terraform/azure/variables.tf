@@ -1,5 +1,5 @@
 variable "location_name" {
-  default = "West Europe"
+  default = "North Europe"
 }
 
 variable "environment" {
@@ -29,7 +29,6 @@ variable "git_root_folder" {
 variable "git_root_synapse_folder" {
   type = string
 }
-
 
 variable "function_source_local_dir" {
   type = string
