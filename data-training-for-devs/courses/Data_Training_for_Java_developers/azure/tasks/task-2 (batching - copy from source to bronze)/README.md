@@ -62,4 +62,4 @@ This is the first step in the batching process. The goal of the task is to copy 
 ## Validation
 1. Upload one of the patient sample files to `sourcebigdata<id>/patient-data-source/` folder.
 2. Go to `Data Factory/Monitor/Pipeline Runs* and make sure that pipeline is completed successfully.
-3. Go to `datalake/bronze/patient/year/month/day` folder and make sure that file is copied successfully.
+3. Go to `datalakebigdata<id>/datalake/bronze/patient/year/month/day` folder and make sure that file is copied successfully.
