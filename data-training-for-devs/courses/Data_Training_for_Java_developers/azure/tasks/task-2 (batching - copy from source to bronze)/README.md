@@ -52,9 +52,9 @@ This is the first step in the batching process. The goal of the task is to copy 
     - Name: *destination*  Type: *String*
 
 7. Add `Copy data` activity to the pipeline.
-    - Source: `patient_data_spurce_json_file` (DataSource created on step 5)
+    - Source: `patient_data_spurce_json_file` (Dataset created on step 5)
       - trigger_file_name:  `@pipeline().parameters.trigger_file_name`
-    - Sink: `datalake_json_file` (DataSource created on step 6)
+    - Sink: `datalake_json_file` (Dataset created on step 6)
       - destination:  `@pipeline().parameters.destination`
 
 8. Click on `Validate`, then `Publish all`
