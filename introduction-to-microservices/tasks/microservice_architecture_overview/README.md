@@ -249,10 +249,6 @@ DELETE /songs?id=1,2
 - **400 Bad Request** – CSV string format is invalid or exceeds length restrictions.
 - **500 Internal Server Error** – An error occurred on the server.
 
----
-![](images/microservice_architecture_overview.png)
----
-
 ## Notes
 
 ### Error handling
@@ -290,6 +286,8 @@ Please use the [Postman collection](./api-tests/introduction_to_microservices.po
 - Use Docker containers for database deployment
 - [PostgreSQL](https://hub.docker.com/_/postgres) 16+ is required as the database engine
 - Each service should have its own dedicated database instance
+
+![](images/microservice_architecture_overview.png)
 
 ### Structure
 
