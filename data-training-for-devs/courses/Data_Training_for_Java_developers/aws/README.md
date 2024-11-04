@@ -9,10 +9,10 @@
 - Grafana
   - data visualisation basics
   - connecting to AWS Athena
-- AWS Kinesis
-  - streaming data with AWS Kinesis DataStreams
-  - aggregating data with AWS Kinesis DataAnalytics and Apache Flink
-  - converting data with AWS Kinesis Firehose
+- AWS streaming
+  - streaming data with AWS Kinesis
+  - aggregating data with AWS Managed Service for Apache Flink
+  - converting data with AWS Firehose
 - AWS EMR
   - writing serverless Spark analytical jobs
 

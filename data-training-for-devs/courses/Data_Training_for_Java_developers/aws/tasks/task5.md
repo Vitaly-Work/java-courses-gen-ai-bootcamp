@@ -1,4 +1,7 @@
-# Sub-task 5 - analysing with Kinesis Data Analytics
+# Sub-task 5 - analysing with AWS Managed Service for Apache Flink
+
+**NOTE**: AWS Managed Service for Apache Flink is mostly similar in functionality to its predecessor called AWS Kinesis Data Analytics. Both services are
+based on Apache Flink.
 
 ![](../materials/diagrams/task5-focus.png)
 
@@ -45,9 +48,8 @@
 ## Step 4 - deploy the streaming application
 * deploy the application to Kinesis Data Analytics
     * extend the CloudFormation template created in sub-task 4
-    * update your code to work with
-        * [Kinesis Data Streams as a source](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-sources.html#input-streams)
-    * [create a Data Analytics application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-creating-apps.html) based on your code
+    * update your code to work with [Kinesis Data Streams as a source](https://docs.aws.amazon.com/managed-flink/latest/java/how-sinks.html#input-streams)
+    * [create a Data Analytics application](https://docs.aws.amazon.com/managed-flink/latest/java/how-creating-apps.html) based on your code
     * connect the application to the stream created in sub-task 4
 * run your application and make sure the application logs contain aggregate metrics
 

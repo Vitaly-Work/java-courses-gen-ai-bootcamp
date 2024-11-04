@@ -291,7 +291,7 @@ If needed, you may get the source code and adjust it yourself. See the details o
 
 You may find the test generator source code [here](materials/test-data-generator-sources/). How to build
 * prerequisites
-    * JDK 18+ (make sure your default system environments point JAVA_HOME at it, otherwise the integration tests might fail)
+    * JDK 17+ (make sure your default system environments point JAVA_HOME at it, otherwise the integration tests might fail)
     * Docker
 * steps
     * execute `./gradlew build` - this will include compilation, unit tests, and integration tests

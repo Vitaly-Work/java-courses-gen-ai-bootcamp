@@ -41,6 +41,9 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-core:${rev_log4j}"
     implementation "org.apache.logging.log4j:log4j-slf4j-impl:${rev_log4j}"
 
+    // AWS Kinesis SDK 2.X
+    //implementation "software.amazon.awssdk:kinesis:${rev_aws_sdk}"
+    // AWS Kinesis SDK 1.X
     implementation "com.amazonaws:aws-java-sdk-kinesis:${rev_aws_sdk}"
 
     integrationTestCompileOnly "org.projectlombok:lombok:$rev_lombok"

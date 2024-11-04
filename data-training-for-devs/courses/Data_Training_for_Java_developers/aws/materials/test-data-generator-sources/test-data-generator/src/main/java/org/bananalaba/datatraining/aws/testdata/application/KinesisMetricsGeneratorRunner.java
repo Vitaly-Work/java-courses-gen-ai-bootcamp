@@ -27,6 +27,10 @@ import org.bananalaba.datatraining.aws.testdata.factory.MetricsTemplateFactory;
 @Slf4j
 public class KinesisMetricsGeneratorRunner implements Consumer<KinesisMetricsGeneratorTask> {
 
+    static {
+        System.setProperty("aws.java.v1.disableDeprecationAnnouncement", "true");
+    }
+
     @NonNull
     private final GenericFactory<TimerDefinition, EventTimer> timerFactory;
     @NonNull
