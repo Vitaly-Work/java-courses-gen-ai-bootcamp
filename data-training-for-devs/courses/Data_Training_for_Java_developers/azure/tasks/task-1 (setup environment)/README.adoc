@@ -41,6 +41,7 @@ java --version && mvn --version && terraform --version && az --version
 - Navigate to `/terraform/azure` folder
 - Open `terraform.tvars` file and adjust it
 - Open `eventhub.tf` file and adjust all eventhub names to make them unique, f.e. you can add your surname as a prefix.
+- Open `function.tf` file and adjust function's name(see "azurerm_linux_function_app") to make it unique, f.e. you can add your surname as a prefix.
 
 - Set subscription: `export ARM_SUBSCRIPTION_ID="{AZURE_SUBSCRIPTION_ID}"`
 - Execute the command: `terraform init`.
