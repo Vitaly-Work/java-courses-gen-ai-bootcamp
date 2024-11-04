@@ -249,6 +249,10 @@ DELETE /songs?id=1,2
 - **400 Bad Request** – CSV string format is invalid or exceeds length restrictions.
 - **500 Internal Server Error** – An error occurred on the server.
 
+---
+![](images/microservice_architecture_overview.png)
+---
+
 ## Notes
 
 ### Error handling
@@ -317,5 +321,3 @@ gradle-project/
 ├── settings.gradle
 └── .gitignore
 ```
-
-![](images/microservice_architecture_overview.png)
