@@ -48,7 +48,6 @@ This is the first step in the batching process. The goal of the task is to copy 
         - Directory:
         - File name: `@dataset().destination`
     - Import schema option: `None`
-  - Import schema option: `None`
 - Go to Dataset parameters and create a new one with empty default value:
     - Name: *destination*  Type: *String*
 
