@@ -50,11 +50,11 @@ resource "azurerm_storage_data_lake_gen2_path" "datalake_path" {
     permissions = "rwx"
   }
   ace {
-    id          = azuread_service_principal.aad_service_sp.application_id
+    id          = azuread_service_principal.aad_service_sp.client_id
     type        = "user"
     permissions = "rwx"
   }
-   ace {
+  ace {
     id       = azurerm_synapse_workspace.synapse_workspace.identity[0].principal_id
     type     = "user"
     permissions = "rwx"
