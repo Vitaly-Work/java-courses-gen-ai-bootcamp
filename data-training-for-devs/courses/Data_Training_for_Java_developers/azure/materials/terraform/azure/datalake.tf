@@ -54,7 +54,7 @@ resource "azurerm_storage_data_lake_gen2_path" "datalake_path" {
     type        = "user"
     permissions = "rwx"
   }
-   ace {
+  ace {
     id       = azurerm_synapse_workspace.synapse_workspace.identity[0].principal_id
     type     = "user"
     permissions = "rwx"
