@@ -37,16 +37,20 @@ The Resource Service implements CRUD operations for processing MP3 files. When u
 
 ### API endpoints
 
+---
+
 #### 1. Upload resource
 
 ```
 POST /resources
 ```
 
+**Description:** Uploads a new MP3 resource.
+
 **Request:**
 
-- Content-Type: audio/mpeg
-- Body: Binary MP3 audio data
+- **Content-Type:** audio/mpeg
+- **Body:** Binary MP3 audio data
 
 **Response:**
 
@@ -56,11 +60,15 @@ POST /resources
 }
 ```
 
+- **Description:** Returns the ID of successfully created resource.
+
 **Status codes:**
 
-- 200: OK
-- 400: Validation failed or request body is invalid MP3
-- 500: Internal server error
+- **200 OK** – Resource uploaded successfully.
+- **400 Bad Request** – The request body is invalid MP3.
+- **500 Internal Server Error** – An error occurred on the server.
+
+---
 
 #### 2. Get resource
 
@@ -68,20 +76,24 @@ POST /resources
 GET /resources/{id}
 ```
 
+**Description:** Retrieves the binary audio data of a resource.
+
 **Parameters:**
 
-- `id` (Integer): The ID of the resource to retrieve
-- Restriction: Must be an ID of an existing resource
+- `id` (Integer): The ID of the resource to retrieve.
+- **Restriction:** Must be a valid ID of an existing resource.
 
 **Response:**
 
-- Body: Audio bytes (MP3 file)
+- **Body:** Returns the audio bytes (MP3 file) for the specified resource.
 
 **Status codes:**
 
-- 200: OK
-- 404: Resource with specified ID does not exist
-- 500: Internal server error
+- **200 OK** – Resource retrieved successfully.
+- **404 Not Found** – Resource with the specified ID does not exist.
+- **500 Internal Server Error** – An error occurred on the server.
+
+---
 
 #### 3. Delete resources
 
@@ -89,28 +101,36 @@ GET /resources/{id}
 DELETE /resources?id=1,2
 ```
 
+**Description:** Deletes specified resources by their IDs. If a resource does not exist, it is ignored without causing an error.
+
 **Parameters:**
 
-- `id` (String): Comma-separated list of resource IDs to remove
-- Restriction: CSV string length must be < 200 characters
+- `id` (String): Comma-separated list of resource IDs to remove.
+- **Restriction:** CSV string length must be less than 200 characters.
 
 **Response:**
 
 ```json
 {
-    "ids": [1,2]
+    "ids": [1, 2]
 }
 ```
 
+- **Description:** Returns an array of the IDs of successfully deleted resources.
+
 **Status codes:**
 
-- 200: OK
-- 400: Invalid input - CSV string format is invalid or too long
-- 500: Internal server error
+- **200 OK** – Request successful, resources deleted as specified.
+- **400 Bad Request** – CSV string format is invalid or exceeds length restrictions.
+- **500 Internal Server Error** – An error occurred on the server.
+
+---
 
 ## Sub-task 2: Song Service
 
-The Song Service implements CRUD operations for managing song metadata records. The service uses the Resource ID as the primary key for metadata records, ensuring a direct one-to-one relationship between resources and their metadata.
+The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID as the primary key for metadata records, ensuring a direct one-to-one relationship between resources and their metadata.
+
+---
 
 ### API endpoints
 
@@ -119,6 +139,8 @@ The Song Service implements CRUD operations for managing song metadata records. 
 ```
 POST /songs
 ```
+
+**Description:** Create a new song metadata record in the database.
 
 **Request body:**
 
@@ -133,15 +155,17 @@ POST /songs
 }
 ```
 
+- **Description:** Song metadata fields.
+
 **Validation rules:**
 
-- All fields are required
-- `id`: numeric string, must be an ID of an existing resource
-- `name`: 1-100 characters text
-- `artist`: 1-100 characters text
-- `album`: 1-100 characters text
-- `duration`: mm:ss format with leading zeros
-- `year`: YYYY format between 1900-2099
+- **All fields are required.**
+- `id`: Numeric string, must match an existing Resource ID.
+- `name`: 1-100 characters text.
+- `artist`: 1-100 characters text.
+- `album`: 1-100 characters text.
+- `duration`: Format `mm:ss`, with leading zeros.
+- `year`: `YYYY` format between 1900-2099.
 
 **Response:**
 
@@ -151,12 +175,16 @@ POST /songs
 }
 ```
 
+- **Description:** Returns the ID of the successfully created metadata record (should match the Resource ID).
+
 **Status codes:**
 
-- 200: OK
-- 400: Song metadata missing or validation error
-- 409: Conflict - metadata for this ID already exists
-- 500: Internal server error
+- **200 OK** – Metadata created successfully.
+- **400 Bad Request** – Song metadata is missing or contains errors.
+- **409 Conflict** – Metadata for this ID already exists.
+- **500 Internal Server Error** – An error occurred on the server.
+
+---
 
 #### 2. Get song metadata
 
@@ -164,10 +192,12 @@ POST /songs
 GET /songs/{id}
 ```
 
+**Description:** Get song metadata by ID.
+
 **Parameters:**
 
-- `id` (Integer): ID of the metadata to retrieve
-- Restriction: Must be an ID of an existing resource
+- `id` (Integer): ID of the metadata to retrieve.
+- **Restriction:** Must match an existing Resource ID.
 
 **Response:**
 
@@ -184,9 +214,11 @@ GET /songs/{id}
 
 **Status codes:**
 
-- 200: OK
-- 404: Song metadata with specified ID does not exist
-- 500: Internal server error
+- **200 OK** – Metadata retrieved successfully.
+- **404 Not Found** – Song metadata with the specified ID does not exist.
+- **500 Internal Server Error** – An error occurred on the server.
+
+---
 
 #### 3. Delete songs metadata
 
@@ -194,24 +226,28 @@ GET /songs/{id}
 DELETE /songs?id=1,2
 ```
 
+**Description:** Deletes specified song metadata records by their IDs. If a metadata record does not exist, it is ignored without causing an error.
+
 **Parameters:**
 
-- `id` (String): Comma-separated list of IDs to remove
-- Restriction: CSV string length must be < 200 characters
+- `id` (String): Comma-separated list of metadata IDs to remove.
+- **Restriction:** CSV string length must be less than 200 characters.
 
 **Response:**
 
 ```json
 {
-    "ids": [1,2]
+    "ids": [1, 2]
 }
 ```
 
+- **Description:** Returns an array of the IDs of successfully deleted metadata records.
+
 **Status codes:**
 
-- 200: OK
-- 400: Invalid input - CSV string format is invalid or too long
-- 500: Internal server error
+- **200 OK** – Request successful, metadata records deleted as specified.
+- **400 Bad Request** – CSV string format is invalid or exceeds length restrictions.
+- **500 Internal Server Error** – An error occurred on the server.
 
 ## Notes
 
