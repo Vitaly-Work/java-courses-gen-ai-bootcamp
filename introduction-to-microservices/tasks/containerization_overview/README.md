@@ -11,7 +11,7 @@
 
 In this module, you will adapt your services to use a containerization approach.
 
-### Sub-task 1: Dockerfile
+## Sub-task 1: Dockerfile
 
 1. **Create a Dockerfile for each service**. Make sure to follow these requirements:
 
