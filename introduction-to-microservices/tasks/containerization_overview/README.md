@@ -1,33 +1,88 @@
-# Table of Content
+# Table of contents
 
- - [What to do](#what-to-do)
- - [Sub-task 1: Docker images](#sub-task-1-docker-images)
- - [Sub-task 2: Docker Compose file](#sub-task-2-docker-compose-file)
+- [What to do](#what-to-do)
+- [Sub-task 1: Dockerfile](#sub-task-1-docker-images)
+- [Sub-task 2: Docker Compose file](#sub-task-2-docker-compose-file)
+- [Notes](#notes)
+
+> Note: This is the updated version of the task. If you have already started working on [the previous version](README-deprecated.md), please continue with the previous one.
 
 ## What to do
 
-In this module you will need to adjust your services with containerization approach.
+In this module, you will adapt your services to use a containerization approach.
 
-## Sub-task 1: Docker images
+### Sub-task 1: Dockerfile
 
-1) Package your applications as Docker images.
-2) For each of your services:
- - Create a _Docker_ file that would contain instruction on how to package your project.
- - Build a docker image and run it, mapping an external port to verify that application can be started and respond to requests.
+1. **Create a Dockerfile for each service**. Make sure to follow these requirements:
+
+   - Implement **multi-stage builds** to create a clear separation between build and runtime environments, which helps keep the final image size small.
+   - Use **Alpine images** to keep the resulting images lightweight (below are the recommended ones):
+       - **Build Stage**:
+           - For Maven projects, use [Eclipse Temurin-based Alpine images](https://hub.docker.com/_/maven/tags?name=eclipse-temurin-17-alpine). These allow you to build Java applications efficiently while keeping the environment minimal.
+           - For Gradle projects, use [Gradle Alpine images](https://hub.docker.com/_/gradle/tags?name=jdk17-alpine), designed specifically for building Java applications with Gradle.
+       - **Runtime Stage**:
+           - Use [Eclipse Temurin Alpine images](https://hub.docker.com/_/eclipse-temurin/tags?name=17-jre-alpine) for running the application. These images include only the necessary JRE components, minimizing resource usage.
+   - Introduce **dependency caching** to speed up rebuilds. This leverages Docker's layer caching to avoid re-downloading unchanged dependencies. **Tips**:
+        - **For Maven projects**:
+            - Copy the `pom.xml` file before copying the source code (`src`). This allows Docker to cache dependencies if the configuration file has not changed.
+            - Use the command `RUN mvn dependency:go-offline` to download all dependencies before copying the source code.
+        - **For Gradle projects**:
+            - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first. This helps cache dependencies effectively.
+            - Use the `--no-daemon` flag with `gradlew` to ensure consistent builds within Docker and manage memory usage effectively.
+
+2. **Test the Docker images**
+
+    - Build Docker images for each service.
+    - Run the Docker containers and **map external ports** to verify that the application starts correctly and responds to HTTP requests (e.g., using Postman).
 
 ## Sub-task 2: Docker Compose file
 
-1) When all applications are successfully packaged, create a _docker-compose.yml_ file that would list all applications and 3rd party dependencies to successfully start the project.
-Add init scripts for the database to run when container starts up. Once you have a compose file, you can create and start your application containers with a single command: `docker-compose up`.
+Create a `docker-compose.yml` (`compose.yml`) file that includes the following elements:
 
-Please note the following:
- - Use an _.env_ file to replace all environment variables depending on the set-up.
- - For 3rd party dependencies try to use the _–alpine_ images whenever it's possible.
- - For project applications use the build property as these images are not going to be pulled from a public hub.
- - Use logical service names to cross-reference services.
+1. **Microservice containers**. Make sure to follow these requirements:
 
-Possible container options for existing resources:
+    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory. 
+    - To avoid confusion, do not use both `build` and `image` together. The `image` property is intended to pull pre-built images from a registry (e.g., Docker Hub) or assume images are manually built.
+    - Specify ports (`ports`) to expose for external access.
+    - Define environment variables (`environment`), including database references, using an `.env` file for variable substitution.
 
- - [postgres DB](https://hub.docker.com/_/postgres)
- - [mysql db](https://hub.docker.com/_/mysql)
- - [Local stack (aws emulator)](https://hub.docker.com/r/localstack/localstack)
+2. **Database containers**. Make sure to follow these requirements:
+
+    - For each database, create a separate container using lightweight [Alpine-based PostgreSQL images](https://hub.docker.com/_/postgres/tags?name=17-alpine) (version 16 or higher).
+    - Set the necessary environment variables to configure the database, like database name, user, and password. Use an `.env` file to store these variables for easy management and security.
+    - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
+        - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties`, set it to `none`.
+        - Avoid creating databases in the `init-scripts`. The initialization scripts should focus on setting up schemas, not on creating databases.
+        - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
+
+3. **Additional notes**:
+    - Use Docker Compose's default network.
+    - Use logical service names to cross-reference services for easier communication within the Docker network.
+    - Persisting database data between restarts is not necessary.
+    - Use an `.env` file for environment variables.
+
+![](images/containerization_overview.png)
+
+## Notes
+
+- Your configuration should automatically rebuild images, create, and start all containers, ensuring a complete service update without extra steps or scripts — all with a single command: `docker compose up -d --build`.
+- Use the [Postman collection](../microservice_architecture_overview/api-tests/introduction_to_microservices.postman_collection.json) for testing the Resource Service and Song Service APIs.
+- After all the changes, your project structure should look similar to this:
+
+```
+microservices/
+├── init-scripts/
+│   ├── resource-db/
+│   │   └── init.sql
+│   └── song-db/
+│       └── init.sql
+├── resource-service/
+│   ├── src/
+│   └── Dockerfile
+├── song-service/
+│   ├── src/
+│   └── Dockerfile
+├── docker-compose.yml
+├── .env
+└── .gitignore
+```
