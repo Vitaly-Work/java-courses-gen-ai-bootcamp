@@ -74,7 +74,5 @@ During the creation, specify the following values for parameters:
 . Click on `Validate`, then `Publish all`
 
 == Validation
+include::../validation/task2-checklist.adoc[]
 
-- [ ] Upload one of the patient sample files to `sourcebigdata<id>/patient-data-source/` folder.
-- [ ] Go to `Data Factory/Monitor/Pipeline Runs` and make sure that pipeline is completed successfully.
-- [ ] Go to `datalakebigdata<id>/datalake/bronze/patient/year/month/day` folder and make sure that file is copied successfully.

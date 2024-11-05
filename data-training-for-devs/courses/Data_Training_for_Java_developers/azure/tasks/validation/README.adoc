@@ -1,0 +1,15 @@
+= Checklist
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 04, 2024: Initial version
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+== Task 1 - Infrastructure Setup
+
+include::../validation/task1-checklist.adoc[]
+
+== Task 2 - Batching: copy from source to Bronze (landing) zone
+
+include::../validation/task2-checklist.adoc[]
