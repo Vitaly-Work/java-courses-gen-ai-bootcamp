@@ -10,7 +10,7 @@
 In this module you will create infrastructure for your k8s cluster and deploy your microservices applications there.
 
 ## Microservices applications can be found here:
-[microservices.zip](https://epam-my.sharepoint.com/:u:/r/personal/siarhei_svila_epam_com/Documents/Kubernetes/microservices-intro.zip?csf=1&web=1&e=8hbXwK)
+[microservices-intro Github](https://github.com/SiarheiSvila/microservices-intro)
 
 
 ## Sub-task 1: Install k8s
