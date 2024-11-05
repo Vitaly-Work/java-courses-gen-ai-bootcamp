@@ -1,4 +1,4 @@
-# Table of Content
+# Table of Contents
 
 - [What to do](#what-to-do)
 - [Sub-task 1: Asynchronous communication](#sub-task-1-asynchronous-communication)
