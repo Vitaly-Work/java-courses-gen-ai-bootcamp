@@ -8,11 +8,11 @@ Go to your Azure Subscription and validate that the following components were su
 +
 The cluster has the following shape:
 
-* Single Node
-* Standard_F4 shape
-* 8 GB memory, 4 vCores
-* 15.4.x-scala2.12 Runtime
-* Automatic shutdown after 15 minutes of inactivity
+** Single Node
+** Standard_F4 shape
+** 8 GB memory, 4 vCores
+** 15.4.x-scala2.12 Runtime
+** Automatic shutdown after 15 minutes of inactivity
 - [ ] Default notebooks with steps to complete will be uploaded to your Databricks workspace.
 - [ ] Synapse Studio (a part of `Azure Synapse Analytics`) with default built-in Serverless SQL Pool.
 - [ ] Stream Analytics job.
