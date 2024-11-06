@@ -66,6 +66,7 @@ During the creation, specify the following values for parameters:
 ** Name: *destination*  Type: *String*
 
 . Add `Copy data` activity to the pipeline.
+* Name: *CopyFromSourceToBronze*
 * Source: `patient_data_spurce_json_file` (Dataset created on step 5)
 ** trigger_file_name:  `@pipeline().parameters.trigger_file_name`
 * Sink: `datalake_json_file` (Dataset created on step 6)

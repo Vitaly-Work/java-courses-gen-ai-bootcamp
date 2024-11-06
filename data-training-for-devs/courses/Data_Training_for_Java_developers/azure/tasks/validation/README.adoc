@@ -10,6 +10,10 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 
 include::../validation/task1-checklist.adoc[]
 
-== Task 2 - Batching: copy from source to Bronze (landing) zone
+== Task 2 - Batching: copy from `source` to `Bronze` (landing) zone
 
 include::../validation/task2-checklist.adoc[]
+
+== Task 3 — Batching: copy from `Bronze` to `Silver` (refined) layer.
+
+include::../validation/task3-checklist.adoc[]
