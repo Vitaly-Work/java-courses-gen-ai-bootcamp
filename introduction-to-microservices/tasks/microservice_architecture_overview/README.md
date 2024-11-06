@@ -321,3 +321,15 @@ gradle-project/
 ├── settings.gradle
 └── .gitignore
 ```
+
+---
+
+## How to place a link to your Git repository in your personal folder for the practical task
+
+In the folder you access through the link provided by Avalia Kicker bot, add a link to your Git repository:
+- Click on the "New" button.
+- From the dropdown menu, select "Link".
+- Paste the URL of the public Git repository with your solution.
+- Save the link. The new link will now appear in the folder.
+
+<img src="images/link_creation.png" width="500" style="border: 1px solid #ccc; margin: 20px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
