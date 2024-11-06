@@ -18,7 +18,7 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
 1) Use the Eureka Service Registry for [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/).
 2) Ensure that all microservices act as Eureka clients and register with the Eureka server (which includes both the Load Balancer and Service Registry).
 
-## Sub-task 1: Prepare for final screening
+## Sub-task 2: Prepare for final screening
 
 1) Prepare an archive of the final version of your project or provide a link to it in a public repository. This should be shared **directly with your mentor upon request** (there’s no need to upload it to Avalia this time).
 
