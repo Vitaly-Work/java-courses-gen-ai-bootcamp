@@ -6,12 +6,15 @@
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC 2. List all available mounts, make sure that /mnt/datalake_mount is availble and points to your datalake storage.
+# MAGIC 2.
+# List all available mounts, make sure that `/mnt/datalake_mount` is available and points to your datalake storage.
 
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC 3. Import properties.py file using magic command. The file contains usefull constants you might find handy for your code.
+# MAGIC 3.
+# Import properties.py file using magic command.
+# The file contains useful constants you might find handy for your code.
 # MAGIC > Hint: use %run magic command
 
 # COMMAND ----------
@@ -22,17 +25,20 @@
 
 # COMMAND ----------
 
-# MAGIC %md 5.
-# MAGIC Import patient schema '../pipeline/schema/patient.py'.
+# MAGIC %md
+# MAGIC 5. Import patient schema '../pipeline/schema/patient.py'.
 
 # COMMAND ----------
 
-# MAGIC %md 6. 
-# MAGIC Read json data from bronze layer. As a path use parameter read from Data Factory prefixed with moint endpoint.
+# MAGIC %md
+# MAGIC 6.
+# Read json data from bronze layer.
+# As a path use parameter read from Data Factory prefixed with mount endpoint.
 
 # COMMAND ----------
 
-# MAGIC %md 7. 
+# MAGIC %md
+# MAGIC 7.
 # MAGIC Select following columns and apply transformations for dataframe:
 # MAGIC >id => id
 # MAGIC
@@ -66,7 +72,8 @@
 
 # COMMAND ----------
 
-# MAGIC %md 8. 
+# MAGIC %md
+# MAGIC 8.
 # MAGIC Create new delta tabl (if not exists):
 # MAGIC >use patient schema defined above.
 # MAGIC
@@ -78,8 +85,8 @@
 
 # COMMAND ----------
 
-# MAGIC %md 9. 
-# MAGIC Merge existing patient data with received updates. Use 'id' to match records. If record is updated change the value of 'update_date' to current timestamp, otherwise leave it blank.
+# MAGIC %md
+# MAGIC 9. MAGIC Merge existing patient data with received updates. Use 'id' to match records. If record is updated change the value of 'update_date' to current timestamp, otherwise leave it blank.
 
 # COMMAND ----------
 
@@ -89,6 +96,10 @@
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC 11. We need to pass id of the patient back to Data Factory pipeline. Return arrays of patient's ids that were modified. Use dbutils.notebook.exit method. The returned parameter should be array of ids converted to string.
+# MAGIC 11.
+# We need to pass id of the patient back to Data Factory pipeline.
+# Return arrays of patient's ids that were modified.
+# Use dbutils.notebook.exit method.
+# The returned parameter should be array of ids converted to string.
 # MAGIC
 # MAGIC > Hint: use json.dumps method
