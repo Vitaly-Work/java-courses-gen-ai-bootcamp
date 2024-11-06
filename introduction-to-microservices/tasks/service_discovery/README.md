@@ -47,7 +47,7 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
 
     - Show logs for Resource Service and Song Service:
       ```bash
-      $ docker-compose logs -f resource-service song-service
+      $ docker compose logs -f resource-service song-service
       ```
 
     - Display the Spring Eureka web interface in a browser to show the registered instances (1 instance of RESOURCE-SERVICE and 2 instances of SONG-SERVICE). Ensure that the applications are running in Docker.
