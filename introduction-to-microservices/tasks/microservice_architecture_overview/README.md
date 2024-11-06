@@ -5,8 +5,6 @@
 - [Sub-task 2: Song Service](#sub-task-2-song-service)
 - [Notes](#notes)
 
-> Note: This is the updated version of the task. If you have already started working on [the previous version](README-deprecated.md), please continue with the previous one.
-
 ## What to do
 
 Your task is to implement a microservices system consisting of two services:
@@ -16,9 +14,13 @@ Your task is to implement a microservices system consisting of two services:
 
 ### Service relationships
 
-The services have a one-to-one relationship, where:
-- Song metadata uses the Resource ID as its primary key.
-- Deleting a resource triggers the cascading deletion of its associated metadata.
+The services are designed to work together as follows:
+
+- **Resource Service** handles the storage and processing of MP3 files.
+- **Song Service** manages metadata for each song, ensuring that each metadata entry corresponds to a unique MP3 file in the Resource Service.
+- The song metadata and resource entities maintain a one-to-one relationship:
+    - Each song metadata entry is uniquely associated with a resource, linked via the resource ID.
+    - Deleting a resource triggers a cascading deletion of its associated metadata.
 
 ### Requirements
 
