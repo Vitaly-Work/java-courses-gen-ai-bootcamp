@@ -11,6 +11,6 @@ You can find more https://learn.microsoft.com/en-us/azure/databricks/optimizatio
 how to resolve such kind of issues.
 ====
 - [ ] Go to `Data Factory/Monitor/Pipeline Runs` and make sure that pipeline is completed successfully.
-- [ ] Go to `datalakebigdata<id>/datalake/silver/patient_table` folder and make that the structure resembles the following one:
+- [ ] Go to `datalakebigdata<id>/datalake/silver/patient_table` folder and make sure that the structure resembles the following one:
 +
 image::../../materials/images/task3-adls-structure.png[adls structure]
