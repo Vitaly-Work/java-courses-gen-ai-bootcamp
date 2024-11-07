@@ -34,4 +34,5 @@ Possible container options for existing resources:
  - [ActiveMQ message broker](https://hub.docker.com/r/rmohr/activemq)
  - [Local stack (aws emulator)](https://hub.docker.com/r/localstack/localstack)
 
-![](images/containerization.png)
+<img src="images/containerization.png" width="440" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+

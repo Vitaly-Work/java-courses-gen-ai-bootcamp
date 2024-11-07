@@ -10,8 +10,7 @@
 In this task, it is needed to change the configuration to use the existing **Service Registry** tool.
 Sample implementation: [Eureka Example](https://www.javainuse.com/spring/cloud-gateway-eureka)
 
-![](images/task.png)
-
+<img src="images/service_discovery.png" width="620" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ## Sub-task 1: Service Registry
 
