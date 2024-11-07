@@ -92,6 +92,7 @@ GET /resources/{id}
 **Status codes:**
 
 - **200 OK** – Resource retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Resource with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
@@ -217,6 +218,7 @@ GET /songs/{id}
 **Status codes:**
 
 - **200 OK** – Metadata retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Song metadata with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
