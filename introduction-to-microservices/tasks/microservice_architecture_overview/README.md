@@ -130,7 +130,7 @@ DELETE /resources?id=1,2
 
 ## Sub-task 2: Song Service
 
-The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID as the primary key for metadata records, ensuring a direct one-to-one relationship between resources and their metadata.
+The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID to uniquely identify each metadata record, establishing a direct one-to-one relationship between resources and their metadata.
 
 ---
 
@@ -324,7 +324,9 @@ gradle-project/
 
 ---
 
-## How to place a link to your Git repository in your personal folder for the practical task
+## Adding a Git repository link to your personal folder
+
+Consider placing a link to your Git repository in your personal folder for the practical task instead of uploading an archive.
 
 In the folder you access through the link provided by Avalia Kicker bot, add a link to your Git repository:
 - Click on the "New" button.
