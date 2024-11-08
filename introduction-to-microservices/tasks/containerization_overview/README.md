@@ -5,8 +5,6 @@
 - [Sub-task 2: Docker Compose file](#sub-task-2-docker-compose-file)
 - [Notes](#notes)
 
-> Note: This is the updated version of the task. If you have already started working on [the previous version](README-deprecated.md), please continue with the previous one.
-
 ## What to do
 
 In this module, you will adapt your services to use a containerization approach.
@@ -30,10 +28,12 @@ In this module, you will adapt your services to use a containerization approach.
             - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first. This helps cache dependencies effectively.
             - Use the `--no-daemon` flag with `gradlew` to ensure consistent builds within Docker and manage memory usage effectively.
 
+
 2. **Test the Docker images**
 
     - Build Docker images for each service.
     - Run the Docker containers and **map external ports** to verify that the application starts correctly and responds to HTTP requests (e.g., using Postman).
+
 
 ## Sub-task 2: Docker Compose file
 
@@ -41,27 +41,66 @@ Create a `docker-compose.yml` (`compose.yml`) file that includes the following e
 
 1. **Microservice containers**. Make sure to follow these requirements:
 
-    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory. 
+    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory.
     - To avoid confusion, do not use both `build` and `image` together. The `image` property is intended to pull pre-built images from a registry (e.g., Docker Hub) or assume images are manually built.
     - Specify ports (`ports`) to expose for external access.
     - Define environment variables (`environment`), including database references, using an `.env` file for variable substitution.
+
 
 2. **Database containers**. Make sure to follow these requirements:
 
     - For each database, create a separate container using lightweight [Alpine-based PostgreSQL images](https://hub.docker.com/_/postgres/tags?name=17-alpine) (version 16 or higher).
     - Set the necessary environment variables to configure the database, like database name, user, and password. Use an `.env` file to store these variables for easy management and security.
     - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
-        - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties`, set it to `none`.
-        - Avoid creating databases in the `init-scripts`. The initialization scripts should focus on setting up schemas, not on creating databases.
+        - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties` or `application.yml`, set it to `none`.
+        - Avoid using Flyway for initial schema setup in the Docker container, as the initialization scripts should handle this directly.
+        - Avoid creating databases in the initialization scripts; these scripts should focus on setting up schemas, not on creating databases.
         - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
 
-3. **Additional notes**:
-    - Use Docker Compose's default network.
-    - Use logical service names to cross-reference services for easier communication within the Docker network.
-    - Persisting database data between restarts is not necessary.
-    - Use an `.env` file for environment variables.
 
-![](images/containerization_overview.png)
+3. **Microservice configuration**. Make sure to follow these requirements:
+
+    - Avoid hardcoding container-specific values (such as database URLs, credentials, service URLs, and any other configuration details specific to the containerized environment) directly in `application.properties` or `application.yml`.
+    - Set container-specific values as environment variables in Docker Compose.
+    - Use a `.env` file to define these variables, allowing Docker Compose to automatically read and inject environment-specific settings. For example:
+
+        ```properties
+        # .env
+        RESOURCE_DB_URL=jdbc:postgresql://resource-db:5432/resource_db
+        ```
+
+        ```yaml
+        # docker-compose.yml
+        services:
+          resource-service:
+            environment:
+              SPRING_DATASOURCE_URL: ${RESOURCE_DB_URL}
+        ```
+
+   - Configure `application.properties` or `application.yml` to support both environment variables for containerized execution and default values for local execution (e.g., when running directly in IntelliJ). For example::
+
+     ```properties
+     # application.properties for Resource Service
+     spring.datasource.url="${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/resource_db}"
+     ```
+
+   - Ensure the application can be executed both locally and in Docker Compose without requiring configuration changes or switching profiles:
+       - **Local execution**: The application should use the default values specified in `application.properties` or `application.yml`.
+       - **Docker execution**: Docker Compose should seamlessly pull configuration values from the `.env` file, enabling the containerized environment to use the necessary settings without manual adjustments.
+
+
+4. **Database configuration**. Make sure to follow these requirements:
+
+    - Database-specific configurations, such as `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, should be read from the `.env` file.
+
+
+5. **Additional notes**. Make sure to follow these requirements:
+
+    - Use Docker Compose's **default network**.
+    - Use **logical service names** to cross-reference services for easier communication within the Docker network instead of IP addresses.
+    - **Persisting database data** between restarts is not necessary.
+
+<img src="images/containerization_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ## Notes
 
