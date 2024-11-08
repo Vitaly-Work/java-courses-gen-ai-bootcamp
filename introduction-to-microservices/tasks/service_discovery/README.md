@@ -9,8 +9,6 @@
 In this module, you need to integrate a service registry tool into your infrastructure.  
 You can refer to a sample implementation using **Eureka** here: [Eureka Example](https://www.javainuse.com/spring/cloud-gateway-eureka).
 
-<img src="images/service_discovery.png" width="461" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
-
 Afterward, prepare for the final screening, where you may need to demonstrate the complete functionality of the application with the integrated service registry.
 
 ## Sub-task 1: Service registry
@@ -21,7 +19,13 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
 2) Ensure that all microservices act as Eureka clients and register with the Eureka server (which includes both the Load Balancer and Service Registry).
 
 
-3) Ensure the application runs seamlessly both locally and in Docker Compose by using default values in `application.properties` or `application.yml` for local execution and pulling settings from the `.env` file via Docker Compose for Docker execution.
+3) Ensure the application runs seamlessly in both **local** and **Docker Compose** environments:
+
+    - **For local execution:** Use default values in `application.properties` or `application.yml`.
+
+    - **For Docker Compose:** Pull settings from the `.env` file, and use the `--scale song-service=2` option (or set replicas in `docker-compose.yml`) to run **two instances** of the Song Service for load balancing.
+
+<img src="images/service_discovery.png" width="461" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 
 ## Sub-task 2: Prepare for final screening
