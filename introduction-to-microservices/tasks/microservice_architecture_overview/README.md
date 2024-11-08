@@ -289,7 +289,7 @@ Please use the [Postman collection](./api-tests/introduction_to_microservices.po
 - [PostgreSQL](https://hub.docker.com/_/postgres) 16+ is required as the database engine
 - Each service should have its own dedicated database instance
 
-![](images/microservice_architecture_overview.png)
+<img src="images/microservice_architecture_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ### Structure
 
