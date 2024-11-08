@@ -9,7 +9,7 @@
 In this module, you need to integrate a service registry tool into your infrastructure.  
 You can refer to a sample implementation using **Eureka** here: [Eureka Example](https://www.javainuse.com/spring/cloud-gateway-eureka).
 
-![](images/service_discovery.png)
+<img src="images/service_discovery.png" width="461" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 Afterward, prepare for the final screening, where you may need to demonstrate the complete functionality of the application with the integrated service registry.
 
