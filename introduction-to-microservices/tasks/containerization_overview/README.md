@@ -37,20 +37,14 @@ In this module, you will adapt your services to use a containerization approach.
 
 ## Sub-task 2: Docker Compose file
 
+### 1. Container configuration
+
 Create a `docker-compose.yml` (`compose.yml`) file that includes the following elements:
 
-1. **Microservice containers**. Make sure to follow these requirements:
-
-    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory.
-    - To avoid confusion, do not use both `build` and `image` together. The `image` property is intended to pull pre-built images from a registry (e.g., Docker Hub) or assume images are manually built.
-    - Specify ports (`ports`) to expose for external access.
-    - Define environment variables (`environment`), including database references, using an `.env` file for variable substitution.
-
-
-2. **Database containers**. Make sure to follow these requirements:
+- **Database containers**. Make sure to follow these requirements:
 
     - For each database, create a separate container using lightweight [Alpine-based PostgreSQL images](https://hub.docker.com/_/postgres/tags?name=17-alpine) (version 16 or higher).
-    - Set the necessary environment variables to configure the database, like database name, user, and password. Use an `.env` file to store these variables for easy management and security.
+    - Database-specific configurations, such as `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, should be read from the `.env` file.
     - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
         - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties` or `application.yml`, set it to `none`.
         - Avoid using Flyway for initial schema setup in the Docker container, as the initialization scripts should handle this directly.
@@ -58,24 +52,37 @@ Create a `docker-compose.yml` (`compose.yml`) file that includes the following e
         - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
 
 
-3. **Microservice configuration**. Make sure to follow these requirements:
+- **Microservice containers**. Ensure you comply with these requirements:
 
-    - Avoid hardcoding container-specific values (such as database URLs, credentials, service URLs, and any other configuration details specific to the containerized environment) directly in `application.properties` or `application.yml`.
-    - Set container-specific values as environment variables in Docker Compose.
-    - Use a `.env` file to define these variables, allowing Docker Compose to automatically read and inject environment-specific settings. For example:
+    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory.
+    - To avoid confusion, do not use both `build` and `image` together. The `image` property is intended to pull pre-built images from a registry (e.g., Docker Hub) or assume images are manually built.
+    - Specify ports (`ports`) to expose for external access.
+    - Define environment variables (`environment`), including database references, using an `.env` file for variable substitution.
 
-        ```properties
-        # .env
-        RESOURCE_DB_URL=jdbc:postgresql://resource-db:5432/resource_db
-        ```
 
-        ```yaml
-        # docker-compose.yml
-        services:
-          resource-service:
-            environment:
-              SPRING_DATASOURCE_URL: ${RESOURCE_DB_URL}
-        ```
+<img src="images/containerization_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+
+### 2. Microservice configuration
+
+Be sure to meet all these conditions:
+
+   - Avoid hardcoding container-specific values (such as database URLs, credentials, service URLs, and any other configuration details specific to the containerized environment) directly in `application.properties` or `application.yml`.
+   - Set container-specific values as environment variables in Docker Compose.
+   - Use a `.env` file to define these variables, allowing Docker Compose to automatically read and inject environment-specific settings. For example:
+
+       ```properties
+       # .env
+       RESOURCE_DB_URL=jdbc:postgresql://resource-db:5432/resource_db
+       ```
+
+       ```yaml
+       # docker-compose.yml
+       services:
+         resource-service:
+           environment:
+             SPRING_DATASOURCE_URL: ${RESOURCE_DB_URL}
+       ```
 
    - Configure `application.properties` or `application.yml` to support both environment variables for containerized execution and default values for local execution (e.g., when running directly in IntelliJ). For example::
 
@@ -89,18 +96,14 @@ Create a `docker-compose.yml` (`compose.yml`) file that includes the following e
        - **Docker execution**: Docker Compose should seamlessly pull configuration values from the `.env` file, enabling the containerized environment to use the necessary settings without manual adjustments.
 
 
-4. **Database configuration**. Make sure to follow these requirements:
+### 3. Additional notes 
 
-    - Database-specific configurations, such as `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, should be read from the `.env` file.
+Adhere to the specified requirements:
 
+   - Use Docker Compose's **default network**.
+   - Use **logical service names** to cross-reference services for easier communication within the Docker network instead of IP addresses.
+   - **Persisting database data** between restarts is not necessary.
 
-5. **Additional notes**. Make sure to follow these requirements:
-
-    - Use Docker Compose's **default network**.
-    - Use **logical service names** to cross-reference services for easier communication within the Docker network instead of IP addresses.
-    - **Persisting database data** between restarts is not necessary.
-
-<img src="images/containerization_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ## Notes
 
