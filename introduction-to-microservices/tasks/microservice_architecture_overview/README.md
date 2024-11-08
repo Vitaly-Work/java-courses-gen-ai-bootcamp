@@ -92,6 +92,7 @@ GET /resources/{id}
 **Status codes:**
 
 - **200 OK** – Resource retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Resource with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
@@ -130,7 +131,7 @@ DELETE /resources?id=1,2
 
 ## Sub-task 2: Song Service
 
-The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID as the primary key for metadata records, ensuring a direct one-to-one relationship between resources and their metadata.
+The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID to uniquely identify each metadata record, establishing a direct one-to-one relationship between resources and their metadata.
 
 ---
 
@@ -217,6 +218,7 @@ GET /songs/{id}
 **Status codes:**
 
 - **200 OK** – Metadata retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Song metadata with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
@@ -324,7 +326,9 @@ gradle-project/
 
 ---
 
-## How to place a link to your Git repository in your personal folder for the practical task
+## Adding a Git repository link to your personal folder
+
+Consider placing a link to your Git repository in your personal folder for the practical task instead of uploading an archive.
 
 In the folder you access through the link provided by Avalia Kicker bot, add a link to your Git repository:
 - Click on the "New" button.
