@@ -16,11 +16,18 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
 ## Sub-task 1: Service registry
 
 1) Use the Eureka Service Registry for [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/).
+
+
 2) Ensure that all microservices act as Eureka clients and register with the Eureka server (which includes both the Load Balancer and Service Registry).
+
+
+3) Ensure the application runs seamlessly both locally and in Docker Compose by using default values in `application.properties` or `application.yml` for local execution and pulling settings from the `.env` file via Docker Compose for Docker execution.
+
 
 ## Sub-task 2: Prepare for final screening
 
 1) Prepare an archive of the final version of your project or provide a link to it in a public repository. This should be shared **directly with your mentor upon request** (there’s no need to upload it to Avalia this time).
+
 
 2) Prepare for a demo where you will demonstrate the functionality of the entire application, including all major features and use cases, as specified in the task. During this final screening, you should:
 
