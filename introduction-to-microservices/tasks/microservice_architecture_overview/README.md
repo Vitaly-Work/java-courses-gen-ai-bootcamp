@@ -328,7 +328,7 @@ gradle-project/
 
 ## Adding a Git repository link to your personal folder
 
-Consider placing a link to your Git repository in your personal folder for the practical task instead of uploading an archive.
+Consider placing a link to your Git repository in your personal folder for the practical task instead of uploading your files or an archive with files.
 
 In the folder you access through the link provided by Avalia Kicker bot, add a link to your Git repository:
 - Click on the "New" button.
