@@ -92,7 +92,7 @@ Be sure to meet all these conditions:
      ```
 
    - Ensure the application can be executed both locally and in Docker Compose without requiring configuration changes or switching profiles:
-       - **Local execution**: The application should use the default values specified in `application.properties` or `application.yml`.
+       - **Local execution**: The application should use the default values specified in `application.properties` or `application.yml`. As in Module 1, only the databases need to run in containers, while the application itself should execute directly on the local machine.
        - **Docker execution**: Docker Compose should seamlessly pull configuration values from the `.env` file, enabling the containerized environment to use the necessary settings without manual adjustments.
 
 
