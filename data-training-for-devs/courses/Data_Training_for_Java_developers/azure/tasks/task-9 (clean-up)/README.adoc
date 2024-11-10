@@ -1,0 +1,22 @@
+= Task 9 — Clean up resources.
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 10, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 1 hour
+
+== Objective
+After all task are completed we need to purge all resources created in scope of these exercises.
+
+
+== Steps
+. Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.
+
+. Complete all steps defined in this notebook.
+
+== Validation
+include::../validation/task9-checklist.adoc[]
+

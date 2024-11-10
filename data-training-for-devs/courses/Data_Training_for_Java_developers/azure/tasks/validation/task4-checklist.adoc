@@ -1,0 +1,11 @@
+- [ ] Check if data is successfully streamed from EventHub and stored in data lake.
++
+image::../../materials/images/task4-adls-structure.png[adls structure]
+
+- [ ] From within databricks notebook execute following command: +
+`select id, patient_id, systolic_pressure_value, diastolic_pressure_value from silver_observations`
+
+- [ ] Verify if result resembles something like this:
+
++
+image::../../materials/images/task4-result.png[result]

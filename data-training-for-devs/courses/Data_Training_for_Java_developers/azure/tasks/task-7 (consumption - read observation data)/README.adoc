@@ -1,0 +1,24 @@
+= Task 7 — Consumption of Observation Data from Stream Analytics.
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 10, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 1 hour1
+
+== Objective
+Azure Stream Analytics is a serverless scalable event processing engine that helps to analyze real time observation data published to Event Hub. It can easily be integrated with multiple source and sink services. For the sake of simplicity and cost decreasing we will be writing data directly to Stream Analytics console.
+
+image::../../materials/images/task6-objective.png[objective]
+
+== Steps
+. Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.
+
+. Complete all steps defined in this notebook.
+
+== Validation
+include::../validation/task7-checklist.adoc[]
+
+
