@@ -13,10 +13,15 @@ Azure Stream Analytics is a serverless scalable event processing engine that hel
 
 image::../../materials/images/task6-objective.png[objective]
 
-== Steps
-. Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.
-
-. Complete all steps defined in this notebook.
+== Step
+. Go to Azure Stream Analytics Jobs via portal and navigate to one created for the course.
+. Go to *Inputs* and add new Event Hub input. Use following settings while creating the input:
+- alias: *input-event-hub*
+- event hub name: *target-even-hub*
+- authentication mode: *system assigned managed identity*
+. Go to *Query* and compose following SQL query:
+- use just created event hub input for a data source
+- select events for recent 5 minutes
 
 == Validation
 include::../validation/task7-checklist.adoc[]

@@ -17,9 +17,14 @@ Serverless SQL Pool is used as the cheapest and simple option for our case. Howe
 image::../../materials/images/task8-objective.png[objective]
 
 == Steps
-. Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.
-
-. Complete all steps defined in this notebook.
+. Go to Azure Portal and navigate to Azure Synapse Analytics.
+. From within workspace go to Synapse Studio.
+. Go to *Data -> Linked*.
+. Select *datalake->gold->patient_observation_table* folder.
+. Select *New SQL Script -> Select TOP 100 rows*.
+. Select *Delta* format as *file type*.
+. Run the generated query
+. Update the query and filter the result to return only record for patient with id *patient_01_id*.
 
 == Validation
 include::../validation/task8-checklist.adoc[]
