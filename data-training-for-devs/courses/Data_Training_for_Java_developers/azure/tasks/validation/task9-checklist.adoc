@@ -1,1 +1,1 @@
-- [ ] TODO
+- [ ] All resources are deleted.

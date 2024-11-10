@@ -11,11 +11,12 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 == Objective
 After all task are completed we need to purge all resources created in scope of these exercises.
 
-
 == Steps
-. Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.
+. Run following command at `terraform\azure`: `terraform destroy`
 
-. Complete all steps defined in this notebook.
+. Make sure it's completed successfully.
+
+. Sometimes it might fail. Then go to zAzure portal > resource group` and delete it expicitly. As long as all resources reside within the same resource group, they all be removed.
 
 == Validation
 include::../validation/task9-checklist.adoc[]
