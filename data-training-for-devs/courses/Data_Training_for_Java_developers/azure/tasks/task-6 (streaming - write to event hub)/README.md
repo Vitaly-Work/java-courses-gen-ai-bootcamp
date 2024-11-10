@@ -1,6 +1,3 @@
-
-
-  
 # Task 6 - Streaming. Write Observations to Event Hub.
 > **Time to complete**: 3 hour
 ## Objective 

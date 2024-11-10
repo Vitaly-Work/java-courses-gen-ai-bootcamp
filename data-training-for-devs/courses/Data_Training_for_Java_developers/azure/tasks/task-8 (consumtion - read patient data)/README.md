@@ -1,6 +1,4 @@
-
-  
-# Task 8 - Consumption. Read Patient Gold Data.
+# Task 8 — Consumption. Read Patient Gold Data.
 > **Time to complete**: 1 hour
 ## Objective 
 As soons as data ends up in Gold layer it's ready to power analytics, machine learning and production application. It contains not just information but also knowledge. Lakehouse architecture allows to query data directly from Delta lake, however sometimes it might not provide desired performance. In this case data is ingested to warehouse platform and fetched from that layer. For our reference architecture we will rely on Azure Synapse Serverless SQL Pool.

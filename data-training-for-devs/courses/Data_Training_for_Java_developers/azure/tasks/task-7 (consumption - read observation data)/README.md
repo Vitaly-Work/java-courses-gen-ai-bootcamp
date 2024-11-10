@@ -1,7 +1,7 @@
-# Task 7 - Consumtion Observation Data from Stream Analytics.
+# Task 7 — Consumption of Observation Data from Stream Analytics.
 > **Time to complete**: 1 hour
 ## Objective 
-Azure Stream Analytics is a serverless scalable event processing engine that helps to analyze real time observation data published to Event Hub. It can easely be integrated with multiple source and sink services. For the sake of simplicity and cost decreasing we will be writing data directly to Stream Analytics console. 
+Azure Stream Analytics is a serverless scalable event processing engine that helps to analyze real time observation data published to Event Hub. It can easily be integrated with multiple source and sink services. For the sake of simplicity and cost decreasing we will be writing data directly to Stream Analytics console. 
 ![context](../../materials/images/task6-objective.png)
 
 ## Steps
