@@ -1,0 +1,139 @@
+{
+  "resourceType": "Patient",
+  "id": "patient_06_id",
+  "text": {
+    "status": "generated"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "67890",
+      "period": {
+        "start": "2002-07-18"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Johnson",
+      "given": [
+        "Emily",
+        "Rose"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Em"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(02) 5555 1234",
+      "use": "work",
+      "rank": 1
+    },
+    {
+      "system": "phone",
+      "value": "(02) 3412 5678",
+      "use": "mobile",
+      "rank": 2
+    },
+    {
+      "system": "email",
+      "value": "emily.johnson@example.com",
+      "use": "home"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1975-01-15",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "1975-01-15T10:15:00-05:00"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "123 Main St, Springfield, IL 62704",
+      "line": [
+        "123 Main St"
+      ],
+      "city": "Springfield",
+      "state": "IL",
+      "postalCode": "62704",
+      "period": {
+        "start": "2010-05-01"
+      }
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "S"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Johnson",
+        "given": [
+          "John"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "(02) 5555 6789"
+        }
+      ],
+      "address": {
+        "use": "home",
+        "line": [
+          "123 Main St"
+        ],
+        "city": "Springfield",
+        "state": "IL",
+        "postalCode": "62704",
+        "period": {
+          "start": "2000-01-01"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2010"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/2"
+  }
+}

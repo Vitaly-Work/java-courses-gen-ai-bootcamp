@@ -1,0 +1,139 @@
+{
+  "resourceType": "Patient",
+  "id": "patient_07_id",
+  "text": {
+    "status": "generated"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "13579",
+      "period": {
+        "start": "2010-10-10"
+      },
+      "assigner": {
+        "display": "Health System XYZ"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Smith",
+      "given": [
+        "Jacob",
+        "Andrew"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jake"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(04) 1234 5678",
+      "use": "work",
+      "rank": 1
+    },
+    {
+      "system": "phone",
+      "value": "(04) 8765 4321",
+      "use": "mobile",
+      "rank": 2
+    },
+    {
+      "system": "email",
+      "value": "jacob.smith@example.com",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1980-05-20",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "1980-05-20T07:45:00-05:00"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "456 Oak St, Metropolis, NY 11001",
+      "line": [
+        "456 Oak St"
+      ],
+      "city": "Metropolis",
+      "state": "NY",
+      "postalCode": "11001",
+      "period": {
+        "start": "2005-02-15"
+      }
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "C"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Smith",
+        "given": [
+          "Karen"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "(04) 2345 6789"
+        }
+      ],
+      "address": {
+        "use": "home",
+        "line": [
+          "456 Oak St"
+        ],
+        "city": "Metropolis",
+        "state": "NY",
+        "postalCode": "11001",
+        "period": {
+          "start": "2005-02-15"
+        }
+      },
+      "gender": "female",
+      "period": {
+        "start": "2008"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/3"
+  }
+}

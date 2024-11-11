@@ -1,0 +1,139 @@
+{
+  "resourceType": "Patient",
+  "id": "patient_05_id",
+  "text": {
+    "status": "generated"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "98532",
+      "period": {
+        "start": "2007-09-19"
+      },
+      "assigner": {
+        "display": "West Medical Center"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Davis",
+      "given": [
+        "Joshua",
+        "Leon"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Josh"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(02) 6789 1234",
+      "use": "work",
+      "rank": 1
+    },
+    {
+      "system": "phone",
+      "value": "(02) 1234 5678",
+      "use": "mobile",
+      "rank": 2
+    },
+    {
+      "system": "email",
+      "value": "joshua.davis@example.com",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1982-02-23",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "1982-02-23T13:20:00-05:00"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "654 Birch St, Central City, TX 75201",
+      "line": [
+        "654 Birch St"
+      ],
+      "city": "Central City",
+      "state": "TX",
+      "postalCode": "75201",
+      "period": {
+        "start": "2011-08-15"
+      }
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "P"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Davis",
+        "given": [
+          "Martha"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "(02) 5678 2345"
+        }
+      ],
+      "address": {
+        "use": "home",
+        "line": [
+          "654 Birch St"
+        ],
+        "city": "Central City",
+        "state": "TX",
+        "postalCode": "75201",
+        "period": {
+          "start": "2012-03-20"
+        }
+      },
+      "gender": "female",
+      "period": {
+        "start": "2008"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/6"
+  }
+}
