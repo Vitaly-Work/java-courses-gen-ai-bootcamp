@@ -1,7 +1,7 @@
 # Table of contents
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Dockerfile](#sub-task-1-docker-images)
+- [Sub-task 1: Dockerfiles](#sub-task-1-dockerfiles)
 - [Sub-task 2: Docker Compose file](#sub-task-2-docker-compose-file)
 - [Notes](#notes)
 
@@ -9,25 +9,39 @@
 
 In this module, you will adapt your services to use a containerization approach.
 
-## Sub-task 1: Dockerfile
+## Sub-task 1: Dockerfiles
 
 1. **Create a Dockerfile for each service**. Make sure to follow these requirements:
 
-   - Implement **multi-stage builds** to create a clear separation between build and runtime environments, which helps keep the final image size small.
+   - Implement **two-stage builds** to create a clear separation between build and runtime environments, which helps keep the final image size small.
    - Use **Alpine images** to keep the resulting images lightweight (below are the recommended ones):
-       - **Build Stage**:
+       - **Build stage**:
            - For Maven projects, use [Eclipse Temurin-based Alpine images](https://hub.docker.com/_/maven/tags?name=eclipse-temurin-17-alpine). These allow you to build Java applications efficiently while keeping the environment minimal.
            - For Gradle projects, use [Gradle Alpine images](https://hub.docker.com/_/gradle/tags?name=jdk17-alpine), designed specifically for building Java applications with Gradle.
-       - **Runtime Stage**:
+       - **Runtime stage**:
            - Use [Eclipse Temurin Alpine images](https://hub.docker.com/_/eclipse-temurin/tags?name=17-jre-alpine) for running the application. These images include only the necessary JRE components, minimizing resource usage.
-   - Introduce **dependency caching** to speed up rebuilds. This leverages Docker's layer caching to avoid re-downloading unchanged dependencies. **Tips**:
-        - **For Maven projects**:
+   - Introduce **dependency caching** to speed up rebuilds. This leverages Docker's layer caching to avoid re-downloading unchanged dependencies.
+        - **Tips for Maven projects**:
             - Copy the `pom.xml` file before copying the source code (`src`). This allows Docker to cache dependencies if the configuration file has not changed.
+            - Avoid `COPY . .` in build stage. Instead, copy files selectively to ensure Docker builds only when necessary, like `COPY src ./src`.
             - Use the command `RUN mvn dependency:go-offline` to download all dependencies before copying the source code.
-        - **For Gradle projects**:
-            - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first. This helps cache dependencies effectively.
+        - **Tips for Gradle projects**:
+            - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first, then install dependencies (e.g., `RUN ./gradlew dependencies --no-daemon`) This helps cache dependencies effectively.
+   - **Additional tips**:
+        - **General**:
+            - Use `WORKDIR` to specify a consistent context for commands (e.g., `WORKDIR /app`). By using `WORKDIR`, you ensure all subsequent commands operate within a defined context without additional setup. Also, `WORKDIR` automatically creates the directory if it doesn’t already exist, so there’s no need for a separate `RUN mkdir /app` command.
+            - Minimize layers by consolidating commands in each stage to reduce the number of layers in your final image. For example, combine commands like `COPY pom.xml . && RUN mvn dependency:go-offline` instead of separating them.
+            - Prefer `COPY` over `ADD` for local files, as `ADD` can introduce unexpected behavior by unpacking files or fetching URLs.
+            - Avoid hardcoded JAR names by using wildcards. For example, instead of `COPY --from=build /app/target/my-application-1.0.0.jar app.jar` use `COPY --from=build /app/target/*.jar app.jar`. This way, you don’t need to update the Dockerfile if the JAR file name changes, as long as there’s only one JAR file in the target directory.
+            - Use `CMD` instead of `ENTRYPOINT` to allow flexibility in overriding commands in Docker Compose or when running the container manually.
+            - Use `EXPOSE` to indicate the application’s internal port in the runtime stage, e.g., `EXPOSE 8080`.
+            - Avoid defining environment variables in the Dockerfile for runtime-specific values with `ARG` or `ENV`.
+        - **Tips for Maven projects**:
+            - Use `RUN mvn clean package -DskipTests` to skip tests in the Dockerfile build stage for faster builds.
+        - **Tips for Gradle projects**:
+            - Include the Gradle Wrapper (`gradlew`) in your project and run all commands via `gradlew` to avoid host dependency issues.
             - Use the `--no-daemon` flag with `gradlew` to ensure consistent builds within Docker and manage memory usage effectively.
-
+            - Use `RUN ./gradlew assemble --no-daemon -x test` to skip tests and speed up the Docker build. The `assemble` task compiles and packages the code without running tests by default. Adding `-x test` further ensures tests are excluded, maximizing build efficiency. This approach is faster than using `gradle build`, which includes tests by default.
 
 2. **Test the Docker images**
 
@@ -92,8 +106,8 @@ Be sure to meet all these conditions:
      ```
 
    - Ensure the application can be executed both locally and in Docker Compose without requiring configuration changes or switching profiles:
-       - **Local execution**: The application should use the default values specified in `application.properties` or `application.yml`. As in Module 1, only the databases need to run in containers, while the application itself should execute directly on the local machine.
-       - **Docker execution**: Docker Compose should seamlessly pull configuration values from the `.env` file, enabling the containerized environment to use the necessary settings without manual adjustments.
+       - **Local execution**: Only the **database containers** should run in Docker, while **microservices** should run directly on the local machine (as in Module 1). The application should use default values specified in `application.properties` or `application.yml` to connect to the database containers.
+       - **Docker execution**: In this mode, both **microservices** and **database containers** run fully within Docker Compose. Docker Compose should pull configuration values from the `.env` file automatically, allowing the containerized environment to use the necessary settings without manual adjustments.
 
 
 ### 3. Additional notes 
