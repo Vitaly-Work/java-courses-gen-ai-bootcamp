@@ -84,15 +84,17 @@ print('4. Reading...')
 # MAGIC   >add new column 'ingestion_date' with the value equal current timestamp.
 # MAGIC
 # MAGIC - Create new delta table (if not exists):
-# MAGIC   >use patient schema defined above.
+# MAGIC   >use `patient` schema defined above.
 # MAGIC
-# MAGIC   >location - silver_table_location from properties file.
+# MAGIC   >location - `silver_patients_table_location` from properties file.
 # MAGIC
-# MAGIC   >table name - silver_table_name from properties file.
+# MAGIC   >table name - `silver_patients_table_name` from properties file.
 # MAGIC
-# MAGIC   >add new update_date column.
+# MAGIC   >add new `update_date` column.
 # MAGIC
-# MAGIC - Merge existing patient data with received updates. Use 'id' to match records. If record is updated change the value of 'update_date' to current timestamp, otherwise leave it blank.
+# MAGIC - Merge existing patient data with received updates.
+# Use 'id' to match records.
+# If a record is updated, then change the value of 'update_date' to the current timestamp, otherwise leave it blank.
 # MAGIC
 # MAGIC - Execute *select* command using SQL syntax. Check if data is added.
 
