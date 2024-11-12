@@ -37,7 +37,7 @@ In this module, you will adapt your services to use a containerization approach.
             - Use `EXPOSE` to indicate the application’s internal port in the runtime stage, e.g., `EXPOSE 8080`.
             - Avoid defining environment variables in the Dockerfile for runtime-specific values with `ARG` or `ENV`.
         - **Tips for Maven projects**:
-            - Use `RUN mvn clean package -DskipTests` to skip tests in the Dockerfile build stage for faster builds.
+            - Use `RUN mvn clean package -Dmaven.test.skip=true` in the Dockerfile build stage to skip both test compilation and execution for faster builds. If you want to skip running the tests but still need the test classes available, use `RUN mvn clean package -DskipTests`.
         - **Tips for Gradle projects**:
             - Include the Gradle Wrapper (`gradlew`) in your project and run all commands via `gradlew` to avoid host dependency issues. Update the `.gitignore` file to ensure that `gradlew` and `gradlew.bat` files are included in the Git repository for Docker compatibility.
             - Use the `--no-daemon` flag with `gradlew` to ensure consistent builds within Docker and manage memory usage effectively.
