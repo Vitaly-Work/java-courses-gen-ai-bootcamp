@@ -116,7 +116,7 @@ Adhere to the specified requirements:
 
    - Use Docker Compose's **default network**.
    - Use **logical service names** to cross-reference services for easier communication within the Docker network instead of IP addresses.
-   - **Persisting database data** between restarts is not necessary.
+   - **Persisting database data** between restarts is not enabled.
 
 
 ## Notes
