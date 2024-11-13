@@ -64,16 +64,16 @@
 
 # COMMAND ----------
 
-printf("1. Import required libraries....")
+print("1. Import required libraries....")
 
-printf("2. Import observation schema....")
+print("2. Import observation schema....")
 
-printf("3. Read event hub connection string value from secrets....")
+print("3. Read event hub connection string value from secrets....")
 
-printf("4. Read stream of events from event hub....")
+print("4. Read stream of events from event hub....")
 
-printf("5. Apply transformation logic....")
+print("5. Apply transformation logic....")
 
-printf("6. Create external Delta table silver_observations...")
+print("6. Create external Delta table silver_observations...")
 
-printf("7. Write data to the newly created table.....")
+print("7. Write data to the newly created table.....")
