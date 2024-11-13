@@ -61,7 +61,7 @@ Create a `docker-compose.yml` (`compose.yml`) file that includes the following e
     - Database-specific configurations, such as `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, should be read from the `.env` file.
     - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
         - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties` or `application.yml`, set it to `none`.
-        - Avoid using Flyway for initial schema setup in the Docker container, as the initialization scripts should handle this directly.
+        - Avoid using Flyway for initial schema setup in the Docker container, as the initialization scripts should handle this directly. Set `spring.flyway.enabled` to `false`.
         - Avoid creating databases in the initialization scripts; these scripts should focus on setting up schemas, not on creating databases.
         - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
 
