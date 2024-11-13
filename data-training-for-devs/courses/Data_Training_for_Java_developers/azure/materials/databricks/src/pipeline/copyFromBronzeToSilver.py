@@ -68,7 +68,8 @@
 
 # COMMAND ----------
 
-# MAGIC %md ## 8. Create new delta table (if not exists):
+# MAGIC %md
+# MAGIC ## 8. Create new delta table (if not exists):
 # MAGIC   >use `patient` schema defined above.
 # MAGIC
 # MAGIC   >location - `silver_patients_table_location` from properties file.
@@ -79,9 +80,10 @@
 
 # COMMAND ----------
 
-# MAGIC %md ## 9. Merge existing patient data with received updates.
-# Use 'id' to match records.
-# If a record is updated, then change the value of 'update_date' to the current timestamp, otherwise leave it blank.
+# MAGIC %md
+# MAGIC ## 9. Merge existing patient data with received updates.
+# - Use 'id' to match records.
+# - If a record is updated, then change the value of 'update_date' to the current timestamp, otherwise leave it blank.
 
 # COMMAND ----------
 
