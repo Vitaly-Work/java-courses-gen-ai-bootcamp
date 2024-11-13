@@ -1,58 +1,41 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC ## 1. Setup dependencies
-# MAGIC - Import required libraries
+# MAGIC ## 1. Import required libraries
 # MAGIC
 
 # COMMAND ----------
 
-print('1. Setup dependencies...')
+# MAGIC %md
+# MAGIC ## 2. List all available mounts
+# MAGIC Make sure that `/mnt/datalake_mount` is availфble and points to your datalake storage.
 
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC ## 2. Mounting
-# MAGIC - List all available mounts
-# MAGIC - Make sure that `/mnt/datalake_mount` is availble and points to your datalake storage.
-
-# COMMAND ----------
-
-print('2. Mounting...')
-
-# COMMAND ----------
-
-# MAGIC %md 
-# MAGIC ## 3. Preparation
-# MAGIC
-# MAGIC - Import properties.py file using magic command. 
-# MAGIC    The file contains usefull constants you might find handy for your code.
+# MAGIC ## 3. Import properties.py file using magic command.
+# MAGIC The file contains usefull constants you might find handy for your code.
 # MAGIC > Hint: use `%run magic` command
-# MAGIC
-# MAGIC - Read *destination* parameter passed from within Data Factory pipeline.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 4. Read *destination* parameter passed from within Data Factory pipeline.
 # MAGIC > Hint: use `dbutils.widgets.get` method.
-# MAGIC
-# MAGIC - Import patient schema `../pipeline/schema/patient.py`
-
-# COMMAND ----------
-
-print('3. Preparing...')
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 4. Reading
-# MAGIC - Read json data from bronze layer. As a path use parameter read from Data Factory prefixed with mount endpoint.
-
-# COMMAND ----------
-
-print('4. Reading...')
+# MAGIC ## 5. Import patient schema `../pipeline/schema/patient.py`
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 5.Transformation
-# MAGIC
-# MAGIC - Select following columns and apply transformations for dataframe:
+# MAGIC ## 6. Read json data from bronze layer. As a path use parameter read from Data Factory prefixed with mount endpoint.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 7. Select following columns and apply transformations for dataframe:
 # MAGIC   >id => id
 # MAGIC
 # MAGIC   >gender => gender
@@ -82,8 +65,10 @@ print('4. Reading...')
 # MAGIC   >address[0].postalCode => postal_code
 # MAGIC
 # MAGIC   >add new column 'ingestion_date' with the value equal current timestamp.
-# MAGIC
-# MAGIC - Create new delta table (if not exists):
+
+# COMMAND ----------
+
+# MAGIC %md ## 8. Create new delta table (if not exists):
 # MAGIC   >use `patient` schema defined above.
 # MAGIC
 # MAGIC   >location - `silver_patients_table_location` from properties file.
@@ -91,25 +76,20 @@ print('4. Reading...')
 # MAGIC   >table name - `silver_patients_table_name` from properties file.
 # MAGIC
 # MAGIC   >add new `update_date` column.
-# MAGIC
-# MAGIC - Merge existing patient data with received updates.
-# Use 'id' to match records.
-# If a record is updated, then change the value of 'update_date' to the current timestamp, otherwise leave it blank.
-# MAGIC
-# MAGIC - Execute *select* command using SQL syntax. Check if data is added.
 
 # COMMAND ----------
 
-print('5. Transforming...')
+# MAGIC %md ## 9. Merge existing patient data with received updates.
+# Use 'id' to match records.
+# If a record is updated, then change the value of 'update_date' to the current timestamp, otherwise leave it blank.
+
+# COMMAND ----------
+
+# MAGIC %md ## 10. Execute *select* command using SQL syntax. Check if data is added.
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 6. Storing
-# MAGIC We need to pass id of the patient back to Data Factory pipeline. Return arrays of patient's ids that were modified. Use `dbutils.notebook.exit` method. The returned parameter should be array of ids converted to string.
+# MAGIC ## 11. We need to pass id of the patient back to Data Factory pipeline. Return arrays of patient's ids that were modified. Use `dbutils.notebook.exit` method. The returned parameter should be array of ids converted to string.
 # MAGIC
 # MAGIC > Hint: use json.dumps method
-
-# COMMAND ----------
-
-print('6. Storing...')
