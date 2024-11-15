@@ -9,25 +9,33 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 > > *Time to complete*: 2 hours
 
 == Objective
-Tables in Gold layer represent data that has been transformed into knowledge, rather than just information. In our case we need to aggregate Patient and Observation data to provide valuable insights on patient conditions. For this task it's required to join both tables from Silver layer, find average blood pressure for the patient and store as new table in Gold layer.
+
+Tables in Gold layer represent data that has been transformed into knowledge, rather than just information.
+In our case, we need to aggregate Patient and Observation data to provide valuable insights on patient conditions.
+For this task, it's required to join both tables from Silver layer,
+find average blood pressure for the patient and store as new table in Gold layer.
 
 image::../../materials/images/task5-objective.png[objective]
 
 == Steps
-. Go to Azure Data Factory Studio.
+. Go to `Data Factory` Workspace (`data-factory-bigdata<id>`) and `Launch Studio`.
 
-. Create new `CopyFromSilverToGold` Databricks Notebook activity.
-* Select *copyFromSilverToGold.py* notebook as a source.
-* Go to `Settings > Base parameters` and add following one:
-** patient_id = @string(activity(**'name of the copy from bronze to silver activity'**).output.runOutput)
+. Open `PatientDataIngestion` pipeline
 
-. Connect with arrow previous activity with newly created using Data Factory UI.
+. Create new `Databricks Notebook` Activity.
+* Name: *CopyFromSilverToGold*
+* Databricks linked service: *databricksClusterLinkedService*
+* Notebook path: `/Users/<your_user>/pipeline/copyFromSilverToGold.py`
+* Settings > Base parameters:
+** *patient_id*: `@string(activity('CopyFromBronzeToSilver').output.runOutput)`
 
-. Save and publish changes.
+. Connect `on Success` the existing `CopyFromBronzeToSilver` activity with a newly added `CopyFromBronzeToSilver` activity by using Data Factory UI.
 
-. Go to Databricks cluster and open `copyFromSilverToBronze.py`  notebook.
+. Click on `Validate`, then `Publish all`
 
-. Complete all steps defined in this notebook.
+. Go to Databricks cluster and open `copyFromSilverToGold.py`  notebook.
++
+Complete all steps defined in this notebook.
 
 == Validation
 include::../validation/task5-checklist.adoc[]

@@ -30,6 +30,8 @@ Databricks cluster endpoint might be found either in console after terraform scr
 
 . Go to `Data Factory` Workspace (`data-factory-bigdata<id>`) and `Launch Studio`.
 
+. Open `PatientDataIngestion` pipeline
+
 . Create new `Databricks Notebook` Activity.
 * Name: *CopyFromBronzeToSilver*
 * Databricks linked service: *databricksClusterLinkedService*
@@ -38,6 +40,7 @@ Databricks cluster endpoint might be found either in console after terraform scr
 ** *destination*: `@pipeline().parameters.destination`
 
 . Connect `on Success` the existing `CopyFromSourceToBronze` activity with a newly added `CopyFromBronzeToSilver` activity by using Data Factory UI.
+
 . Click on `Validate`, then `Publish all`
 
 == Validation
