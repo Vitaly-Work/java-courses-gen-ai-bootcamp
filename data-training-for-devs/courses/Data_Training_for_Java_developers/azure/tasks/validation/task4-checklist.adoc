@@ -2,10 +2,11 @@
 +
 image::../../materials/images/task4-adls-structure.png[adls structure]
 
-- [ ] From within databricks notebook execute the following command: +
+- [ ] From within databricks notebook execute the following command:
++
 `select id, patient_id, systolic_pressure_value, diastolic_pressure_value from silver_observations`
-
-- [ ] Verify if a result resembles something like this:
++
+Verify if a result resembles something like this:
 
 +
 image::../../materials/images/task4-result.png[result]
