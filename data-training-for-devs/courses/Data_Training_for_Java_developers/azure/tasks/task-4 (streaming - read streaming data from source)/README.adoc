@@ -22,5 +22,9 @@ image::../../materials/images/task4-objective.png[objective]
 include::../validation/task4-checklist.adoc[]
 
 == Cleanup
-. Remember to **stop the job manually**, as long as it's streaming one it will keep running without not being killed explicitly.
+
+[WARNING]
+====
+Remember to **stop the job manually**, as long as it's streaming one it will keep running without not being killed explicitly.
+====
 
