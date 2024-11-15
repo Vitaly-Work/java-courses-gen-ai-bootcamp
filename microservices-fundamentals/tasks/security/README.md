@@ -23,7 +23,7 @@ Pick with mentor better option: Do it with the help of external Auth provider or
 1) Create a simple UI application with storage form and table of storages. 
 2) Integrate it with Auth provider.
 
-![](images/task.png)
+<img src="images/security_sequence_diagram.png" width="400" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ## Useful links
 

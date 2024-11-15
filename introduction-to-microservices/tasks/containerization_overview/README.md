@@ -1,67 +1,123 @@
 # Table of contents
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Dockerfile](#sub-task-1-docker-images)
+- [Sub-task 1: Dockerfiles](#sub-task-1-dockerfiles)
 - [Sub-task 2: Docker Compose file](#sub-task-2-docker-compose-file)
 - [Notes](#notes)
-
-> Note: This is the updated version of the task. If you have already started working on [the previous version](README-deprecated.md), please continue with the previous one.
 
 ## What to do
 
 In this module, you will adapt your services to use a containerization approach.
 
-## Sub-task 1: Dockerfile
+## Sub-task 1: Dockerfiles
 
 1. **Create a Dockerfile for each service**. Make sure to follow these requirements:
 
-   - Implement **multi-stage builds** to create a clear separation between build and runtime environments, which helps keep the final image size small.
+   - Implement **two-stage builds** to create a clear separation between build and runtime environments, which helps keep the final image size small.
    - Use **Alpine images** to keep the resulting images lightweight (below are the recommended ones):
-       - **Build Stage**:
+       - **Build stage**:
            - For Maven projects, use [Eclipse Temurin-based Alpine images](https://hub.docker.com/_/maven/tags?name=eclipse-temurin-17-alpine). These allow you to build Java applications efficiently while keeping the environment minimal.
            - For Gradle projects, use [Gradle Alpine images](https://hub.docker.com/_/gradle/tags?name=jdk17-alpine), designed specifically for building Java applications with Gradle.
-       - **Runtime Stage**:
+       - **Runtime stage**:
            - Use [Eclipse Temurin Alpine images](https://hub.docker.com/_/eclipse-temurin/tags?name=17-jre-alpine) for running the application. These images include only the necessary JRE components, minimizing resource usage.
-   - Introduce **dependency caching** to speed up rebuilds. This leverages Docker's layer caching to avoid re-downloading unchanged dependencies. **Tips**:
-        - **For Maven projects**:
+   - Introduce **dependency caching** to speed up rebuilds. This leverages Docker's layer caching to avoid re-downloading unchanged dependencies.
+        - **Tips for Maven projects**:
             - Copy the `pom.xml` file before copying the source code (`src`). This allows Docker to cache dependencies if the configuration file has not changed.
+            - Avoid `COPY . .` in build stage. Instead, copy files selectively to ensure Docker builds only when necessary, like `COPY src ./src`.
             - Use the command `RUN mvn dependency:go-offline` to download all dependencies before copying the source code.
-        - **For Gradle projects**:
-            - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first. This helps cache dependencies effectively.
+        - **Tips for Gradle projects**:
+            - Copy the Gradle wrapper and build configuration files (`build.gradle`, `settings.gradle`, `gradlew`) first, then install dependencies (e.g., `RUN ./gradlew dependencies --no-daemon`) This helps cache dependencies effectively.
+   - **Additional tips**:
+        - **General**:
+            - Use `WORKDIR` to specify a consistent context for commands (e.g., `WORKDIR /app`). By using `WORKDIR`, you ensure all subsequent commands operate within a defined context without additional setup. Also, `WORKDIR` automatically creates the directory if it doesn’t already exist, so there’s no need for a separate `RUN mkdir /app` command.
+            - Minimize layers by consolidating commands in each stage to reduce the number of layers in your final image. For example, combine commands like `COPY pom.xml . && RUN mvn dependency:go-offline` instead of separating them.
+            - Prefer `COPY` over `ADD` for local files, as `ADD` can introduce unexpected behavior by unpacking files or fetching URLs.
+            - Avoid hardcoded JAR names by using wildcards. For example, instead of `COPY --from=build /app/target/my-application-1.0.0.jar app.jar` use `COPY --from=build /app/target/*.jar app.jar`. This way, you don’t need to update the Dockerfile if the JAR file name changes, as long as there’s only one JAR file in the target directory.
+            - Use `CMD` instead of `ENTRYPOINT` to allow flexibility in overriding commands in Docker Compose or when running the container manually.
+            - Use `EXPOSE` to indicate the application’s internal port in the runtime stage, e.g., `EXPOSE 8080`.
+            - Avoid defining environment variables in the Dockerfile for runtime-specific values with `ARG` or `ENV`.
+        - **Tips for Maven projects**:
+            - Use `RUN mvn clean package -Dmaven.test.skip=true` in the Dockerfile build stage to skip both test compilation and execution for faster builds. If you want to skip running the tests but still need the test classes available, use `RUN mvn clean package -DskipTests`.
+        - **Tips for Gradle projects**:
+            - Include the Gradle Wrapper (`gradlew`) in your project and run all commands via `gradlew` to avoid host dependency issues. Update the `.gitignore` file to ensure that `gradlew` and `gradlew.bat` files are included in the Git repository for Docker compatibility.
             - Use the `--no-daemon` flag with `gradlew` to ensure consistent builds within Docker and manage memory usage effectively.
+            - Use `RUN ./gradlew assemble --no-daemon -x test` to skip tests and speed up the Docker build. The `assemble` task compiles and packages the code without running tests by default. Adding `-x test` further ensures tests are excluded, maximizing build efficiency. This approach is faster than using `gradle build`, which includes tests by default.
 
 2. **Test the Docker images**
 
     - Build Docker images for each service.
     - Run the Docker containers and **map external ports** to verify that the application starts correctly and responds to HTTP requests (e.g., using Postman).
 
+
 ## Sub-task 2: Docker Compose file
+
+### 1. Container configuration
 
 Create a `docker-compose.yml` (`compose.yml`) file that includes the following elements:
 
-1. **Microservice containers**. Make sure to follow these requirements:
+- **Database containers**. Make sure to follow these requirements:
 
-    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory. 
+    - For each database, create a separate container using lightweight [Alpine-based PostgreSQL images](https://hub.docker.com/_/postgres/tags?name=17-alpine) (version 16 or higher).
+    - Database-specific configurations, such as `POSTGRES_DB`, `POSTGRES_USER`, and `POSTGRES_PASSWORD`, should be read from the `.env` file.
+    - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
+        - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties` or `application.yml`, set it to `none`.
+        - Avoid using Flyway for initial schema setup in the Docker container, as the initialization scripts should handle this directly. Set `spring.flyway.enabled` to `false`.
+        - Avoid creating databases in the initialization scripts; these scripts should focus on setting up schemas, not on creating databases.
+        - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
+
+
+- **Microservice containers**. Ensure you comply with these requirements:
+
+    - For each service, add a block with the `build` parameter to build images directly from the source code using the Dockerfile located in each service’s subdirectory.
     - To avoid confusion, do not use both `build` and `image` together. The `image` property is intended to pull pre-built images from a registry (e.g., Docker Hub) or assume images are manually built.
     - Specify ports (`ports`) to expose for external access.
     - Define environment variables (`environment`), including database references, using an `.env` file for variable substitution.
 
-2. **Database containers**. Make sure to follow these requirements:
 
-    - For each database, create a separate container using lightweight [Alpine-based PostgreSQL images](https://hub.docker.com/_/postgres/tags?name=17-alpine) (version 16 or higher).
-    - Set the necessary environment variables to configure the database, like database name, user, and password. Use an `.env` file to store these variables for easy management and security.
-    - Add `volumes` to mount initialization scripts and automate schema creation upon container startup. In doing so:
-        - Disable automatic schema generation. For instance, if you are using `spring.jpa.hibernate.ddl-auto` in your `application.properties`, set it to `none`.
-        - Avoid creating databases in the `init-scripts`. The initialization scripts should focus on setting up schemas, not on creating databases.
-        - To automatically create the database when the container starts, specify the `POSTGRES_DB` environment variable.
+<img src="images/containerization_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
-3. **Additional notes**:
-    - Use Docker Compose's default network.
-    - Use logical service names to cross-reference services for easier communication within the Docker network.
-    - Persisting database data between restarts is not necessary.
-    - Use an `.env` file for environment variables.
 
-![](images/containerization_overview.png)
+### 2. Microservice configuration
+
+Be sure to meet all these conditions:
+
+   - Avoid hardcoding container-specific values (such as database URLs, credentials, service URLs, and any other configuration details specific to the containerized environment) directly in `application.properties` or `application.yml`.
+   - Set container-specific values as environment variables in Docker Compose.
+   - Use a `.env` file to define these variables, allowing Docker Compose to automatically read and inject environment-specific settings. For example:
+
+       ```properties
+       # .env
+       RESOURCE_DB_URL=jdbc:postgresql://resource-db:5432/resource_db
+       ```
+
+       ```yaml
+       # docker-compose.yml
+       services:
+         resource-service:
+           environment:
+             SPRING_DATASOURCE_URL: ${RESOURCE_DB_URL}
+       ```
+
+   - Configure `application.properties` or `application.yml` to support both environment variables for containerized execution and default values for local execution (e.g., when running directly in IntelliJ). For example::
+
+     ```properties
+     # application.properties for Resource Service
+     spring.datasource.url="${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/resource_db}"
+     ```
+
+   - Ensure the application can be executed both locally and in Docker Compose without requiring configuration changes or switching profiles:
+       - **Local execution**: Only the **database containers** should run in Docker, while **microservices** should run directly on the local machine (as in Module 1). The application should use default values specified in `application.properties` or `application.yml` to connect to the database containers.
+       - **Docker execution**: In this mode, both **microservices** and **database containers** run fully within Docker Compose. Docker Compose should pull configuration values from the `.env` file automatically, allowing the containerized environment to use the necessary settings without manual adjustments.
+
+
+### 3. Additional notes 
+
+Adhere to the specified requirements:
+
+   - Use Docker Compose's **default network**.
+   - Use **logical service names** to cross-reference services for easier communication within the Docker network instead of IP addresses.
+   - **Persisting database data** between restarts is not enabled.
+
 
 ## Notes
 

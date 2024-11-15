@@ -128,13 +128,12 @@ The current implementation from the previous tasks does not include any near-sta
    When a new file comes to the **Resource Service** for processing, we save the file to **STAGING** storage, update the file state and path in the local DB, then send the file for further processing.<br>
    When the **Resource Service** receives a signal from the **Resource Processor** that the file has been successfully processed, we change the state of the file to **PERMANENT** and update the link in the **Resource Service** local DB.<br>
    The diagrams below will help you understand what we are talking about.
- 
-   ![](images/taskpng.png)
 
+<img src="images/fault_tolerance.png" width="620" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
-   ![](images/fault_tollerance.png)
+<img src="images/fault_tolerance_sequence_diagram.png" width="620" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
-Note: You can add more file states depending on your system's needs, but let's start with two to decrease system complexity.
+**Note**: You can add more file states depending on your system's needs, but let's start with two to decrease system complexity.
 
 
 ## Sub-task 2: Implement Circuit Breaker

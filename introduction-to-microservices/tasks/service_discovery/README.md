@@ -9,18 +9,29 @@
 In this module, you need to integrate a service registry tool into your infrastructure.  
 You can refer to a sample implementation using **Eureka** here: [Eureka Example](https://www.javainuse.com/spring/cloud-gateway-eureka).
 
-![](images/service_discovery.png)
-
 Afterward, prepare for the final screening, where you may need to demonstrate the complete functionality of the application with the integrated service registry.
 
 ## Sub-task 1: Service registry
 
 1) Use the Eureka Service Registry for [Service Registration and Discovery](https://spring.io/guides/gs/service-registration-and-discovery/).
+
+
 2) Ensure that all microservices act as Eureka clients and register with the Eureka server (which includes both the Load Balancer and Service Registry).
+
+
+3) Ensure the application runs seamlessly in both **local** and **Docker Compose** environments:
+
+    - **For local execution:** Use default values in `application.properties` or `application.yml`.
+
+    - **For Docker Compose:** Pull settings from the `.env` file, and use the `--scale song-service=2` option (or set replicas in `docker-compose.yml`) to run **two instances** of the Song Service for load balancing.
+
+<img src="images/service_discovery.png" width="461" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
 
 ## Sub-task 2: Prepare for final screening
 
 1) Prepare an archive of the final version of your project or provide a link to it in a public repository. This should be shared **directly with your mentor upon request** (there’s no need to upload it to Avalia this time).
+
 
 2) Prepare for a demo where you will demonstrate the functionality of the entire application, including all major features and use cases, as specified in the task. During this final screening, you should:
 
@@ -51,8 +62,8 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
       ```
 
     - Display the Spring Eureka web interface in a browser to show the registered instances (1 instance of RESOURCE-SERVICE and 2 instances of SONG-SERVICE). Ensure that the applications are running in Docker.
-
-    - Perform the following requests (using Postman or another tool):
+ 
+    - Using [this Postman collection](../microservice_architecture_overview/api-tests/introduction_to_microservices.postman_collection.json), send the requests and verify you receive correct responses. In the **Test Results** tab, ensure all tests for the requests pass. If any tests fail, adjust your code to ensure the API functions as expected without modifying the Postman collection. More details are available [here](../microservice_architecture_overview/README.md#postman-collection-for-testing). You should perform the following requests: 
 
         1. **Happy path**:
             - **POST** to `/resources` (upload an MP3 file, with `Content-Type` "audio/mpeg"; verify successful response with an ID).
@@ -101,6 +112,3 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
           "errorCode": "400"
       }
       ```
-
-   **Note**: Please consider using [this Postman collection](../microservice_architecture_overview/api-tests/introduction_to_microservices.postman_collection.json) for the demo.
-

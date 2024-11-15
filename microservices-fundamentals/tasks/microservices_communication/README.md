@@ -38,4 +38,4 @@ Options for implementing the retry mechanism include:
 
 The diagram below illustrates the overall microservice architecture:
 
-![](images/microservices_communication.png)
+<img src="images/microservices_communication.png" width="500" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>

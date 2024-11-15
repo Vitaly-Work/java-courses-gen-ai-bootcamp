@@ -92,6 +92,7 @@ GET /resources/{id}
 **Status codes:**
 
 - **200 OK** – Resource retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Resource with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
@@ -130,7 +131,7 @@ DELETE /resources?id=1,2
 
 ## Sub-task 2: Song Service
 
-The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID as the primary key for metadata records, ensuring a direct one-to-one relationship between resources and their metadata.
+The **Song Service** implements CRUD operations for managing song metadata records. The service uses the Resource ID to uniquely identify each metadata record, establishing a direct one-to-one relationship between resources and their metadata.
 
 ---
 
@@ -217,6 +218,7 @@ GET /songs/{id}
 **Status codes:**
 
 - **200 OK** – Metadata retrieved successfully.
+- **400 Bad Request** – The provided ID is invalid (e.g., contains letters, decimals, is negative, or zero).
 - **404 Not Found** – Song metadata with the specified ID does not exist.
 - **500 Internal Server Error** – An error occurred on the server.
 
@@ -279,17 +281,13 @@ Please add a global exception handler using `@RestControllerAdvice` and manage e
 }
 ```
 
-### Postman collection for testing
-
-Please use the [Postman collection](./api-tests/introduction_to_microservices.postman_collection.json) for testing the Resource Service and Song Service APIs. Ensure that your services handle requests accurately and comply with the API specifications outlined in the documentation. This collection will help validate the correct functioning of all features and data validations.
-
 ### Database implementation requirements
 
 - Use Docker containers for database deployment
 - [PostgreSQL](https://hub.docker.com/_/postgres) 16+ is required as the database engine
 - Each service should have its own dedicated database instance
 
-![](images/microservice_architecture_overview.png)
+<img src="images/microservice_architecture_overview.png" width="351" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
 
 ### Structure
 
@@ -324,7 +322,39 @@ gradle-project/
 
 ---
 
-## How to place a link to your Git repository in your personal folder for the practical task
+### Postman collection for testing
+
+Please use the [Postman collection](./api-tests/introduction_to_microservices.postman_collection.json) for testing the Resource Service and Song Service APIs. This collection will help validate the correct functioning of all features and data validations.
+
+1. In the **Variables** tab of the collection, set the variables `resource_service_url` and `song_service_url` with your ports. Click **Save** to apply.
+
+<img src="images/postman_01.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+2.Send the requests. Ensure you receive the correct responses.
+
+<img src="images/postman_02.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+3. In the **Test Results** tab, verify that all tests for the requests have passed.
+
+<img src="images/postman_03.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+4. If any tests failed, make necessary adjustments to your code to ensure the API functions as expected, without changing anything in the Postman collection itself.
+
+<img src="images/postman_04.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+Ensure that your services handle **all** requests accurately and comply with the API specifications outlined in the documentation.
+
+---
+
+## Adding a Git repository link to your personal folder
+
+Consider placing a link to your Git repository in your personal folder for the practical task instead of uploading your files or an archive with files.
 
 In the folder you access through the link provided by Avalia Kicker bot, add a link to your Git repository:
 - Click on the "New" button.
