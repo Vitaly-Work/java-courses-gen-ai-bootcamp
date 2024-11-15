@@ -281,10 +281,6 @@ Please add a global exception handler using `@RestControllerAdvice` and manage e
 }
 ```
 
-### Postman collection for testing
-
-Please use the [Postman collection](./api-tests/introduction_to_microservices.postman_collection.json) for testing the Resource Service and Song Service APIs. Ensure that your services handle requests accurately and comply with the API specifications outlined in the documentation. This collection will help validate the correct functioning of all features and data validations.
-
 ### Database implementation requirements
 
 - Use Docker containers for database deployment
@@ -323,6 +319,36 @@ gradle-project/
 ├── settings.gradle
 └── .gitignore
 ```
+
+---
+
+### Postman collection for testing
+
+Please use the [Postman collection](./api-tests/introduction_to_microservices.postman_collection.json) for testing the Resource Service and Song Service APIs. This collection will help validate the correct functioning of all features and data validations.
+
+1. In the **Variables** tab of the collection, set the variables `resource_service_url` and `song_service_url` with your ports. Click **Save** to apply.
+
+<img src="images/postman_01.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+2.Send the requests. Ensure you receive the correct responses.
+
+<img src="images/postman_02.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+3. In the **Test Results** tab, verify that all tests for the requests have passed.
+
+<img src="images/postman_03.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+---
+
+4. If any tests failed, make necessary adjustments to your code to ensure the API functions as expected, without changing anything in the Postman collection itself.
+
+<img src="images/postman_04.png" width="1689" style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); display: inline-block;" alt=""/>
+
+Ensure that your services handle **all** requests accurately and comply with the API specifications outlined in the documentation.
 
 ---
 

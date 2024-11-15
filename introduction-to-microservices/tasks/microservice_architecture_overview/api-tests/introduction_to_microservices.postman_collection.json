@@ -18,7 +18,15 @@
 									"if (jsonData.id) {\r",
 									"    pm.collectionVariables.set(\"id\", jsonData.id);\r",
 									"}\r",
-									""
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 200\").to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains 'id' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'id' field\").to.have.property(\"id\");\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -53,6 +61,30 @@
 				},
 				{
 					"name": "Get Existing Resource",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 200\").to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is audio/mpeg\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'audio/mpeg'\").to.equal(\"audio/mpeg\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Length is greater than zero\", function () {\r",
+									"    var contentLength = pm.response.headers.get(\"Content-Length\");\r",
+									"    pm.expect(contentLength, \"Expected Content-Length header to be present\").to.not.be.null;\r",
+									"    pm.expect(parseInt(contentLength), \"Expected Content-Length to be greater than zero\").to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -71,6 +103,31 @@
 				},
 				{
 					"name": "Get Existing Song Metadata",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 200\").to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains all required fields and they are not null\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData, \"Expected response to contain 'id' field\").to.have.property(\"id\").and.to.not.be.null;\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'name' field\").to.have.property(\"name\").and.to.not.be.null;\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'artist' field\").to.have.property(\"artist\").and.to.not.be.null;\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'album' field\").to.have.property(\"album\").and.to.not.be.null;\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'duration' field\").to.have.property(\"duration\").and.to.not.be.null;\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'year' field\").to.have.property(\"year\").and.to.not.be.null;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -89,6 +146,31 @@
 				},
 				{
 					"name": "Delete Resources With Metadata",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 200\").to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains 'ids' field\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData, \"Expected response to contain 'ids' field\").to.have.property(\"ids\");\r",
+									"    pm.expect(jsonData.ids, \"Expected 'ids' to be an array\").to.be.an(\"array\");\r",
+									"\r",
+									"    jsonData.ids.forEach(function(id) {\r",
+									"        pm.expect(id, \"Expected each element in 'ids' to be a number\").to.be.a(\"number\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -112,6 +194,31 @@
 				},
 				{
 					"name": "Get Deleted Resource (404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 404\").to.equal(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is in JSON format\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+									"      .to.equal(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains '404'\", function () {\r",
+									"    var responseBody = pm.response.text();\r",
+									"    pm.expect(responseBody, \"Expected response to contain '404'\").to.include(\"404\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -130,6 +237,31 @@
 				},
 				{
 					"name": "Get Deleted Song Metadata (404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.expect(pm.response.code, \"Expected status code to be 404\").to.equal(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is in JSON format\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+									"      .to.equal(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains '404'\", function () {\r",
+									"    var responseBody = pm.response.text();\r",
+									"    pm.expect(responseBody, \"Expected response to contain '404'\").to.include(\"404\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -156,6 +288,31 @@
 					"item": [
 						{
 							"name": "Upload Invalid Resource (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -182,6 +339,31 @@
 						},
 						{
 							"name": "Get Non-existent Resource (404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 404\").to.equal(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '404'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '404'\").to.include(\"404\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -200,6 +382,30 @@
 						},
 						{
 							"name": "Get Invalid ID - Letters (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -218,6 +424,30 @@
 						},
 						{
 							"name": "Get Invalid ID - Decimal (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -236,6 +466,30 @@
 						},
 						{
 							"name": "Get Invalid ID - Negative (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -254,6 +508,30 @@
 						},
 						{
 							"name": "Get Invalid ID - Zero (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -272,6 +550,30 @@
 						},
 						{
 							"name": "Delete Invalid CSV - Letters (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -295,6 +597,30 @@
 						},
 						{
 							"name": "Delete Invalid CSV - Length (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -323,6 +649,61 @@
 					"item": [
 						{
 							"name": "Create Song Metadata - Invalid Fields (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.match(/\\b400\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 'duration'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain 'duration'\").to.match(/\\bduration\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 'year'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain 'year'\").to.match(/\\byear\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'id'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'id'\").to.not.match(/\\bid\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'name'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'name'\").to.not.match(/\\bname\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'artist'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'artist'\").to.not.match(/\\bartist\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'album'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'album'\").to.not.match(/\\balbum\\b/);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -349,6 +730,61 @@
 						},
 						{
 							"name": "Create Song Metadata - Missing Fields (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.match(/\\b400\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 'name'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain 'name'\").to.match(/\\bname\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'id'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'id'\").to.not.match(/\\bid\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'artist'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'artist'\").to.not.match(/\\bartist\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'album'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'album'\").to.not.match(/\\balbum\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'duration'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'duration'\").to.not.match(/\\bduration\\b/);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response does not contain 'year'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Response should not contain 'year'\").to.not.match(/\\byear\\b/);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -374,7 +810,84 @@
 							"response": []
 						},
 						{
+							"name": "Upload Mp3 Before the Next Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"if (jsonData.id) {\r",
+											"    pm.collectionVariables.set(\"id\", jsonData.id);\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 200\").to.equal(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains 'id' field\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData, \"Expected response to contain 'id' field\").to.have.property(\"id\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "audio/mpeg"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{resource_service_url}}/resources",
+									"host": [
+										"{{resource_service_url}}"
+									],
+									"path": [
+										"resources"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Create Song Metadata - Already Exists (409)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 409\").to.equal(409);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '409'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '409'\").to.match(/\\b409\\b/);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -401,6 +914,31 @@
 						},
 						{
 							"name": "Get Non-Existent Song Metadata (404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 404\").to.equal(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '404'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '404'\").to.include(\"404\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -419,6 +957,30 @@
 						},
 						{
 							"name": "Delete Invalid CSV - Letters (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -442,6 +1004,30 @@
 						},
 						{
 							"name": "Delete Invalid CSV - Length (400)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.expect(pm.response.code, \"Expected status code to be 400\").to.equal(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\"), \"Expected Content-Type to be 'application/json'\")\r",
+											"      .to.equal(\"application/json\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains '400'\", function () {\r",
+											"    var responseBody = pm.response.text();\r",
+											"    pm.expect(responseBody, \"Expected response to contain '400'\").to.include(\"400\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
