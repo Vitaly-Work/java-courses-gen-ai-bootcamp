@@ -63,7 +63,7 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
 
     - Display the Spring Eureka web interface in a browser to show the registered instances (1 instance of RESOURCE-SERVICE and 2 instances of SONG-SERVICE). Ensure that the applications are running in Docker.
 
-    - Please download and import [this Postman collection](../microservice_architecture_overview/api-tests/introduction_to_microservices.postman_collection.json) for the demo. Using Postman, send the requests and verify you receive correct responses. In the **Test Results** tab, ensure all tests for the requests pass. If any tests fail, adjust your code to ensure the API functions as expected without modifying the Postman collection. More details are available [here](../microservice_architecture_overview/README.md#postman-collection-for-testing). You should perform the following requests: 
+    - Download and import [this Postman collection](../microservice_architecture_overview/api-tests/introduction_to_microservices.postman_collection.json) for the demo. Using Postman, send the requests and verify you receive correct responses. In the **Test Results** tab, ensure all tests for the requests pass. If any tests fail, adjust your code to ensure the API functions as expected without modifying the Postman collection. More details are available [here](../microservice_architecture_overview/README.md#postman-collection-for-testing). You should perform the following requests: 
 
         1. **Happy path**:
             - **POST** to `/resources` (upload an MP3 file, with `Content-Type` "audio/mpeg"; verify successful response with an ID).
