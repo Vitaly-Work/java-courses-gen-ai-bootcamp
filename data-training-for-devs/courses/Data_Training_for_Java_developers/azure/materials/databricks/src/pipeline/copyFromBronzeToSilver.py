@@ -7,13 +7,13 @@
 
 # MAGIC %md
 # MAGIC ## 2. List all available mounts
-# MAGIC Make sure that `/mnt/datalake_mount` is availфble and points to your datalake storage.
+# MAGIC Make sure that `/mnt/datalake_mount` is available and points to your datalake storage.
 
 # COMMAND ----------
 
 # MAGIC %md 
 # MAGIC ## 3. Import properties.py file using magic command.
-# MAGIC The file contains usefull constants you might find handy for your code.
+# MAGIC The file contains useful constants you might find handy for your code.
 # MAGIC > Hint: use `%run magic` command
 
 # COMMAND ----------

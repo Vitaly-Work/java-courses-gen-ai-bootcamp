@@ -33,7 +33,7 @@ image::../../materials/images/task5-objective.png[objective]
 
 . Click on `Validate`, then `Publish all`
 
-. Go to Databricks cluster and open `copyFromSilverToGold.py`  notebook.
+. Go to Databricks cluster and open `copyFromSilverToGold.py` notebook.
 +
 Complete all steps defined in this notebook.
 
