@@ -80,6 +80,7 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
             - **GET** `/resources/1.1` (decimal ID - expect 400).
             - **GET** `/resources/-1` (negative ID - expect 400).
             - **GET** `/resources/0` (zero ID - expect 400).
+            - **DELETE** `/resources/99999` (non-existent ID - expect 200).
             - **DELETE** `/resources?id=1,2,3,4,V` (CSV with letters - expect 400).
             - **DELETE** `/resources?id=1,2,3,...` (CSV longer than 200 chars - expect 400).
 
@@ -88,6 +89,7 @@ Afterward, prepare for the final screening, where you may need to demonstrate th
             - **POST** to `/songs` (missing required fields: name, artist - expect 400).
             - **POST** to `/songs` (duplicate song metadata with the same ID - expect 409).
             - **GET** `/songs/99999` (non-existent ID - expect 404).
+            - **DELETE** `/songs/99999` (non-existent ID - expect 200).
             - **DELETE** `/songs?id=1,2,3,4,V` (CSV with letters - expect 400).
             - **DELETE** `/songs?id=1,2,3,...` (CSV longer than 200 chars - expect 400).
 
