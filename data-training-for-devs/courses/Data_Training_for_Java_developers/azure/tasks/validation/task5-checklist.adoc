@@ -5,7 +5,7 @@ To validate the entire flow we need to have `readFromEventHub.py` notebook being
 +
 [WARNING]
 ====
-`For the sake of simplicity the solution is not optimized for processing of multiple files
+For the sake of simplicity the solution is not optimized for processing of multiple files
 being placed simultaneously to the source folder.
 Although, it will work,
 most likely you'll come across with *ConcurrentAppendException* within Notebook during merge operation.

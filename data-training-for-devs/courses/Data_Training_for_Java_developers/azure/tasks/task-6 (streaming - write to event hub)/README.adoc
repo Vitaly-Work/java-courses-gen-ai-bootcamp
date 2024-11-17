@@ -26,5 +26,6 @@ include::../validation/task6-checklist.adoc[]
 
 
 == Cleanup
-1. Make sure that both streaming jobs (`readFromEventHub.py` and `writeToOutboundEventHub.py`) are **stopped manually**, otherwise they will keep running indefinitely.
+
+. Make sure that both streaming jobs (`readFromEventHub.py` and `writeToOutboundEventHub.py`) are **stopped manually**, otherwise they will keep running indefinitely.
 

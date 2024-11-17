@@ -40,3 +40,7 @@ Complete all steps defined in this notebook.
 == Validation
 include::../validation/task5-checklist.adoc[]
 
+== Cleanup
+
+. Make sure that  streaming jobs`readFromEventHub.py` is **stopped manually**, otherwise it will keep running indefinitely.
+
