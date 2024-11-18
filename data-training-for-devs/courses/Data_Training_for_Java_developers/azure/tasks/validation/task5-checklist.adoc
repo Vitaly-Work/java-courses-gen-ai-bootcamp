@@ -13,6 +13,6 @@ The reason we are not partitioning data in Bronze layer.
 Here is more https://learn.microsoft.com/en-us/azure/databricks/optimizations/isolation-level[information] how to resolve such kind of issues.
 ====
 - [ ] Go to  `Data Factory/Monitor/Pipeline Runs`  and make sure that pipeline is completed successfully.
-- [ ] Execute ```select * from gold_patient_observation``` statement from within Databricks notebook. Make sure new aggregate columns present in a result.
+- [ ] Execute ```select * from gold_patient_observation``` statement from within Databricks notebook. Make sure new aggregate columns are present in a result.
 +
 image::../../materials/images/task5-result.png[objective]
