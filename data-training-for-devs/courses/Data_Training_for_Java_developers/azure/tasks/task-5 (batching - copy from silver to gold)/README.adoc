@@ -42,5 +42,5 @@ include::../validation/task5-checklist.adoc[]
 
 == Cleanup
 
-. Make sure that  streaming jobs`readFromEventHub.py` is **stopped manually**, otherwise it will keep running indefinitely.
+. Make sure that  streaming job `readFromEventHub.py` is **stopped manually**, otherwise it will keep running indefinitely.
 
