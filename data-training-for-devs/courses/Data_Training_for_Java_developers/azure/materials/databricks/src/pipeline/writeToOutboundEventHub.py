@@ -45,7 +45,7 @@
 # MAGIC
 # MAGIC Outbound event hub expects data to be in json format as *body* property. Transform your dataframe accordingly.
 # MAGIC
-# MAGIC >Hint: use following expression `df.select(to_json(struct(*[c for c in df.columns])).alias("body"))`
+# MAGIC >Hint: use the following expression `df.select(to_json(struct(*[c for c in df.columns])).alias("body"))`
 
 # COMMAND ----------
 
