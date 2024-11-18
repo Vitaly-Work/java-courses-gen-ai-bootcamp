@@ -106,8 +106,13 @@ Be sure to meet all these conditions:
      ```
 
    - Ensure the application can be executed both locally and in Docker Compose without requiring configuration changes or switching profiles:
-       - **Local execution**: Only the **database containers** should run in Docker, while **microservices** should run directly on the local machine (as in Module 1). The application should use default values specified in `application.properties` or `application.yml` to connect to the database containers.
-       - **Docker execution**: In this mode, both **microservices** and **database containers** run fully within Docker Compose. Docker Compose should pull configuration values from the `.env` file automatically, allowing the containerized environment to use the necessary settings without manual adjustments.
+       - **Local execution**:
+         - Only the **database containers** should run in Docker: use a `docker compose up` command specifying the database services, e.g.: `docker compose up -d resource-db song-db`)
+         - **Microservices** should run directly on the local machine (as in Module 1).
+         - The application should use default values specified in `application.properties` or `application.yml` to connect to the database containers.
+       - **Docker execution**:
+         - Both **microservices** and **database containers** run fully in Docker Compose.
+         - Docker Compose should pull configuration values from the `.env` file automatically, allowing the containerized environment to use the necessary settings without manual adjustments.
 
 
 ### 3. Additional notes 
