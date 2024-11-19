@@ -30,7 +30,6 @@ In this module, you will adapt your services to use a containerization approach.
    - **Additional tips**:
         - **General**:
             - Use `WORKDIR` to specify a consistent context for commands (e.g., `WORKDIR /app`). By using `WORKDIR`, you ensure all subsequent commands operate within a defined context without additional setup. Also, `WORKDIR` automatically creates the directory if it doesn’t already exist, so there’s no need for a separate `RUN mkdir /app` command.
-            - Minimize layers by consolidating commands in each stage to reduce the number of layers in your final image. For example, combine commands like `COPY pom.xml . && RUN mvn dependency:go-offline` instead of separating them.
             - Prefer `COPY` over `ADD` for local files, as `ADD` can introduce unexpected behavior by unpacking files or fetching URLs.
             - Avoid hardcoded JAR names by using wildcards. For example, instead of `COPY --from=build /app/target/my-application-1.0.0.jar app.jar` use `COPY --from=build /app/target/*.jar app.jar`. This way, you don’t need to update the Dockerfile if the JAR file name changes, as long as there’s only one JAR file in the target directory.
             - Use `CMD` instead of `ENTRYPOINT` to allow flexibility in overriding commands in Docker Compose or when running the container manually.
