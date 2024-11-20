@@ -1,0 +1,23 @@
+= Task 9 — Clean up resources.
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 10, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 1 hour
+
+== Objective
+After all task are completed we need to purge all resources created in scope of these exercises.
+
+== Steps
+. Run following command at `terraform\azure`: `terraform destroy`
+
+. Make sure it's completed successfully.
+
+. Sometimes it might fail. Then go to zAzure portal > resource group` and delete it expicitly. As long as all resources reside within the same resource group, they all be removed.
+
+== Validation
+include::../validation/task9-checklist.adoc[]
+

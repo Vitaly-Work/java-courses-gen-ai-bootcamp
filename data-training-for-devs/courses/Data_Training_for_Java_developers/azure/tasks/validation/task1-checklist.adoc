@@ -1,0 +1,19 @@
+Go to your Azure Subscription and validate that the following components were successfully deployed:
+
+- [ ] Storage Account with `patient-data-source` folder inside
+- [ ] Datalake storage with `bronze`, `silver` and `gold` folders inside.
+- [ ] Azure Function that generates observation event. To check that events are being generated, you might go to `Event Hubs` and validate the `Incoming Messages` metric at `Monitoring > Metrics`
+- [ ] Data Factory workspace with all required Linked services (Blob Storage, Data Lake, Key Vault, Databricks).
+- [ ] Databricks workspace with default cluster being installed. +
++
+The cluster has the following shape:
+
+* Single Node
+* Standard_F4 shape
+* 8 GB memory, 4 vCores
+* 15.4.x-scala2.12 Runtime
+* Automatic shutdown after 15 minutes of inactivity
+
+- [ ] Default notebooks with steps to complete will be uploaded to your Databricks workspace.
+- [ ] Synapse Studio (a part of `Azure Synapse Analytics`) with default built-in Serverless SQL Pool.
+- [ ] Stream Analytics job.
