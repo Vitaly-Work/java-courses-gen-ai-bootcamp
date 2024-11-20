@@ -1,0 +1,2 @@
+- [ ] Make sure you are successfully connected to target-event-hub and able to see data samples.
+- [ ] Query is successfully executed and returns *critical* and *abnormal* data for recent 5 minutes.

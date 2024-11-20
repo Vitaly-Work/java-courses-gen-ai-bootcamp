@@ -1,0 +1,43 @@
+= Checklist
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 04, 2024: Initial version
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+== Task 1 - Infrastructure Setup
+
+include::../validation/task1-checklist.adoc[]
+
+== Task 2 - Batching: copy from `source` to `Bronze` (landing) zone
+
+include::../validation/task2-checklist.adoc[]
+
+== Task 3 — Batching: copy from `Bronze` to `Silver` (refined) layer.
+
+include::../validation/task3-checklist.adoc[]
+
+== Task 4 — Streaming: from Source to Silver
+
+include::../validation/task4-checklist.adoc[]
+
+== Task 5 - Batching: copy from Silver to Gold (consumption) layer.
+
+include::../validation/task5-checklist.adoc[]
+
+== Task 6 - Streaming. Write Observations to Event Hub.
+
+include::../validation/task6-checklist.adoc[]
+
+== Task 7 — Consumption of Observation Data from Stream Analytics.
+
+include::../validation/task7-checklist.adoc[]
+
+== Task 8 — Consumption. Read Patient Gold Data.
+
+include::../validation/task8-checklist.adoc[]
+
+== Task 9 — Clean up resources.
+
+include::../validation/task9-checklist.adoc[]

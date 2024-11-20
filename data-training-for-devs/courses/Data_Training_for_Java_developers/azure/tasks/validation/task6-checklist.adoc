@@ -1,0 +1,3 @@
+- [ ] Make sure that notebook writes events to outbound event hub. Check the dashboard:
++
+image::../../materials/images/task6-outbound-eventhub.png[dashboard]

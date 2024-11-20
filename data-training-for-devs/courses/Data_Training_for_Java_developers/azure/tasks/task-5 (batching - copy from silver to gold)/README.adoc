@@ -1,0 +1,46 @@
+= Task 5 - Batching: copy from Silver to Gold (consumption) layer.
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 10, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 2 hours
+
+== Objective
+
+Tables in Gold layer represent data that has been transformed into knowledge, rather than just information.
+In our case, we need to aggregate Patient and Observation data to provide valuable insights on patient conditions.
+For this task, it's required to join both tables from Silver layer,
+find average blood pressure for the patient and store as new table in Gold layer.
+
+image::../../materials/images/task5-objective.png[objective]
+
+== Steps
+. Go to `Data Factory` Workspace (`data-factory-bigdata<id>`) and `Launch Studio`.
+
+. Open `PatientDataIngestion` pipeline
+
+. Create new `Databricks Notebook` Activity.
+* Name: *CopyFromSilverToGold*
+* Databricks linked service: *databricksClusterLinkedService*
+* Notebook path: `/Users/<your_user>/pipeline/copyFromSilverToGold.py`
+* Settings > Base parameters:
+** *patient_id*: `@string(activity('CopyFromBronzeToSilver').output.runOutput)`
+
+. Connect `on Success` the existing `CopyFromBronzeToSilver` activity with a newly added `CopyFromBronzeToSilver` activity by using Data Factory UI.
+
+. Click on `Validate`, then `Publish all`
+
+. Go to Databricks cluster and open `copyFromSilverToGold.py` notebook.
++
+Complete all steps defined in this notebook.
+
+== Validation
+include::../validation/task5-checklist.adoc[]
+
+== Cleanup
+
+. Make sure that  streaming job `readFromEventHub.py` is **stopped manually**, otherwise it will keep running indefinitely.
+

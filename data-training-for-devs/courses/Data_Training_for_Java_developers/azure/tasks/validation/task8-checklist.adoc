@@ -1,0 +1,3 @@
+- [ ] Make sure you've got result similar to this:
++
+image::../../materials/images/task8-result.png[result]
