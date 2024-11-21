@@ -1,0 +1,27 @@
+= Azure: tasks
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 04, 2024: Initial version
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+:imagesdir: ../materials/images
+
+include::../tasks/task-1 (setup environment)/README.adoc[]
+
+include::../tasks/task-2 (batching - copy from source to bronze)/README.adoc[]
+
+include::../tasks/task-3 (batching - copy from bronze to silver)/README.adoc[]
+
+include::../tasks/task-4 (streaming - read streaming data from source)/README.adoc[]
+
+include::../tasks/task-5 (batching - copy from silver to gold)/README.adoc[]
+
+include::../tasks/task-6 (streaming - write to event hub)/README.adoc[]
+
+include::../tasks/task-7 (consumption - read observation data)/README.adoc[]
+
+include::../tasks/task-8 (consumption - read patient data)/README.adoc[]
+
+include::../tasks/task-9 (clean-up)/README.adoc[]
