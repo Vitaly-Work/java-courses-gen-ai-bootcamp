@@ -6,7 +6,7 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-> > *Time to complete*: 3 hours
+> *Time to complete*: 3 hours
 
 == Objective
 To react fast on any abnormal patient's health metrics and conditions batching analytics is not enought. It's required to have access to such event in real time. To achieve that, we will be listening to `Delta` table change data feeds and publish these changes to outbound event hub.

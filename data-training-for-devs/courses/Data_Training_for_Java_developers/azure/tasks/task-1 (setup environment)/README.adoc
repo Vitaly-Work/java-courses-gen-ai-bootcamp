@@ -6,7 +6,7 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-> > *Time to complete*: 1 hour
+> *Time to complete*: 1 hour
 
 == Objective
 The goal of this task is to prepare Azure infrastructure by completing the following lessons. You will be provided with Terraform scripts that will set up all required components. In scope of this project you will be doing coding tasks mostly on top of an already created component just to avoid tedious and error-prone configuration part.

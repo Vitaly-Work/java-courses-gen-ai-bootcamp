@@ -6,12 +6,11 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-> > *Time to complete*: 3 hours
+> *Time to complete*: 3 hours
 
 == Objective
 The goal of the task is to continuously stream data from Azure Even Hub, transform it and store into Silver (refined) layer.
 
-image::../../materials/images/task4-objective.png[objective]
 
 == Steps
 . Go to `Databricks` cluster and open `readFromEvenHub.py` notebook.

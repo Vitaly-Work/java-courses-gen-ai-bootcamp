@@ -6,7 +6,7 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-> > *Time to complete*: 1 hour
+> *Time to complete*: 1 hour
 
 == Objective
 After all task are completed we need to purge all resources created in scope of these exercises.

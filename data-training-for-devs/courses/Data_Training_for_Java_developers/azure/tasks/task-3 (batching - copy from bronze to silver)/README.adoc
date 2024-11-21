@@ -6,7 +6,7 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-> > *Time to complete*: 3 hours
+> *Time to complete*: 3 hours
 
 == Objective
 As soon as data is saved in bronze (landing) zone, the next step is to perform basic data clean up and transformation.
