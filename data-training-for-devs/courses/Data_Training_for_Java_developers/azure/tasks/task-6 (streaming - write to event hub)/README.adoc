@@ -9,7 +9,7 @@ Dzmitry Marudau <dzmitry_marudau@epam.com>
 > *Time to complete*: 3 hours
 
 == Objective
-To react fast on any abnormal patient's health metrics and conditions batching analytics is not enought. It's required to have access to such event in real time. To achieve that, we will be listening to `Delta` table change data feeds and publish these changes to outbound event hub.
+To react fast on any abnormal patient's health metrics and conditions batching analytics is not enought. It's required to have access to such an event in real time. To achieve that, we will be listening to `Delta` table change data feeds and publish these changes to outbound event hub.
 
 image::../../materials/images/task6-objective.png[objective]
 
