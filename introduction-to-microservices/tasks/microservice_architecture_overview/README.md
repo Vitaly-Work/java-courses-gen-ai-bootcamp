@@ -29,7 +29,7 @@ The services are designed to work together as follows:
 - **Build Tool**: Maven or Gradle
 - **Database**: PostgreSQL
 
-> This course does not require creating unit tests. If you are not planning to include tests, please delete `src/test/` directory and remove the test dependencies (`spring-boot-starter-test` etc.) from your `pom.xml` or build.`gradle` files.
+> This course does not require creating unit tests. If you are not planning to include tests, please delete `src/test/` directory and remove the test dependencies (`spring-boot-starter-test` etc.) from your `pom.xml` or `build.gradle` files.
 
 ## Sub-task 1: Resource Service
 
