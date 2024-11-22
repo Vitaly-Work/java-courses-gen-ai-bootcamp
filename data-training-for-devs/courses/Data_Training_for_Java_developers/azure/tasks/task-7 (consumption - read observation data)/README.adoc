@@ -1,0 +1,29 @@
+= Task 7 — Consumption of Observation Data from Stream Analytics.
+Dzmitry Marudau <dzmitry_marudau@epam.com>
+1.0, November 10, 2024: Initial version from README.md
+:toc:
+:toclevels: 4
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+> > *Time to complete*: 1 hour
+
+== Objective
+Azure Stream Analytics is a serverless scalable event processing engine that helps to analyze real time observation data published to Event Hub. It can easily be integrated with multiple source and sink services. For the sake of simplicity and cost decreasing we will be writing data directly to Stream Analytics console.
+
+image::../../materials/images/task6-objective.png[objective]
+
+== Step
+. Go to Azure Stream Analytics Jobs via portal and navigate to one created for the course.
+. Go to *Inputs* and add new Event Hub input. Use following settings while creating the input:
+- alias: *input-event-hub*
+- event hub name: *target-even-hub*
+- authentication mode: *system assigned managed identity*
+. Go to *Query* and compose following SQL query:
+- use just created event hub input for a data source
+- select events for recent 5 minutes
+
+== Validation
+include::../validation/task7-checklist.adoc[]
+
+
