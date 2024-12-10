@@ -62,6 +62,11 @@ curl -X GET "http://localhost:8080/api/v2/deployments/switch?deploymentName=<nam
 "input": "Continue this story: An old sailor returns to the sea to catch a mythical fish that escaped him years ago..."
 }
 ```
+Notice the corresponding entries in app log:
+```
+... c.e.t.g.a.s.PromptWithHistoryService     : Invoke kernel using modelId: gpt-35-turbo
+... c.e.t.g.a.s.PromptWithHistoryService     : Create new PromptExecutionSettings using settings: DeploymentSettings[temperature=1.0, maxTokens=150]
+```
 #### AI Response:
 ```
 {
@@ -72,6 +77,12 @@ curl -X GET "http://localhost:8080/api/v2/deployments/switch?deploymentName=<nam
 ```
 
 ### Test2. Model **gemini-pro**
+#### Changing current deployment to **gemini-pro**:
+Executed request: 
+```
+GET http://localhost:8080/api/v2/deployments/switch?deploymentName=gemini-pro
+```
+
 #### PromptExecutionSettings:
 ```
     "gemini-pro": {
@@ -85,11 +96,16 @@ curl -X GET "http://localhost:8080/api/v2/deployments/switch?deploymentName=<nam
 "input": "Continue this story: An old sailor returns to the sea to catch a mythical fish that escaped him years ago..."
 }
 ```
+Notice the corresponding entries in app log:
+```
+... c.e.t.g.a.s.PromptWithHistoryService     : Invoke kernel using modelId: gemini-pro
+... c.e.t.g.a.s.PromptWithHistoryService     : Create new PromptExecutionSettings using settings: DeploymentSettings[temperature=0.3, maxTokens=50]
+```
 #### AI Response:
 ```
 {
   "output": [
-    "An old sailor named Captain Jonas stood on the weathered wooden dock, his eyes fixed on the vast expanse of the sea. The salty breeze tousled his silver hair, and his hands, calloused from years of gripping the helm, clenched"
+    "The salty air whipped at Captain Silas' weathered face as his weathered hands gripped the ship's wheel. The creaking of the old schooner, the \"Sea Serpent,\" was a familiar lullaby, a song he hadn't heard in years."
   ]
 }
 ```

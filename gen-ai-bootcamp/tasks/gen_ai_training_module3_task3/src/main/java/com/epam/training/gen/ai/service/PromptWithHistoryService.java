@@ -11,10 +11,13 @@ import com.microsoft.semantickernel.Kernel;
 import com.microsoft.semantickernel.orchestration.PromptExecutionSettings;
 import com.microsoft.semantickernel.semanticfunctions.KernelFunction;
 import com.microsoft.semantickernel.semanticfunctions.KernelFunctionArguments;
+import com.microsoft.semantickernel.services.chatcompletion.ChatCompletionService;
 import com.microsoft.semantickernel.services.chatcompletion.ChatHistory;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.stereotype.Service;
 
 /**
  * Service class for interacting with the AI kernel, maintaining chat history.
@@ -24,18 +27,21 @@ import lombok.extern.slf4j.Slf4j;
  * previous chat context. The conversation history is updated after each interaction.
  */
 @Slf4j
-@AllArgsConstructor
-@Builder
+@RequiredArgsConstructor
+@Service
 public class PromptWithHistoryService {
 
     private final ApplicationProperties applicationProperties;
-    private final Kernel kernel;
     private final DeploymentsSettings deploymentsSettings;
-    @Builder.Default
     private volatile ChatHistory chatHistory = new ChatHistory();
 
+    @SneakyThrows
     public String chatWithHistory(String prompt) {
         log.info("Request>>>>>>>> \n {}", prompt);
+
+        final var kernel = getNewKernel();
+        final var modelId = kernel.getService(ChatCompletionService.class).getModelId();
+        log.info("Invoke kernel using modelId: {}", modelId);
 
         var response = kernel.invokeAsync(getChatKernelFunction())
             .withArguments(getKernelFunctionArguments(prompt, chatHistory))
@@ -78,18 +84,22 @@ public class PromptWithHistoryService {
 
         return Optional.ofNullable(settingsMap.get(name))
 
-            .map(entry -> PromptExecutionSettings.builder()
-                .withModelId(name)
-                .withTemperature(entry.temperature())
-                .withMaxTokens(entry.maxTokens())
-                .build())
-
-            .orElseGet(() -> {
-                final var deploymentSettings = deploymentsSettings.getDeploymentSettings().get(DEFAULT_DEPLOYMENT_SETTINGS_KEY);
+            .map(settings -> {
+                log.info("Create new PromptExecutionSettings using settings: {}", settings);
                 return PromptExecutionSettings.builder()
                     .withModelId(name)
-                    .withTemperature(deploymentSettings.temperature())
-                    .withMaxTokens(deploymentSettings.maxTokens())
+                    .withTemperature(settings.temperature())
+                    .withMaxTokens(settings.maxTokens())
+                    .build();
+            })
+
+            .orElseGet(() -> {
+                final var settings = deploymentsSettings.getDeploymentSettings().get(DEFAULT_DEPLOYMENT_SETTINGS_KEY);
+                log.info("Create new PromptExecutionSettings using default settings: {}", settings);
+                return PromptExecutionSettings.builder()
+                    .withModelId(name)
+                    .withTemperature(settings.temperature())
+                    .withMaxTokens(settings.maxTokens())
                     .build();
             });
     }
@@ -107,5 +117,16 @@ public class PromptWithHistoryService {
             .withVariable("chatHistory", chatHistory)
             .build();
     }
+
+    /**
+     * Triggers new kernel instance creation with current deployment name used.
+     *
+     * @return a new {@link Kernel} instance
+     */
+    @Lookup
+    public Kernel getNewKernel() {
+        return null;
+    }
+
 
 }

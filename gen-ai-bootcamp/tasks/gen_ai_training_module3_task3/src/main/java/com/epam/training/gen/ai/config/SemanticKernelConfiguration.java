@@ -2,6 +2,8 @@ package com.epam.training.gen.ai.config;
 
 import static com.epam.training.gen.ai.config.DeploymentsSettings.DEFAULT_DEPLOYMENT_SETTINGS_KEY;
 
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
+
 import java.io.InputStream;
 
 import com.azure.ai.openai.OpenAIAsyncClient;
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -38,6 +41,7 @@ public class SemanticKernelConfiguration {
      * @return an instance of {@link ChatCompletionService}
      */
     @Bean
+    @Scope(SCOPE_PROTOTYPE)
     public ChatCompletionService chatCompletionService(OpenAIAsyncClient openAIAsyncClient) {
         return OpenAIChatCompletion.builder()
             .withModelId(applicationProperties.getDeploymentOrModelName())
@@ -52,6 +56,7 @@ public class SemanticKernelConfiguration {
      * @return an instance of {@link Kernel}
      */
     @Bean
+    @Scope(SCOPE_PROTOTYPE)
     public Kernel kernel(ChatCompletionService chatCompletionService) {
         return Kernel.builder()
             .withAIService(ChatCompletionService.class, chatCompletionService)
