@@ -1,0 +1,12 @@
+{
+  "deploymentSettings": {
+    "gpt-35-turbo": {
+      "temperature": 1.0,
+      "maxTokens": 150
+    },
+    "gemini-pro": {
+      "temperature": 0.3,
+      "maxTokens": 50
+    }
+  }
+}
